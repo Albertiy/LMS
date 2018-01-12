@@ -48,11 +48,10 @@
 				</div>
 			</div>
 			<div class="row">
-
 				<div class="col-md-12">
 					<h1>&nbsp;</h1>
 					<div class="row search-group">
-						<div class="col-md-2 col-xs-12">
+						<div class="col-md-2 col-sm-2 col-xs-12">
 							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false" id="dropdownMenu1">
@@ -65,22 +64,10 @@
 								<li><a href="#">Category</a></li>
 							</ul>
 						</div>
-						<div class="col-md-2 col-xs-12">
-							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" id="dropdownMenu2">
-								Tech <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Tech</a></li>
-								<li><a href="#">Art</a></li>
-								<li><a href="#">Health</a></li>
-							</ul>
-						</div>
-						<div class="col-md-6 col-xs-12">
+						<div class="col-md-8 col-sm-7 col-xs-12">
 							<input type="text" class="form-control" aria-label="...">
 						</div>
-						<div class="col-md-2 col-xs-12">
+						<div class="col-md-2 col-sm-2 col-xs-12">
 							<button type="button" class="btn btn-default btn-block sbutton">Search</button>
 						</div>
 					</div>
