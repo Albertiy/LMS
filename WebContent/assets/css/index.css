@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
 .hero-background {
-    background-image: url("../img/hero-illustration.svg");
     background-repeat: repeat-x;
     background-position: top center;
     min-height: 900px;

@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LMS-Index</title>
-<link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
+<link type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
+<link type="text/css" href="${pageContext.request.contextPath}/assets/css/index.css" rel="stylesheet">
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -36,7 +36,7 @@
 		</div>
 	</nav>
 
-	<div class="hero-background">
+	<div class="hero-background" style="background-image:'${pageContext.request.contextPath}/assets/img/hero-illustration.svg';">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -84,7 +84,7 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-6 col-md-4">
-				<img src="assets/img/book_thumb.jpg" alt="book_thumb.jpg"
+				<img src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg" alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
 				<h4 class="text-center">JAVA SPEED LEARN</h4>
@@ -92,14 +92,14 @@
 
 			</div>
 			<div class="col-xs-6 col-md-4">
-				<img src="assets/img/book_thumb.jpg" alt="book_thumb.jpg"
+				<img src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg" alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
 				<h4 class="text-center">JAVA SPEED LEARN</h4>
 				<h5 class="text-center">Nobody</h5>
 			</div>
 			<div class="col-xs-6 col-md-4">
-				<img src="assets/img/book_thumb.jpg" alt="book_thumb.jpg"
+				<img src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg" alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
 				<h4 class="text-center">JAVA SPEED LEARN</h4>
