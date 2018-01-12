@@ -36,7 +36,7 @@
 		</div>
 	</nav>
 
-	<div class="hero-background" style="background-image:url(${pageContext.request.contextPath}/assets/img/hero-illustration.svg)">
+	<div class="hero-background" style="background-image:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

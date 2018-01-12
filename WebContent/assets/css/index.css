@@ -1,7 +1,8 @@
 @CHARSET "UTF-8";
 
 .hero-background {
-    background-repeat: repeat-x;
+	background-size:50%;
+    background-repeat: no-repeat;
     background-position: top center;
     min-height: 900px;
 }

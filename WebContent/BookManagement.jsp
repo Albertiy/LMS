@@ -9,6 +9,7 @@
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
