@@ -40,11 +40,11 @@
 	<div class="hero-background">
 		<div class="container">
 			<div class="row">
-
 				<div class="col-md-12">
 					<h1>&nbsp;</h1>
+					<h1>&nbsp;</h1>
 					<div class="row search-group">
-						<div class="col-md-3 col-xs-12">
+						<div class="col-md-2 col-xs-12">
 							<button type="button"
 								class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
@@ -58,16 +58,55 @@
 								<li><a href="#">Category</a></li>
 							</ul>
 						</div>
-						<div class="col-md-6 col-xs-12">
+						<div class="col-md-8 col-xs-12">
 							<input type="text" class="form-control" aria-label="...">
 						</div>
-						<div class="col-md-3 col-xs-12">
+						<div class="col-md-2 col-xs-12">
 							<button type="button" class="btn btn-default btn-block sbutton">Search</button>
 						</div>
 					</div>
 					<h1>&nbsp;</h1>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>ISBN</th>
+								<th>Title</th>
+								<th>Author</th>
+								<th>Amount</th>
+								<th>Remaining Amount</th>
+								<th>Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>123456</td>
+								<td>Java</td>
+								<td>Damon</td>
+								<td>100</td>
+								<td>55</td>
+								<td>26.5</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-md-3 col-xs-3">
+					<a href="#" class="btn btn-primary btn-lg active" role="button">Back</a>
+				</div>
+				<div class="col-md-9 col-xs-9" align="right">
+					<a href="#" class="btn btn-success active" role="button">ADD</a> <a
+						href="#" class="btn btn-info active" role="button">Edit</a>
+					<button type="button" class="btn btn-danger">Delete</button>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 </body>
