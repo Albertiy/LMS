@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+.hero-background {
+    background-image: url("../img/hero-illustration.svg");
+    background-repeat: repeat-x;
+    background-position: top center;
+    height: 900px;
+}
+
+.search-group{
+	margin:0 auto;
+	max-width: 880px;
+}
+
+.book_thumb{
+	
+	height:175px;
+	width:150px;
+	display:bolck;
+}
+
+.footer {
+  height: 100px;
+  background-color: #eee;
+}
+.footer .container {
+  max-width: 680px;
+  padding: 0 15px;
+}
+.footer .container .text-muted {
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 720px){
+	.sbutton{
+	   btn-block;
+	}
+}
