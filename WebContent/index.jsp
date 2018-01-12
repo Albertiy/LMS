@@ -12,7 +12,6 @@
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
-		<!-- 白色导航条是 navbar-default navbar-fixed-top让导航条固定在顶部，static-top为默认-->
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -25,9 +24,9 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a id="home" href="home.jsp">Home</a></li>
-					<li><a id="about" href="about.jsp">***</a></li>
-					<li><a id="contact" href="contact.jsp">***</a></li>
+					<li><a id="home" href="index.jsp">Home</a></li>
+					<li><a id="about" href="#">***</a></li>
+					<li><a id="contact" href="#">***</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="login" href="login.jsp">Login In</a></li>

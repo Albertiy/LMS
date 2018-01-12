@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LMS-Login</title>
+<title>LMS-Sign up</title>
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/login.css" rel="stylesheet">
@@ -41,8 +41,10 @@
 		<div class="container-lg p-responsive position-relative">
 			<div class="d-md-flex flex-items-center gutter-md-spacious">
 				<div class="col-md-7 text-center text-md-left">
-				    <h1>Welcome back!</h1>
-                </div>
+					<h1 class="">Sign up to LMS Now!</h1>
+					&nbsp;
+					<p class="lead">Reading together with enjoying life person!</p>
+				</div>
 				<div class="mx-auto col-sm-8 col-md-5 hide-sm out-contain-form">
 					<div class="contain-form">
 						<form accept-charset="UTF-8" action="/signup" autocomplete="off"
@@ -50,6 +52,19 @@
 							<div style="margin: 0; padding: 0; display: inline">
 								<input name="utf8" type="hidden" value="✓">
 							</div>
+							<dl class="form-group">
+								<dt class="input-label">
+									<label class="form-label f5" for="user[login]">Username</label>
+								</dt>
+								<dd>
+									<input type="text" name="user[login]" id="user[login]"
+										class="form-control form-control-lg input-block"
+										placeholder="Pick a username"
+										data-autocheck-url="/signup_check/username"
+										data-autocheck-authenticity-token="tqUoviSiDwlvzm1Rt+7jxdb489oYxL09LUxyF1rYw7trLnK4YeKpkAO3mRJnOQn4LGc866nKnHJz2Yuhe45otQ=="
+										autofocus="autofocus">
+								</dd>
+							</dl>
 							<dl class="form-group">
 								<dt class="input-label">
 									<label class="form-label f5" for="user[email]">Email</label>
@@ -78,9 +93,10 @@
 							<input class="form-control" name="" type="hidden" value="">
 							<button class="btn btn-primary btn-large f4 btn-block"
 								type="submit">Sign up</button>
-							<button type="button" class="btn btn-link pull-right">Sign
-								up now</button>
+							<button type="button" class="btn btn-link pull-right">Click
+								to Login</button>
 						</form>
+						<a></a>
 					</div>
 				</div>
 			</div>
