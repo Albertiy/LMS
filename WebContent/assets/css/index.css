@@ -4,7 +4,7 @@
     background-image: url("../img/hero-illustration.svg");
     background-repeat: repeat-x;
     background-position: top center;
-    height: 900px;
+    min-height: 900px;
 }
 
 .search-group{
