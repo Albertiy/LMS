@@ -51,12 +51,11 @@
 
 				<div class="col-md-12">
 					<h1>&nbsp;</h1>
-					<div class=" input-group search-group">
-						<div class="input-group-btn">
-							<!-- Button and drop down menu -->
-							<button type="button" class="btn btn-default dropdown-toggle"
+					<div class="row search-group">
+						<div class="col-md-2 col-xs-12">
+							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
+								aria-expanded="false" id="dropdownMenu1">
 								Title <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
@@ -65,25 +64,28 @@
 								<li><a href="#">ISBN</a></li>
 								<li><a href="#">Category</a></li>
 							</ul>
-							<button type="button" class="btn btn-default dropdown-toggle"
-                                data-toggle="dropdown2" aria-haspopup="true"
-                                aria-expanded="false">
-                                Tech <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown2-menu">
-                                <li><a href="#">Tech</a></li>
-                                <li><a href="#">Art</a></li>
-                                <li><a href="#">Health</a></li>
-                            </ul>
 						</div>
-						<input type="text" class="form-control" aria-label="...">
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-default">Search</button>
+						<div class="col-md-2 col-xs-12">
+							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false" id="dropdownMenu2">
+								Tech <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Tech</a></li>
+								<li><a href="#">Art</a></li>
+								<li><a href="#">Health</a></li>
+							</ul>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<input type="text" class="form-control" aria-label="...">
+						</div>
+						<div class="col-md-2 col-xs-12">
+							<button type="button" class="btn btn-default btn-block sbutton">Search</button>
 						</div>
 					</div>
 					<h1>&nbsp;</h1>
 				</div>
-
 			</div>
 		</div>
 	</div>
