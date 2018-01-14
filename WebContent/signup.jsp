@@ -8,7 +8,7 @@
 <title>LMS-Sign up</title>
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<link type="text/css" href="/LMS/assets/css/login.css" rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/signup.css" rel="stylesheet">
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -59,10 +59,7 @@
 								<dd>
 									<input type="text" name="user[login]" id="user[login]"
 										class="form-control form-control-lg input-block"
-										placeholder="Pick a username"
-										data-autocheck-url="/signup_check/username"
-										data-autocheck-authenticity-token="tqUoviSiDwlvzm1Rt+7jxdb489oYxL09LUxyF1rYw7trLnK4YeKpkAO3mRJnOQn4LGc866nKnHJz2Yuhe45otQ=="
-										autofocus="autofocus">
+										placeholder="Pick a username" autofocus="autofocus">
 								</dd>
 							</dl>
 							<dl class="form-group">
@@ -70,11 +67,20 @@
 									<label class="form-label f5" for="user[email]">Email</label>
 								</dt>
 								<dd>
-									<input type="text" name="user[email]" id="user[email]"
+									<input type="email" name="user[email]" id="user[email]"
 										class="form-control form-control-lg input-block js-email-notice-trigger"
-										placeholder="you@example.com"
-										data-autocheck-url="/signup_check/email"
-										data-autocheck-authenticity-token="/7iuTyA25nBz30Bl9Ecu0QOSSWDyuSd54YUkk6u+C/CWQ/o6f9jIyRgfkUpncX6l8gLgFq6aV0LuHfK0pFDvdg==">
+										placeholder="you@example.com">
+								</dd>
+							</dl>
+							<dl class="form-group">
+								<dt class="input-label">
+									<label class="form-label f5" for="user[role]">Role</label>
+								</dt>
+								<dd>
+									<select class="form-control">
+										<option>Student</option>
+										<option>Teacher</option>
+									</select>
 								</dd>
 							</dl>
 							<dl class="form-group">
@@ -85,9 +91,59 @@
 									<input type="password" name="user[password]"
 										id="user[password]"
 										class="form-control form-control-lg input-block"
-										placeholder="Create a password"
-										data-autocheck-url="/signup_check/password"
-										data-autocheck-authenticity-token="ZMBEZYNOYBiugrka5S8zRoTcmhdORD8dEt6Du2dOVdXYKN5GoJDTen8ZO3nh4wvZA+NrETZae4KJkG181s69Fg==">
+										placeholder="Create a password">
+								</dd>
+							</dl>
+							<dl class="form-group">
+								<dd>
+									<input type="password" name="user[re_password]"
+										id="user[re_password]"
+										class="form-control form-control-lg input-block"
+										placeholder="Confirm your password">
+								</dd>
+							</dl>
+							<dl class="form-group">
+								<dt class="input-label">
+									<label class="form-label f5" for="user[tel]">Phone</label>
+								</dt>
+								<dd>
+									<input type="tel" name="user[tel]" id="user[tel]"
+										class="form-control form-control-lg input-block"
+										placeholder="Phone number">
+								</dd>
+							</dl>
+							<dl class="form-group">
+								<dt class="input-label">
+									<label class="form-label f5" for="user[gender]">Gender</label>
+								</dt>
+								<dd>
+									<label class="radio-inline"> <input type="radio"
+										name="inlineRadioOptions" id="inlineRadio1" value="female">
+										Female
+									</label> <label class="radio-inline"> <input type="radio"
+										name="inlineRadioOptions" id="inlineRadio2" value="male">
+										Male
+									</label>
+								</dd>
+							</dl>
+							<dl class="form-group">
+								<dt class="input-label">
+									<label class="form-label f5" for="user[dob]">Birthday</label>
+								</dt>
+								<dd>
+									<input type="date" name="user[dob]" id="user[dob]"
+										class="form-control form-control-lg input-block"
+										placeholder="">
+								</dd>
+							</dl>
+							<dl class="form-group">
+								<dt class="input-label">
+									<label class="form-label f5" for="user[address]">Address</label>
+								</dt>
+								<dd>
+									<input type="text" name="user[address]" id="user[address]"
+										class="form-control form-control-lg input-block"
+										placeholder="Address">
 								</dd>
 							</dl>
 							<input class="form-control" name="" type="hidden" value="">

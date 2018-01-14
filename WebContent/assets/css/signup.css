@@ -3,7 +3,7 @@
 @media ( min-width : 650px) {
 	.out-container {
 		padding-top: 120px;
-		padding-bottom: 120px;
+		padding-bottom: 200px;
 		padding-left: 10%;
 		padding-right: 10%;
 	}
@@ -50,7 +50,7 @@ html {
 body {
 	/* Margin bottom by footer height */
 	margin-top:-80px;
-	margin-bottom: 200px;
+	margin-bottom: 600px;
 	background-image: url("../img/book_thumb.jpg");
 	background-repeat: no-repeat;
 	background-position: top center;
