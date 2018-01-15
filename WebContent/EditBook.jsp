@@ -143,7 +143,7 @@
 
 				<div class="row">
 					<div class="col-md-3 col-xs-3">
-						<a href="#" class="btn btn-primary btn-lg active" role="button">Back</a>
+						<a href="BookManagement.jsp" class="btn btn-primary btn-lg active" role="button">Back</a>
 					</div>
 					<div class="col-md-9 col-xs-9" align="right">
 						<a href="#" class="btn btn-success active" role="button">Confirm</a>
