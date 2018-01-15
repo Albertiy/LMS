@@ -41,41 +41,41 @@
 		<div class="container-lg p-responsive position-relative">
 			<div class="d-md-flex flex-items-center gutter-md-spacious">
 				<div class="col-md-7 text-center text-md-left">
-				    <h1>Welcome back!</h1>
-                </div>
+					<h1>Welcome back!</h1>
+				</div>
 				<div class="mx-auto col-sm-8 col-md-5 hide-sm out-contain-form">
 					<div class="contain-form">
-						<form accept-charset="UTF-8" action="/signup" autocomplete="off"
+						<form accept-charset="UTF-8" action="Login" autocomplete="off"
 							class="home-hero-signup js-signup-form" method="post">
-							<div style="margin: 0; padding: 0; display: inline">
-								<input name="utf8" type="hidden" value="✓">
-							</div>
 							<dl class="form-group">
 								<dt class="input-label">
-									<label class="form-label f5" for="user[email]">Email</label>
+									<label class="form-label f5" for="input_email">Email</label>
 								</dt>
 								<dd>
-									<input type="email" name="user[email]" id="user[email]" required
+									<input type="email" name="email" id="input_email" required
 										class="form-control form-control-lg input-block js-email-notice-trigger"
 										placeholder="you@example.com">
 								</dd>
 							</dl>
 							<dl class="form-group">
 								<dt class="input-label">
-									<label class="form-label f5" for="user[password]">Password</label>
+									<label class="form-label f5" for="input_pwd">Password</label>
 								</dt>
 								<dd>
-									<input type="password" name="user[password]" required
-										id="user[password]"
+									<input type="password" name="pwd" id="input_pwd" required
 										class="form-control form-control-lg input-block"
-										placeholder="Create a password">
+										placeholder="Enter your password">
 								</dd>
 							</dl>
-							<input class="form-control" name="" type="hidden" value="">
+							<% if(request.getAttribute("warn")!=null
+							&& (boolean)request.getAttribute("warn")){%>
+							<div class="alert alert-danger" role="alert">Email or
+								Password is wrong.</div>
+							<%}%>
 							<button class="btn btn-primary btn-large f4 btn-block"
 								type="submit">Login In</button>
-							<a type="button" class="btn btn-link pull-right" href="signup.jsp">Sign
-								up now</a>
+							<a type="button" class="btn btn-link pull-right"
+								href="signup.jsp">Sign up now</a>
 						</form>
 					</div>
 				</div>
@@ -95,5 +95,10 @@
 	</footer>
 	<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+		   
+	});                
+    </script>
 </body>
 </html>
