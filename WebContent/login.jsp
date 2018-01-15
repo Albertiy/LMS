@@ -55,11 +55,9 @@
 									<label class="form-label f5" for="user[email]">Email</label>
 								</dt>
 								<dd>
-									<input type="text" name="user[email]" id="user[email]"
+									<input type="email" name="user[email]" id="user[email]" required
 										class="form-control form-control-lg input-block js-email-notice-trigger"
-										placeholder="you@example.com"
-										data-autocheck-url="/signup_check/email"
-										data-autocheck-authenticity-token="/7iuTyA25nBz30Bl9Ecu0QOSSWDyuSd54YUkk6u+C/CWQ/o6f9jIyRgfkUpncX6l8gLgFq6aV0LuHfK0pFDvdg==">
+										placeholder="you@example.com">
 								</dd>
 							</dl>
 							<dl class="form-group">
@@ -67,19 +65,17 @@
 									<label class="form-label f5" for="user[password]">Password</label>
 								</dt>
 								<dd>
-									<input type="password" name="user[password]"
+									<input type="password" name="user[password]" required
 										id="user[password]"
 										class="form-control form-control-lg input-block"
-										placeholder="Create a password"
-										data-autocheck-url="/signup_check/password"
-										data-autocheck-authenticity-token="ZMBEZYNOYBiugrka5S8zRoTcmhdORD8dEt6Du2dOVdXYKN5GoJDTen8ZO3nh4wvZA+NrETZae4KJkG181s69Fg==">
+										placeholder="Create a password">
 								</dd>
 							</dl>
 							<input class="form-control" name="" type="hidden" value="">
 							<button class="btn btn-primary btn-large f4 btn-block"
-								type="submit">Sign up</button>
-							<button type="button" class="btn btn-link pull-right">Sign
-								up now</button>
+								type="submit">Login In</button>
+							<a type="button" class="btn btn-link pull-right" href="signup.jsp">Sign
+								up now</a>
 						</form>
 					</div>
 				</div>

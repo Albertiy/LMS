@@ -149,8 +149,8 @@
 							<input class="form-control" name="" type="hidden" value="">
 							<button class="btn btn-primary btn-large f4 btn-block"
 								type="submit">Sign up</button>
-							<button type="button" class="btn btn-link pull-right">Click
-								to Login</button>
+							<a type="button" class="btn btn-link pull-right" href="login.jsp">Click
+								to Login</butaton>
 						</form>
 						<a></a>
 					</div>
