@@ -42,31 +42,52 @@
 	<div class="hero-background">
 		<div class="container">
 			<h1>&nbsp;</h1>
-			<h1>&nbsp;</h1>
+			
 			<h1 style="text-align: center">Add Book</h1>
-			<div style="padding: 100px 100px 10px;">
+			<div style="padding: 20px 100px 10px;">
 				<form class="bs-example bs-example-form" role="form">
-					<div class="input-group input-group-lg">
-						<span class="input-group-addon">ISBN:</span> <input type="text"
-							class="form-control" placeholder="Please enter ISBN">
-					</div>
+				
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">ISBN</label>
+						</dt>
+						<dd>
+							<input type="text" name="ISBN" id="ISBN"
+								class="form-control form-control-lg"
+								placeholder="Please enter ISBN">
+						</dd>
+					</dl>
 					<br>
 					
-					<div class="input-group input-group-lg">
-						<span class="input-group-addon">Title:</span> <input type="text"
-							class="form-control" placeholder="Please enter Title">
-					</div>
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">Title</label>
+						</dt>
+						<dd>
+							<input type="text" name="Title" id="Title"
+								class="form-control form-control-lg"
+								placeholder="Please enter Title">
+						</dd>
+					</dl>
 					<br>
 					
-					<div class="input-group input-group-lg">
-						<span class="input-group-addon">Author:</span> <input type="text"
-							class="form-control" placeholder="Please enter Author">
-					</div>
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">Author</label>
+						</dt>
+						<dd>
+							<input type="text" name="Author" id="Author"
+								class="form-control form-control-lg"
+								placeholder="Please enter Author">
+						</dd>
+					</dl>
 					<br>
 					
-					<div class="input-group input-group-lg">
-						<span class="input-group-addon">Category:</span>
-						<div class="btn-group">
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">Category</label>
+						</dt>
+						<dd class="btn-group">
 							<button type="button" class="btn btn-default">Action</button>
 							<button type="button" class="btn btn-default dropdown-toggle"
 								data-toggle="dropdown" aria-haspopup="true"
@@ -80,26 +101,46 @@
 								<li><a href="#">Something else here</a></li>								
 								<li><a href="#">Separated link</a></li>
 							</ul>
-						</div>
-					</div>
+						</dd>
+					</dl>
 					<br>
 					
-					<div class="input-group input-group-lg">
-						<span class="input-group-addon">Price:</span> <input type="text"
-							class="form-control" placeholder="Please enter Price">
-					</div>
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">Price</label>
+						</dt>
+						<dd>
+							<input type="text" name="Price" id="Price"
+								class="form-control form-control-lg"
+								placeholder="Please enter Price">
+						</dd>
+					</dl>
 					<br>
 					
-					<div class="input-group input-group-lg">
-						<span class="input-group-addon">Cover:</span> 
-					</div>
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">Price</label>
+						</dt>
+						<dd>
+							<input type="text" name="Price" id="Price"
+								class="form-control form-control-lg"
+								placeholder="Please enter Price">
+						</dd>
+					</dl>
 					<br>
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">Cover</label>
+						</dt>
+						<dd>
+							<input type="text" name="Price" id="Price"
+								class="form-control form-control-lg"
+								placeholder="Please enter Price">
+						</dd>
+					</dl>
 				</form>
-			</div>
 
 
-
-			<h1>&nbsp;</h1>
 			<div class="row">
 
 				<div class="col-md-3 col-xs-3">
@@ -111,7 +152,7 @@
 
 			</div>
 		</div>
-
+	</div>	
 	</div>
 </body>
 <footer class="footer">
