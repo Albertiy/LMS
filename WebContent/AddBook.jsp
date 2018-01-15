@@ -88,18 +88,16 @@
 							<label class="form-label f5">Category</label>
 						</dt>
 						<dd class="btn-group">
-							<button type="button" class="btn btn-default">Action</button>
-							<button type="button" class="btn btn-default dropdown-toggle"
+							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								<span class="caret"></span> 
-								<span class="sr-only">Toggle Dropdown</span>
+								aria-expanded="false" id="drop_button">
+								Science <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>								
-								<li><a href="#">Separated link</a></li>
+								<li id="Science"><a href="#">Science</a></li>
+								<li id="Math"><a href="#">Math</a></li>
+								<li id="Art"><a href="#">Art</a></li>								
+								<li id="Ohters"><a href="#">Others</a></li>
 							</ul>
 						</dd>
 					</dl>
@@ -133,9 +131,7 @@
 							<label class="form-label f5">Cover</label>
 						</dt>
 						<dd>
-							<input type="text" name="Price" id="Price"
-								class="form-control form-control-lg"
-								placeholder="Please enter Price">
+							<input id="fileId1" type="file" accept="image/*	" name="file" />
 						</dd>
 					</dl>
 				</form>
@@ -144,10 +140,10 @@
 			<div class="row">
 
 				<div class="col-md-3 col-xs-3">
-					<a href="BookManagement.jsp" class="btn btn-primary btn-lg active" role="button">Back</a>
+					<a href="BookManagement.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="#" class="btn btn-success active" role="button">ADD</a>
+					<a href="#" class="btn btn-success " role="button">ADD</a>
 				</div>
 
 			</div>
@@ -165,4 +161,5 @@
 </footer>
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/assets/js/index.js"></script>
 </html>

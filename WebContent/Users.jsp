@@ -10,7 +10,32 @@
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
+
+<script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#info").click(function(){
+			htmlobj=$.ajax({url:"UserInfo_ajax.jsp",async:false});
+			$("#showdiv").html(htmlobj.responseText);
+		});
+		$("#blist").click(function(){
+			htmlobj=$.ajax({url:"UserBorrowList_ajax.jsp",async:false});
+			$("#showdiv").html(htmlobj.responseText);
+		});
+		$("#fine").click(function(){
+			htmlobj=$.ajax({url:"UserFine_ajax.jsp",async:false});
+			$("#showdiv").html(htmlobj.responseText);
+		});
+		$("#recommend").click(function(){
+			htmlobj=$.ajax({url:"UserRecommend_ajax.jsp",async:false});
+			$("#showdiv").html(htmlobj.responseText);
+		});
+	});
+		
+</script> 
+
 </head>
+
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
 		<!-- 白色导航条是 navbar-default navbar-fixed-top让导航条固定在顶部，static-top为默认-->
@@ -46,11 +71,12 @@
 					<h1>&nbsp;</h1>
 					<div class="col-xs-6 col-md-4">
 						<ul class="nav nav-pills nav-stacked">
-							<li role="presentation" class="active"><a href="#">Info</a></li>
-  							<li role="presentation"><a href="#">Borrow List</a></li>
-  							<li role="presentation"><a href="#">Fine</a></li>
-  							<li role="presentation"><a href="#">Recommend</a></li>
+							<li id="info" role="presentation" class="active"><a href="#">Info</a></li>
+  							<li id="blist" role="presentation"><a href="#">Borrow List</a></li>
+  							<li id="fine" role="presentation"><a href="#">Fine</a></li>
+  							<li id="recommend" role="presentation"><a href="#">Recommend</a></li>
 						</ul>
+						
 					</div>
 					
 					<script type="text/javascript">
@@ -69,16 +95,72 @@
 						});
 					</script>
 					
-					<div class="col-xs-12 col-md-8">
-					User Info:
-					
-					
+					<div id="showdiv" class="col-xs-12 col-md-8">
+						<form class="bs-example bs-example-form" role="form">
+							<div class="form-group">
+								<label for="name" class="col-sm-2 control-label">Name:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control" id="uname"
+										name="name" value="">
+								</div>
+							</div>
+							<h5>&nbsp;</h5>
+							<div class="form-group">
+								<label for="role" class="col-sm-2 control-label">Role:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control" id="role"
+										name="role" value="">
+								</div>
+							</div>
+							<h5>&nbsp;</h5>
+							<div class="form-group">
+								<label for="phone" class="col-sm-2 control-label">Phone:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control" id="phone"
+										name="phone" value="">
+								</div>
+							</div>
+							<h5>&nbsp;</h5>
+							<div class="form-group">
+								<label for="email" class="col-sm-2 control-label">Eamil:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control" id="email"
+										name="email" value="">
+								</div>
+							</div>
+							<h5>&nbsp;</h5>
+							<div class="form-group">
+								<label for="gender" class="col-sm-2 control-label">Gender:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control" id="gender"
+										name="gender" value="">
+								</div>
+							</div>
+							<h5>&nbsp;</h5>
+							<div class="form-group">
+								<label for="address" class="col-sm-2 control-label">Address:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control" id="address"
+										name="address" value="">
+								</div>
+							</div>
+							<h5>&nbsp;</h5>
+							<div class="form-group">
+								<label for="dob" class="col-sm-2 control-label">Birthday:</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control" id="dob"
+										name="dob" value="">
+								</div>
+							</div>
+						</form>
+
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+</body>
 
 	<footer class="footer">
 	<div class="container">

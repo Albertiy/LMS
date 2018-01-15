@@ -10,6 +10,10 @@
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
+
+<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/assets/js/index.js"></script>
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -52,17 +56,16 @@
 					<h1>&nbsp;</h1>
 					<div class="row search-group">
 						<div class="col-md-2 col-xs-12">
-							<button type="button"
-								class="btn btn-default btn-block dropdown-toggle sbutton"
+							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" id="dropdownMenu1">
+								aria-expanded="false" id="drop_button">
 								Title <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Title</a></li>
-								<li><a href="#">Author</a></li>
-								<li><a href="#">ISBN</a></li>
-								<li><a href="#">Category</a></li>
+								<li id="Title"><a href="#">Title</a></li>
+								<li id="Author"><a href="#">Author</a></li>
+								<li id="ISBN"><a href="#">ISBN</a></li>
+								<li id="Category"><a href="#">Category</a></li>
 							</ul>
 						</div>
 						<div class="col-md-8 col-xs-12">
@@ -104,11 +107,11 @@
 			<div class="row">
 
 				<div class="col-md-3 col-xs-3">
-					<a href="Manage.jsp" class="btn btn-primary btn-lg active" role="button">Back</a>
+					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="AddBook.jsp" class="btn btn-success active" role="button">ADD</a> <a
-						href="EditBook.jsp" class="btn btn-info active" role="button">Edit</a>
+					<a href="AddBook.jsp" class="btn btn-success " role="button">ADD</a> <a
+						href="EditBook.jsp" class="btn btn-info " role="button">Edit</a>
 					<button type="button" class="btn btn-danger">Delete</button>
 				</div>
 
@@ -125,6 +128,5 @@
 		</p>
 	</div>
 </footer>
-<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
-<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+
 </html>
