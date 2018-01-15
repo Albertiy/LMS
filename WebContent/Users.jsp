@@ -8,7 +8,8 @@
 <title>LMS-Users</title>
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="/assets/css/users.css" type="text/css" rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -50,9 +51,29 @@
   							<li role="presentation"><a href="#">Fine</a></li>
   							<li role="presentation"><a href="#">Recommend</a></li>
 						</ul>
-
 					</div>
-					<div class="col-xs-12 col-md-8">User Info:</div>
+					
+					<script type="text/javascript">
+					//获取所有li的节点
+						var items = document.querySelectorAll("li");
+					// 可以使用Array.prototype.forEach.call进行遍历
+						[].forEach.call(items, function (item) {
+					//添加click事件
+					    	item.addEventListener("click", function() {
+					//遍历所有兄弟节点this.parentNode.children
+					    		Array.prototype.forEach.call(this.parentNode.children, function (child) {
+					//删除元素的某个class
+					    			child.classList.remove("active");})
+					    			this.classList.add("active");
+					    		});
+						});
+					</script>
+					
+					<div class="col-xs-12 col-md-8">
+					User Info:
+					
+					
+					</div>
 				</div>
 			</div>
 		</div>
@@ -60,14 +81,13 @@
 
 
 	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">
-				<u>Library Management System</u> design and build by <strong>BayMax</strong>,
-				<strong>Damon</strong> and <strong>Albert</strong>.
-			</p>
-		</div>
-	</footer>
-	<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
-</body>
+	<div class="container">
+		<p class="text-muted">
+			<u>Library Management System</u> design and build by <strong>BayMax</strong>,
+			<strong>Damon</strong> and <strong>Albert</strong>.
+		</p>
+	</div>
+</footer>
+<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 </html>
