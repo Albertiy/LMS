@@ -1,25 +1,5 @@
 @CHARSET "UTF-8";
 
-.hero-background {
-	background-image: url("../img/hero-illustration.svg");
-	background-repeat: repeat-x;
-	background-position: top center;
-	height: 900px;
-}
-
-.footer {
-	height: 100px;
-	background-color: #eee;
-}
-
-.footer .container {
-	max-width: 680px;
-	padding: 0 15px;
-}
-
-.footer .container .text-muted {
-	margin: 20px 0;
-}
 /* user-reg/1.0.0 header-1130.css Date:2017-08-26 01:13:31 */
 .header .logo, .i-company, .i-def, .i-error, .i-error1, .i-global,
 	.i-suc {
