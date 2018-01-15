@@ -98,11 +98,11 @@
 			<div class="row">
 
 				<div class="col-md-3 col-xs-3">
-					<a href="#" class="btn btn-primary btn-lg active" role="button">Back</a>
+					<a href="Manage.jsp" class="btn btn-primary btn-lg active" role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="#" class="btn btn-success active" role="button">ADD</a> <a
-						href="#" class="btn btn-info active" role="button">Edit</a>
+					<a href="AddBook.jsp" class="btn btn-success active" role="button">ADD</a> <a
+						href="EditBook.jsp" class="btn btn-info active" role="button">Edit</a>
 					<button type="button" class="btn btn-danger">Delete</button>
 				</div>
 
