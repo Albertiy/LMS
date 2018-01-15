@@ -49,24 +49,23 @@
 				<div class="col-md-12">
 					<h1>&nbsp;</h1>
 					<div class="row search-group">
-						<div class="col-md-2 col-xs-12">
-							<button type="button"
-								class="btn btn-default btn-block dropdown-toggle sbutton"
+						<div class="col-md-2 col-sm-2 col-xs-12">
+							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" id="dropdownMenu1">
+								aria-expanded="false" id="drop_button">
 								Name <span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Name</a></li>
-								<li><a href="#">E-mail</a></li>
-								<li><a href="#">Phone</a></li>
-								<li><a href="#">ID</a></li>
+							<ul class="dropdown-menu" id="search_type">
+								<li id="Name"><a >Name</a></li>
+								<li id="Email"><a >E-mail</a></li>
+								<li id="Phone"><a >Phone</a></li>
+								<li id="Category"><a >Category</a></li>
 							</ul>
 						</div>
-						<div class="col-md-8 col-xs-12">
+						<div class="col-md-8 col-sm-7 col-xs-12">
 							<input type="text" class="form-control" aria-label="...">
 						</div>
-						<div class="col-md-2 col-xs-12">
+						<div class="col-md-2 col-sm-2 col-xs-12">
 							<button type="button" class="btn btn-default btn-block sbutton">Search</button>
 						</div>
 					</div>
@@ -131,4 +130,5 @@
 </footer>
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/LMS/assets/js/index.js"></script>
 </html>
