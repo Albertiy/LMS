@@ -117,17 +117,6 @@
 					
 					<dl class="form-group">
 						<dt class="input-label">
-							<label class="form-label f5">Price</label>
-						</dt>
-						<dd>
-							<input type="text" name="Price" id="Price"
-								class="form-control form-control-lg"
-								placeholder="Please enter Price">
-						</dd>
-					</dl>
-					<br>
-					<dl class="form-group">
-						<dt class="input-label">
 							<label class="form-label f5">Cover</label>
 						</dt>
 						<dd>

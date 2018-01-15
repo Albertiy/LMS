@@ -107,11 +107,11 @@
 			<div class="row">
 
 				<div class="col-md-3 col-xs-3">
-					<a href="Manage.jsp" class="btn btn-primary btn-lg active" role="button">Back</a>
+					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="BorrowDetail.jsp" class="btn btn-success active" role="button">BorrowDetail</a> 
-					<a href="#" class="btn btn-info active" role="button">ClearFine</a>
+					<a href="BorrowDetail.jsp" class="btn btn-success " role="button">BorrowDetail</a> 
+					<a href="#" class="btn btn-info " role="button">ClearFine</a>
 				</div>
 
 			</div>
