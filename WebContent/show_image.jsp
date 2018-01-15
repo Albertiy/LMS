@@ -18,7 +18,7 @@
 
 	String url = "jdbc:mysql://localhost:3306/lmsdb";
 	String username = "root";
-	String password = "960316";
+	String password = "password";
 	Connection con = DriverManager.getConnection(url,username,password);
 	//oracle 
 	//String URL="jdbc:oracle:thin@localhost:1521:orcl2"; 
