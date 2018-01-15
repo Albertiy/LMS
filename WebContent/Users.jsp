@@ -39,22 +39,23 @@
 	</nav>
 	<h1>&nbsp;</h1>
 	<div class="hero-background">
-	<div class="container">
-		<div class="row">
-		<div class="col-xs-12">
-		<h1>&nbsp;</h1>
-			<div class="col-xs-6 col-md-4">
-				<div class="list-group">
-					<button type="button" class="list-group-item">Info</button>
-					<button type="button" class="list-group-item">Borrow List</button>
-					<button type="button" class="list-group-item">Fine</button>
-					<button type="button" class="list-group-item">Recommend</button>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1>&nbsp;</h1>
+					<div class="col-xs-6 col-md-4">
+						<ul class="nav nav-pills nav-stacked">
+							<li role="presentation" class="active"><a href="#">Info</a></li>
+  							<li role="presentation"><a href="#">Borrow List</a></li>
+  							<li role="presentation"><a href="#">Fine</a></li>
+  							<li role="presentation"><a href="#">Recommend</a></li>
+						</ul>
+
+					</div>
+					<div class="col-xs-12 col-md-8">User Info:</div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-md-8">User Info:</div>
 		</div>
-		</div>
-	</div>
 	</div>
 
 
