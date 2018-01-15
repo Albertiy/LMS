@@ -38,11 +38,17 @@
 			</div>
 		</div>
 	</nav>
+	
 	<div class="hero-background">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<h1>&nbsp;</h1>
+					<h2 class="text-center">Book Management</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
 					<h1>&nbsp;</h1>
 					<div class="row search-group">
 						<div class="col-md-2 col-xs-12">

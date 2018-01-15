@@ -9,6 +9,8 @@
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/manage.css" rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -37,9 +39,15 @@
 		</div>
 	</nav>
 	<h1>&nbsp;</h1>
-	<br></br><br></br><br></br><br></br><br></br>
 	<div class="hero-background">
 		<div class="container"> 
+			<div class="row">
+				<div class="col-md-12">
+					<h1>&nbsp;</h1>
+					<h2 class="text-center">Librarain Management</h2>
+				</div>
+			</div>
+			<h1>&nbsp;</h1>
 			<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-2"></div>
