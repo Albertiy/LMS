@@ -1,10 +1,11 @@
-package cn.niit.lms.login;
+package cn.niit.lms.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import cn.niit.lms.dao.UserDao;
 import cn.niit.lms.domain.User;
 import cn.niit.lms.jdbc.JDBCUtils;
 
@@ -37,7 +38,7 @@ public class UserDaoImpl implements UserDao {
 			return null;
 		}
 		try {
-			rs = pstmt.executeQuery();// 这个返回集
+			rs = pstmt.executeQuery();// 这个返回�?
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

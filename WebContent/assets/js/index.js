@@ -16,7 +16,7 @@ $(document).ready(function () {
             //var stype = this.text;
             var stype = this.id;
             //alert(stype);
-            dropButton.innerHTML=stype+" <span class='caret'></span>"
+            dropButton.innerHTML=stype+" <span class='caret'></span>";
             //dropButton.value=""+stype;
             //$("#drop_button").value("GOODBOY");
             //没用
