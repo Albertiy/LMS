@@ -30,7 +30,7 @@ public class LogoutServlet extends HttpServlet {
 	            throws ServletException, IOException {
 	        response.setContentType("text/html;charset=UTF-8");
 	        try (PrintWriter out = response.getWriter()) {
-	            //1.销毁session
+	            //1.�?毁session
 	            request.getSession().invalidate();
 	            //2.重定向到登录页面
 	            response.sendRedirect(request.getContextPath() + "/login.jsp");
