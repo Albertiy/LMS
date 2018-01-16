@@ -10,38 +10,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UserService uservice = new UserService();
 
-    public LoginServlet() {
-        super();
-    }
+	public LoginServlet() {
+		super();
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		processRequest(request, response);
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//PrintWriter out=response.getWriter();
-		
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		processRequest(request, response);
+	}
+	
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		// 设置请求的编码格式
+		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
 		String pwd = request.getParameter("pwd");
-		
-		if(Validate.checkUser(email,pwd))
-		{
-			RequestDispatcher rs;
-			rs=request.getRequestDispatcher("index.jsp");
-			rs.forward(request,response);
-		}
-		else
-		{
-			//out.println("Username or Password incorrect");
+		User u = new User();
+		u.setEmail(email);
+		u.setPwd(pwd);
+		User user = null;
+		try {
+			// 登陆并返回User类
+			user = uservice.login(u);
+		} catch (Exception e) {
 			RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
-			request.setAttribute("warn", true);	
+			request.setAttribute("warn", true);
 			rs.include(request, response);
 		}
+		// 登陆成功，保存到session并跳转
+		request.getSession().setAttribute("user", user);
+		response.sendRedirect(request.getContextPath()+"/index.jsp");
+		//RequestDispatcher rs;
+		//rs = request.getRequestDispatcher("testfile.jsp");
+		//rs.forward(request, response);
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }

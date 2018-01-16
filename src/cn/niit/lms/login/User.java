@@ -1,5 +1,6 @@
 package cn.niit.lms.login;
 
+//数据模型
 public class User {
 	private int uid;
 	private String uname;
@@ -13,6 +14,10 @@ public class User {
 
 	public int getUid() {
 		return uid;
+	}
+	
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 
 	public String getUname() {

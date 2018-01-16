@@ -6,9 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LMS-Index</title>
-<link type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
+<link type="text/css"
+	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<link type="text/css" href="${pageContext.request.contextPath}/assets/css/index.css" rel="stylesheet">
+<link type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/index.css"
+	rel="stylesheet">
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -28,15 +31,23 @@
 					<li><a id="about" href="#">***</a></li>
 					<li><a id="contact" href="#">***</a></li>
 				</ul>
+				<%if (session.getAttribute("user") == null) {%>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="login" href="login.jsp">Login In</a></li>
 					<li><a id="signup" href="signup.jsp">Sign Up</a></li>
 				</ul>
+				<%}else{%>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a id="user" href=""><strong>${sessionScope.user.getUname()}</strong></a></li>
+					<li><a id="logout" href="logout.jsp">Login Out</a></li>
+				</ul>
+				<%}%>
 			</div>
 		</div>
 	</nav>
 
-	<div class="hero-background" style="background-image:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
+	<div class="hero-background"
+		style="background-image:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -51,16 +62,17 @@
 					<h1>&nbsp;</h1>
 					<div class="row search-group">
 						<div class="col-md-2 col-sm-2 col-xs-12">
-							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
+							<button type="button"
+								class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false" id="drop_button">
 								Title <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" id="search_type">
-								<li id="Title"><a >Title</a></li>
-								<li id="Author"><a >Author</a></li>
-								<li id="ISBN"><a >ISBN</a></li>
-								<li id="Category"><a >Category</a></li>
+								<li id="Title"><a>Title</a></li>
+								<li id="Author"><a>Author</a></li>
+								<li id="ISBN"><a>ISBN</a></li>
+								<li id="Category"><a>Category</a></li>
 							</ul>
 						</div>
 						<div class="col-md-8 col-sm-7 col-xs-12">
@@ -84,7 +96,9 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-6 col-md-4">
-				<img src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg" alt="book_thumb.jpg"
+				<img
+					src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg"
+					alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
 				<h4 class="text-center">JAVA SPEED LEARN</h4>
@@ -92,14 +106,18 @@
 
 			</div>
 			<div class="col-xs-6 col-md-4">
-				<img src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg" alt="book_thumb.jpg"
+				<img
+					src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg"
+					alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
 				<h4 class="text-center">JAVA SPEED LEARN</h4>
 				<h5 class="text-center">Nobody</h5>
 			</div>
 			<div class="col-xs-6 col-md-4">
-				<img src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg" alt="book_thumb.jpg"
+				<img
+					src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg"
+					alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
 				<h4 class="text-center">JAVA SPEED LEARN</h4>
