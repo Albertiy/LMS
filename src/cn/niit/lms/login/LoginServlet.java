@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.niit.lms.domain.User;
+import cn.niit.lms.service.UserService;
 
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
@@ -32,8 +33,12 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
 		// 设置请求的编码格式
 		request.setCharacterEncoding("UTF-8");
+		//先摧毁Session
+		request.getSession().invalidate();
+		
 		String email = request.getParameter("email");
 		String pwd = request.getParameter("pwd");
 		User u = new User();

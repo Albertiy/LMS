@@ -1,5 +1,7 @@
-package cn.niit.lms.login;
+package cn.niit.lms.service;
 
+import cn.niit.lms.dao.UserDao;
+import cn.niit.lms.dao.impl.UserDaoImpl;
 import cn.niit.lms.domain.User;
 
 //提供Servlet调用的功能，使用Dao接口访问数据。

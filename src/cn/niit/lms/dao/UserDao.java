@@ -1,4 +1,4 @@
-package cn.niit.lms.login;
+package cn.niit.lms.dao;
 
 import cn.niit.lms.domain.User;
 
