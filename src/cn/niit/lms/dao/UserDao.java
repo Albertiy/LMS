@@ -7,7 +7,10 @@ import cn.niit.lms.domain.User;
 public interface UserDao {
 	//保存用户对象
     void save(User u);
-
-    //用Email查询用户
+    //用 Email 查询用户
     User findUserByEmail(String email);
+    //用 Uname 查询用户
+	User findUserByName(String uname);
+	//用 Phone 查询用户
+	User findUserByPhone(String phone);
 }

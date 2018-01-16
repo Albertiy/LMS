@@ -60,7 +60,7 @@ public class User {
 		this.email = email;
 	}
 
-	public boolean isGender() {
+	public boolean getGender() {
 		return gender;
 	}
 
@@ -89,4 +89,5 @@ public class User {
 		return "User{" + "uname=" + uname + ", role=" + role + ", phone=" + phone + ", email=" + email + ", pwd=" + pwd
 				+ ", gender=" + gender + ", address=" + address + ", dob=" + dob + '}';
 	}
+
 }

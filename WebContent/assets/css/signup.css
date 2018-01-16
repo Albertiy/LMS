@@ -15,7 +15,6 @@
 
 .out-contain-form {
 	min-height: 350px;
-	background-color: #eee;
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
@@ -72,4 +71,28 @@ body {
 
 .footer .container .text-muted {
 	margin: 20px 0;
+}
+
+/*登陆页面的表单的边框设计
+	!important 指定优先权
+*/
+.shadow-lg {
+    box-shadow: 0 3px 15px 0 rgba(0,0,0,0.10);
+}
+.p-03 {
+    padding: 3px;
+}
+.bg-white {
+    background-color: #FFFFFF;
+}
+.constrain {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.bg-white {
+    background-color: #fff!important;
+}
+
+.panel-border {
+    border: 1px solid #DAD5CE;
 }
