@@ -11,7 +11,13 @@ function getRadioValue(){
 			break;
 		}
 	}
-	alert(val);
+	if(val==null){
+		alert("Please check one");
+	}
+	else{
+		//跳转+传参
+		window.location.href="BorrowDetail.jsp?backurl="+window.location.href+"&uid="+val;
+	}
 }
 
 //var value = $('input:radio[name="radioname"]:checked').val();

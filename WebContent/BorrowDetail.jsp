@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
+<%@ page import = "java.sql.*" language="java"  %>
+<%  ResultSet rs = BorrowDetail.RS(request.getParameter("uid")); %>
+
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -47,7 +51,8 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<table class="table table-hover">
+					<table class="table table-hover" id="BorrowDetailTable">
+					<%int fine=0;%>
 						<thead>
 							<tr>
 								<th>ISBN</th>
@@ -57,23 +62,31 @@
 								<th>Borrow Date</th>
 								<th>Limit Date</th>
 								<th>Fine</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
+							<%while(rs.next()){ %>  
 							<tr>
-								<td>1000001</td>
-								<td>Notre-Dame Cathedral</td>
-								<td>Victor Hugo</td>
-								<td>Literature</td>
-								<td>2018-01-01</td>
-								<td>2018-04-01</td>
-								<td>0</td>
+								<td><%=rs.getString("ISBN") %></td>
+								<td><%=rs.getString("title") %></td>
+								<td><%=rs.getString("author") %></td>
+								<td><%=rs.getString("category") %></td>
+								<td><%=rs.getString("Borrow_Date") %></td>
+								<td><%=rs.getString("Limit_Date") %></td>
+								<!-- 计算总罚金fine -->
+								<%fine += rs.getInt("Fine"); %>
+								<td><%=rs.getInt("Fine") %></td>
+								<td><button class="btn btn-info btn-xs" role="button" onclick="">Return</button></td>
+								
 							</tr>
+					 		<%} %> 
+					 	<% rs.close(); System.out.println("清理成功"); %> 
 						</tbody>
 						<tfoot>
 							<tr>
 								<th> Total Fine :</th>
-								<td> 100 </td>
+								<td><%=fine %></td>
 							</tr>
 						</tfoot>
 					</table>

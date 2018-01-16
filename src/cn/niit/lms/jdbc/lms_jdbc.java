@@ -4,15 +4,15 @@ import java.sql.*;
 import java.util.*;
 
 public class lms_jdbc {
-	private final static String driver="com.mysql.jdbc.Driver";
-	private final static String url="jdbc:mysql://localhost:3306/lmsdb";
-	private	static Connection conn=null;
-	private	static Statement stmt=null;
-	private	static String sql;	
-	public static ResultSet rs; 
+	private String driver="com.mysql.jdbc.Driver";
+	private String url="jdbc:mysql://localhost:3306/lmsdb";
+	private	Connection conn=null;
+	private	Statement stmt=null;
+	private	String sql;	
+	public ResultSet rs; 
 	
 	//jdbc
-	public static boolean creatConnection(){
+	public boolean creatConnection(){
 		try{
 			Class.forName(driver); //注册JDBC驱动
 			conn=DriverManager.getConnection(url,"root","password"); //连接数据库
@@ -27,7 +27,7 @@ public class lms_jdbc {
 	}	
 	
 	//执行函数
-	public static void Query(String mysql){
+	public void Query(String mysql){
 		sql = mysql;//修改查询语句
 		try {
 			rs = stmt.executeQuery(sql);//执行
@@ -39,7 +39,7 @@ public class lms_jdbc {
 	}
 	
 	//清理函数
-	public static void sqlClose(){
+	public void sqlClose(){
 		try {
 			rs.close();
 			stmt.close();
@@ -63,9 +63,5 @@ public class lms_jdbc {
 		}
 	}
 	
-	public static void main(String[] arg){
-		boolean sta=creatConnection();
-		if(sta)
-			System.out.println("数据库连接成功");
-	}
+
 }

@@ -18,7 +18,7 @@
 <script type="text/javascript" src="/LMS/assets/js/usermanagement.js"></script>
 
 </head>
-<body><form action="BorrowDetail.jsp" method="post">
+<body><form action="BorrowDetail.jsp" method="post" id="UserManageform">
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
 		<!-- 白色导航条是 navbar-default navbar-fixed-top让导航条固定在顶部，static-top为默认-->
 		<div class="container">
@@ -109,7 +109,7 @@
 								<td><%=rs.getString("address") %></td>
 								<td><%=rs.getString("dob") %></td>
 								<td>0</td>
-								<td><input value=“<%=rs.getInt("UID") %>” type="radio" name="radioname"/></td>
+								<td><input value=<%=rs.getInt("UID") %> type="radio" name="radioname"/></td>
 								
 							</tr>
 					 	<%} %> 
@@ -125,8 +125,8 @@
 					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="BorrowDetail.jsp" class="btn btn-success " role="button" >BorrowDetail</a> 
-					<a href="#" class="btn btn-info " role="button" onclick="getRadioValue()">ClearFine</a>
+					<a class="btn btn-success " role="button" onclick="getRadioValue()">BorrowDetail</a> 
+					<a class="btn btn-info " role="button" >ClearFine</a>
 				</div>
 
 			</div>

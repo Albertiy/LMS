@@ -15,14 +15,15 @@ public class UserManage {
 	public static String dob; // 生日
 	public static boolean gender; //性别
 	public static int fine; //罚金
-	*/
+	
 	public static ResultSet rs; //创建结果集 
-
+*/
 	//展开结果集数据库
 	public static ResultSet getRS(){
-		lms_jdbc.creatConnection();
-		lms_jdbc.Query("Select * from users ");
-		return lms_jdbc.rs;
+		lms_jdbc jdbc = new lms_jdbc();
+		jdbc.creatConnection();
+		jdbc.Query("Select * from users ");
+		return jdbc.rs;
 		
 		/*
 		try {
@@ -66,10 +67,11 @@ public class UserManage {
 		}
 		*/
 	}
-
+	
+/*
 	public static void main(String[] arg){
 		getRS();
 
 	}
-	
+	*/
 }
