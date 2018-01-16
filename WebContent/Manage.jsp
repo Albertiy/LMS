@@ -63,7 +63,7 @@
 				</div>
 				<div class="col-md-4">
 						<a id="managebooks" href="BookManagement.jsp">
-						<a href="BookListServlet" class="btn btn-primary btn-lg" role="button">Manage Books</a>
+						<button type="button" class="btn btn-primary btn-lg btn-block">Manage Users</button>
 						</a>
 						<style>
 							button{
