@@ -112,6 +112,7 @@
 								<th>Amount</th>
 								<th>Remaining Amount</th>
 								<th>Price</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody id="bookrecords">
@@ -125,13 +126,13 @@
 								<td><%=rs.getInt("amounts") %></td>
 								<td><%=rs.getInt("remain_Amounts") %></td>
 								<td><%=rs.getFloat("price") %></td>
-								<td><rediobutton >   </rediobutton></td>
+								<td><input value=“<%=rs.getString("ISBN") %>” type="radio" name="radio" id="radio"/></td>
 								
 							</tr>
 					 		<%} %>
-					 		<% System.out.println("数据插入成功"); %> 
+					 		<% System.out.println("BookManagement数据插入成功"); %> 
 					 		<% rs.close(); %>
-					 		<% System.out.println("rs.close()"); %> 
+					 		<% System.out.println("BookManagementd rs.close()"); %> 
 						</tbody>
 					</table>
 				</div>

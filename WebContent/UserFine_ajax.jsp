@@ -11,9 +11,6 @@
 
 <h1 align="center">Total Fine</h1>
 <div style="font-size:80px; text-align:center;">80</div>
-<div class="col-md-12 col-xs-12" align="right">
-	<a href="#" class="btn btn-success " role="button">Pay</a>
-</div>
 
 </body>
 </html>

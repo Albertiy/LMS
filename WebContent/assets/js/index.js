@@ -14,7 +14,9 @@ $(document).ready(function () {
         item.addEventListener("click", function () {
             //不能用
             //var stype = this.text;
+        	console.log(this.id);
             var stype = this.id;
+            
             //alert(stype);
             dropButton.innerHTML=stype+" <span class='caret'></span>";
             //dropButton.value=""+stype;

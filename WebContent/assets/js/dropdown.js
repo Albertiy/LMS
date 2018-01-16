@@ -14,14 +14,21 @@ $(document).ready(function () {
         item.addEventListener("click", function () {
             //不能用
             //var stype = this.text;
-            var stype = this.id;
+            console.log(this.id);
+        	var stype = this.id;
+            
             //alert(stype);
             dropButton.innerHTML=stype+" <span class='caret'></span>";
-            document.getElementById("Category").nodeValue=stype;
+            $("#Category").val(stype);
+            var s = $("#Category").val();
+            console.log("1 "+s);
+            //var cate = document.getElementById("Category").value;
+            //Console.log("hi"+cate);
             //dropButton.value=""+stype;
             //$("#drop_button").value("GOODBOY");
             //没用
             //$("#drop_button").innerHtml("GOOD");
+            
         });
     });
 });
