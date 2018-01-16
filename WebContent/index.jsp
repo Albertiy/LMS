@@ -39,7 +39,7 @@
 				<%}else{%>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="user" href=""><strong>${sessionScope.user.getUname()}</strong></a></li>
-					<li><a id="logout" href="logout.jsp">Login Out</a></li>
+					<li><a id="logout" href="Logout">Login Out</a></li>
 				</ul>
 				<%}%>
 			</div>

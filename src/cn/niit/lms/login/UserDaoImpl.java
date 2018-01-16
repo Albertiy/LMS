@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import cn.niit.lms.domain.User;
 import cn.niit.lms.jdbc.JDBCUtils;
 
 //这是实际的数据库访问

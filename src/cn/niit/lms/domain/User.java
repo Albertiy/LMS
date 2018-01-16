@@ -1,4 +1,4 @@
-package cn.niit.lms.login;
+package cn.niit.lms.domain;
 
 //数据模型
 public class User {

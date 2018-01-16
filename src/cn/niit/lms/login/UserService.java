@@ -1,5 +1,7 @@
 package cn.niit.lms.login;
 
+import cn.niit.lms.domain.User;
+
 //提供Servlet调用的功能，使用Dao接口访问数据。
 public class UserService {
 	private UserDao udao = new UserDaoImpl();
