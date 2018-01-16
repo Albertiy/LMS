@@ -89,6 +89,7 @@
 								<th>Address</th>
 								<th>Birthday</th>
 								<th>Fine</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -103,6 +104,8 @@
 								<td><%=rs.getString("address") %></td>
 								<td><%=rs.getString("dob") %></td>
 								<td>0</td>
+								<td><rediobutton >   </rediobutton></td>
+								
 							</tr>
 					 	<%} %> 
 					 	<% rs.close(); %> 
