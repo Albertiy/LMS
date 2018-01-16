@@ -15,17 +15,17 @@ public class JDBCUtils {
 
 	static{
 		try {
-			//¶ÁÈ¡ÅäÖÃÎÄ¼ş
+			//è¯»å–é…ç½®æ–‡ä»¶
 			Properties prop  = new Properties();
-			//Ê¹ÓÃclass¶ÁÈ¡ÎÄ¼şµØÖ·
-			InputStream is = JDBCUtils.class.getResourceAsStream("db.properties");//¾Í·ÅÔÚ±¾ÎÄ¼ş¼ĞÏÂ
+			//ä½¿ç”¨classè¯»å–æ–‡ä»¶åœ°å€
+			InputStream is = JDBCUtils.class.getResourceAsStream("db.properties");//å°±æ”¾åœ¨æœ¬æ–‡ä»¶å¤¹ä¸‹
 			prop.load(is);
 			is.close();
 			driver = prop.getProperty("driver");
 			url = prop.getProperty("url");
 			user = prop.getProperty("user");
 			password = prop.getProperty("password");
-			//1 ×¢²áÇı¶¯
+			//1 æ³¨å†Œé©±åŠ¨
 			Class.forName(driver).newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -33,10 +33,10 @@ public class JDBCUtils {
 		
 	}
 
-	//1 »ñµÃÁ¬½Ó
+	//1 è·å¾—è¿æ¥
 	public static Connection getConnection(){
 		try {
-			//2 »ñµÃÁ¬½Ó
+			//2 è·å¾—è¿æ¥
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,10 +45,10 @@ public class JDBCUtils {
 		return conn;
 	}
 	
-	//2 ÊÍ·Å×ÊÔ´
-		//1> ²ÎÊı¿ÉÄÜÎª¿Õ
-		//2> µ÷ÓÃclose·½·¨ÒªÅ×³öÒì³£,È·±£¼´Ê¹³öÏÖÒì³£Ò²ÄÜ¼ÌĞø¹Ø±Õ
-		//3>¹Ø±ÕË³Ğò,ĞèÒª´ÓĞ¡µ½´ó
+		//2 é‡Šæ”¾èµ„æº
+		//1> å‚æ•°å¯èƒ½ä¸ºç©º
+		//2> è°ƒç”¨closeæ–¹æ³•è¦æŠ›å‡ºå¼‚å¸¸,ç¡®ä¿å³ä½¿å‡ºç°å¼‚å¸¸ä¹Ÿèƒ½ç»§ç»­å…³é—­
+		//3>å…³é—­é¡ºåº,éœ€è¦ä»å°åˆ°å¤§
 	public static void close(Connection conn , Statement st , ResultSet rs){
 		try {
 			if(rs!=null){
