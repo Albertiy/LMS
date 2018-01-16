@@ -4,35 +4,38 @@ import java.sql.*;
 import cn.niit.lms.jdbc.*;
 
 public class UserManage {
-	private static int UID; // 主键
-	private static String uname; //姓名
-	private static String role; //类别（student/teacher）
-	private static String phone; //手机号
-	private static String pwd; //密码
-	private static String email; //邮箱
-	private static String address; //地址
-	private static String dob; // 生日
-	private static boolean gender; //性别
-	private static int fine; //罚金
+	public static int UID; // 主键
+	public static String uname; //姓名
+	public static String role; //类别（student/teacher）
+	public static String phone; //手机号
+	public static String pwd; //密码
+	public static String email; //邮箱
+	public static String address; //地址
+	public static String dob; // 生日
+	public static boolean gender; //性别
+	public static int fine; //罚金
 	
-	private static ResultSet rs; //创建结果集
+	public static ResultSet rs; //创建结果集 
 
 	//展开结果集数据库
-	public static void Show(){
+	public static ResultSet getRS(){
 		lms_jdbc.creatConnection();
-		lms_jdbc.Query("Select * from users");
+		lms_jdbc.Query("Select * from users ");
+		return lms_jdbc.rs;
+		
+		/*
 		try {
-			while(lms_jdbc.rs.next()){
+			while(rs.next()){
 				//字段检索
-				UID = lms_jdbc.rs.getInt("UID");
-				uname = lms_jdbc.rs.getString("uname");
-				role = lms_jdbc.rs.getString("role");
-				phone = lms_jdbc.rs.getString("phone");
-				pwd = lms_jdbc.rs.getString("pwd");
-				email = lms_jdbc.rs.getString("email");
-				address = lms_jdbc.rs.getString("address");
-				dob = lms_jdbc.rs.getString("dob"); 
-				gender = lms_jdbc.rs.getBoolean("gender");
+				UID = rs.getInt("UID");
+				uname = rs.getString("uname");
+				role = rs.getString("role");
+				phone = rs.getString("phone");
+				pwd = rs.getString("pwd");
+				email = rs.getString("email");
+				address = rs.getString("address");
+				dob = rs.getString("dob"); 
+				gender =rs.getBoolean("gender");
 				
 				//输出数据
 				System.out.println("UID:" + UID);
@@ -60,9 +63,12 @@ public class UserManage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
+	}
+
+	public static void main(String[] arg){
+		getRS();
+
 	}
 	
-	public static void main(String[] arg){
-		Show();
-	}
 }

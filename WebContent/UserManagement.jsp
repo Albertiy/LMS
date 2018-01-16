@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import = "cn.niit.lms.manage.UserManage" language="java" %>
+<%@ page import = "java.sql.*" language="java"  %>
+<%  ResultSet rs = UserManage.getRS(); %>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -89,17 +92,20 @@
 							</tr>
 						</thead>
 						<tbody>
+						<%while(rs.next()){ %>  
 							<tr>
-								<td>GutPig</td>
-								<td>男</td>
-								<td>102302</td>
-								<td>Student</td>
-								<td>18306299969</td>
-								<td>245405027@qq.com</td>
-								<td>江苏省南通大学</td>
-								<td>1995-07-16</td>
+								<td><%=rs.getString("uname") %></td>
+								<td><%=rs.getString("gender") %></td>
+								<td><%=rs.getString("pwd") %></td>
+								<td><%=rs.getString("role") %></td>
+								<td><%=rs.getString("phone") %></td>
+								<td><%=rs.getString("email") %></td>
+								<td><%=rs.getString("address") %></td>
+								<td><%=rs.getString("dob") %></td>
 								<td>0</td>
 							</tr>
+					 	<%} %> 
+					 	<% rs.close(); %> 
 						</tbody>
 					</table>
 				</div>
