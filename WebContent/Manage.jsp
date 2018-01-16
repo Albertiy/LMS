@@ -63,11 +63,7 @@
 				</div>
 				<div class="col-md-4">
 						<a id="managebooks" href="BookManagement.jsp">
-<<<<<<< HEAD
-						<button type="button" class="btn btn-primary btn-lg btn-block">Manage Books</button>
-=======
 						<button type="button" class="btn btn-primary btn-lg btn-block">Manage Users</button>
->>>>>>> branch 'master' of https://github.com/Albertiy/LMS.git
 						</a>
 						<style>
 							button{
