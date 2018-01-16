@@ -4,6 +4,7 @@ import java.sql.*;
 import cn.niit.lms.jdbc.*;
 
 public class UserManage {
+	/*
 	public static int UID; // 主键
 	public static String uname; //姓名
 	public static String role; //类别（student/teacher）
@@ -14,7 +15,7 @@ public class UserManage {
 	public static String dob; // 生日
 	public static boolean gender; //性别
 	public static int fine; //罚金
-	
+	*/
 	public static ResultSet rs; //创建结果集 
 
 	//展开结果集数据库

@@ -12,8 +12,13 @@
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
+<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/assets/js/index.js"></script>
+<script type="text/javascript" src="/LMS/assets/js/usermanagement.js"></script>
+
 </head>
-<body>
+<body><form action="BorrowDetail.jsp" method="post">
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
 		<!-- 白色导航条是 navbar-default navbar-fixed-top让导航条固定在顶部，static-top为默认-->
 		<div class="container">
@@ -104,11 +109,12 @@
 								<td><%=rs.getString("address") %></td>
 								<td><%=rs.getString("dob") %></td>
 								<td>0</td>
-								<td><rediobutton >   </rediobutton></td>
+								<td><input value=“<%=rs.getInt("UID") %>” type="radio" name="radioname"/></td>
 								
 							</tr>
 					 	<%} %> 
-					 	<% rs.close(); %> 
+					 	
+					 	<% rs.close(); System.out.println("清理成功"); %> 
 						</tbody>
 					</table>
 				</div>
@@ -119,14 +125,15 @@
 					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="BorrowDetail.jsp" class="btn btn-success " role="button">BorrowDetail</a> 
-					<a href="#" class="btn btn-info " role="button">ClearFine</a>
+					<a href="BorrowDetail.jsp" class="btn btn-success " role="button" >BorrowDetail</a> 
+					<a href="#" class="btn btn-info " role="button" onclick="getRadioValue()">ClearFine</a>
 				</div>
 
 			</div>
 
 		</div>
 	</div>
+	</form>
 </body>
 <h1>&nbsp;</h1>
 <footer class="footer">
@@ -137,7 +144,5 @@
 		</p>
 	</div>
 </footer>
-<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
-<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/LMS/assets/js/index.js"></script>
+
 </html>
