@@ -14,6 +14,48 @@
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 <script src="/LMS/assets/js/index.js"></script>
+
+<script type="text/javascript">
+	$("#divTable").ready(function () {
+		var tbody = document.getElementById("records");
+		//获得所有商品的数组
+		var ListArray = Request.getAttribute("bookList");
+		//遍历数组,将商品添加到页面中的列表中
+		for (var i = 0; i < ListArray.length; ) {
+			//创建tr对象
+			var tr = document.createElement("tr");
+			//取出一个商品
+			var record1 = ListArray[i++];
+			//创建td对象
+			var td = document.createElement("td");
+			td.innerHTML = record1["ISBN"];
+			//将td添加到tr中
+			tr.appendChild(td);
+			var td = document.createElement("td");
+			td.innerHTML = record1["Title"];
+			tr.appendChild(td);
+			var td = document.createElement("td");
+			td.innerHTML = record1["Author"];
+			tr.appendChild(td);
+			var td = document.createElement("td");
+			td.innerHTML = record1["Category"];
+			tr.appendChild(td);
+			var td = document.createElement("td");
+			td.innerHTML = record1["Amount"];
+			tr.appendChild(td);
+			var td = document.createElement("td");
+			td.innerHTML = record1["Remain_Amount"];
+			tr.appendChild(td);
+			tr.appendChild(td);
+			var td = document.createElement("td");
+			td.innerHTML = record1["Price"];
+			tr.appendChild(td);
+			//tr添加到表格中
+			tbody.appendChild(tr);
+		}
+	});
+</script>
+
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -78,43 +120,39 @@
 					<h1>&nbsp;</h1>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>ISBN</th>
-								<th>Title</th>
-								<th>Author</th>
-								<th>Amount</th>
-								<th>Remaining Amount</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>123456</td>
-								<td>Java</td>
-								<td>Damon</td>
-								<td>100</td>
-								<td>55</td>
-								<td>26.5</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+			<div class="col-md-12">
+				<table class="table table-hover" id="booktable">
+					<thead>
+						<tr>
+							<th>ISBN</th>
+							<th>Title</th>
+							<th>Author</th>
+							<th>Category</th>
+							<th>Amount</th>
+							<th>Remaining Amount</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody id="bookrecords">
+						<tr>
+							<td>123456</td>
+							<td>Java</td>
+							<td>Damon</td>
+							<td>Science</td>
+							<td>100</td>
+							<td>55</td>
+							<td>26.5</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-			<div class="row">
-
-				<div class="col-md-3 col-xs-3">
-					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
-				</div>
-				<div class="col-md-9 col-xs-9" align="right">
-					<a href="AddBook.jsp" class="btn btn-success " role="button">ADD</a> <a
-						href="EditBook.jsp" class="btn btn-info " role="button">Edit</a>
-					<button type="button" class="btn btn-danger">Delete</button>
-				</div>
-
+			<div class="col-md-3 col-xs-3">
+				<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
+			</div>
+			<div class="col-md-9 col-xs-9" align="right">
+				<a href="AddBook.jsp" class="btn btn-success " role="button">ADD</a>
+				<a href="EditBook.jsp" class="btn btn-info " role="button">Edit</a>
+				<button type="button" class="btn btn-danger">Delete</button>
 			</div>
 
 		</div>
