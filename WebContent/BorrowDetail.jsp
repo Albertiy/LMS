@@ -13,6 +13,11 @@
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
+<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/assets/js/index.js"></script>
+<script type="text/javascript" src="/LMS/assets/js/BorrowDetail.js"></script>
+
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -77,7 +82,7 @@
 								<!-- 计算总罚金fine -->
 								<%fine += rs.getInt("Fine"); %>
 								<td><%=rs.getInt("Fine") %></td>
-								<td><button class="btn btn-info btn-xs" role="button" onclick="">Return</button></td>
+								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" onclick="BookReturn()">Return</button></td>
 								
 							</tr>
 					 		<%} %> 
@@ -87,6 +92,7 @@
 							<tr>
 								<th> Total Fine :</th>
 								<td><%=fine %></td>
+								<%BorrowDetail.setfine(fine); %>
 							</tr>
 						</tfoot>
 					</table>
