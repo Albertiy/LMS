@@ -10,6 +10,10 @@
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
+
+<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -45,7 +49,7 @@
 			
 			<h1 style="text-align: center">Edit Book</h1>
 			<div style="padding: 20px 100px 10px;">
-				<form class="bs-example bs-example-form" role="form">
+				<form class="bs-example bs-example-form" role="form" action="AddBookServlet">
 				<!-- 书籍的具体信息根据要编辑的ISBN号从数据库检索 -->
 					<dl class="form-group">
 						<dt class="input-label">
@@ -131,7 +135,7 @@
 
 				<div class="row">
 					<div class="col-md-3 col-xs-3">
-						<a href="BookManagement.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
+						<a href="BookManagement.jsp" class="btn btn-primary" role="button">Back</a>
 					</div>
 					<div class="col-md-9 col-xs-9" align="right">
 						<a href="#" class="btn btn-success " role="button">Confirm</a>
@@ -149,6 +153,5 @@
 		</p>
 	</div>
 </footer>
-<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
-<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+
 </html>

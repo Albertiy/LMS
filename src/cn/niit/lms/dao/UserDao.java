@@ -1,4 +1,7 @@
-package cn.niit.lms.login;
+
+package cn.niit.lms.dao;
+
+import cn.niit.lms.domain.User;
 
 //数据接口
 public interface UserDao {

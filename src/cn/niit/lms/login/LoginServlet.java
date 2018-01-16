@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.niit.lms.domain.User;
+import cn.niit.lms.service.UserService;
+
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
 		// 设置请求的编码格式
 		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
@@ -46,11 +50,14 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("warn", true);
 			rs.include(request, response);
 		}
+		if(!user.equals(null)){
 		// 登陆成功，保存到session并跳转
 		request.getSession().setAttribute("user", user);
 		response.sendRedirect(request.getContextPath()+"/index.jsp");
-		//RequestDispatcher rs;
-		//rs = request.getRequestDispatcher("testfile.jsp");
-		//rs.forward(request, response);
+		}else{//为防意外，再来一次
+			RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
+			request.setAttribute("warn", true);
+			rs.include(request, response);
+		}
 	}
 }

@@ -17,6 +17,7 @@ $(document).ready(function () {
             var stype = this.id;
             //alert(stype);
             dropButton.innerHTML=stype+" <span class='caret'></span>";
+            document.getElementById("Category").nodeValue=stype;
             //dropButton.value=""+stype;
             //$("#drop_button").value("GOODBOY");
             //没用
