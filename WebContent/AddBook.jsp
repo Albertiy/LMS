@@ -10,6 +10,11 @@
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
+
+<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/assets/js/index.js"></script>
+
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -45,7 +50,7 @@
 			
 			<h1 style="text-align: center">Add Book</h1>
 			<div style="padding: 20px 100px 10px;">
-				<form class="bs-example bs-example-form" role="form">
+				<form class="bs-example bs-example-form" role="form" action="">
 				
 					<dl class="form-group">
 						<dt class="input-label">
@@ -93,12 +98,13 @@
 								aria-expanded="false" id="drop_button">
 								Science <span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu" id="dropdown_menu">
 								<li id="Science"><a href="#">Science</a></li>
 								<li id="Math"><a href="#">Math</a></li>
 								<li id="Art"><a href="#">Art</a></li>								
 								<li id="Ohters"><a href="#">Others</a></li>
 							</ul>
+							<input type="text" name="Category" id="Category" hidden>
 						</dd>
 					</dl>
 					<br>
@@ -128,10 +134,10 @@
 			<div class="row">
 
 				<div class="col-md-3 col-xs-3">
-					<a href="BookManagement.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
+					<a href="BookManagement.jsp" class="btn btn-primary" role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="#" class="btn btn-success " role="button">ADD</a>
+					<button class="btn btn-success" type="submit">Add</button>
 				</div>
 
 			</div>
@@ -147,7 +153,5 @@
 		</p>
 	</div>
 </footer>
-<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
-<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
-<script src="/LMS/assets/js/index.js"></script>
+
 </html>

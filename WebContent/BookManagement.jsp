@@ -136,7 +136,7 @@
 					</table>
 				</div>
 				<div class="col-md-3 col-xs-3">
-					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
+					<a href="Manage.jsp" class="btn btn-primary " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
 					<a href="AddBook.jsp" class="btn btn-success " role="button">ADD</a>
