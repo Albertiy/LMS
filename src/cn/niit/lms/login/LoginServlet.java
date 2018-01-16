@@ -36,9 +36,6 @@ public class LoginServlet extends HttpServlet {
 
 		// 设置请求的编码格式
 		request.setCharacterEncoding("UTF-8");
-		//先摧毁Session
-		request.getSession().invalidate();
-		
 		String email = request.getParameter("email");
 		String pwd = request.getParameter("pwd");
 		User u = new User();
@@ -53,11 +50,14 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("warn", true);
 			rs.include(request, response);
 		}
+		if(!user.equals(null)){
 		// 登陆成功，保存到session并跳转
 		request.getSession().setAttribute("user", user);
 		response.sendRedirect(request.getContextPath()+"/index.jsp");
-		//RequestDispatcher rs;
-		//rs = request.getRequestDispatcher("testfile.jsp");
-		//rs.forward(request, response);
+		}else{//为防意外，再来一次
+			RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
+			request.setAttribute("warn", true);
+			rs.include(request, response);
+		}
 	}
 }
