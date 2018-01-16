@@ -16,13 +16,13 @@ public class lms_jdbc {
 			return true;
 		}
 		catch(Exception e){
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü"+e.toString());
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥"+e.toString());
 			return false;
 		}
 	}
 	public static void main(String[] arg){
 		boolean sta=creatConnection();
 		if(sta)
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ");
 	}
 }

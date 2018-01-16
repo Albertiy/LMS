@@ -29,7 +29,7 @@ public class Validate {
 			return false;
 		}
 		try {
-			rs = pstmt.executeQuery();//Õâ¸ö·µ»Ø¼¯
+			rs = pstmt.executeQuery();//è¿™ä¸ªè¿”å›žé›†
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
