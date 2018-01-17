@@ -3,6 +3,7 @@ package cn.niit.lms.bookmanage;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -67,6 +68,7 @@ public class AddBookServlet extends HttpServlet {
 		int Times=0;
 		//File Cover= new File(request.getParameter("Cover"));
         //System.out.println("This AddBookServlet  Category: "+Category);
+		ResultSet rs = null;
 		Connection conn = null;  
         PreparedStatement pstmt = null;
         //FileInputStream fis;
@@ -97,48 +99,63 @@ public class AddBookServlet extends HttpServlet {
         try {
         	conn = JDBCUtils.getConnection();
         	System.out.println("Connection Successfully!");
-        	String sql="insert into isbn_books values(?,?,?,?,?,?,?,?,?,?)";
+        	
+        	String sql=null;
+        	  	
+        	/*        	 
+        	 * check ISBN
+        	 * 
+        	*/
+        	sql="select * from isbn_books where ISBN = "+ISBN;
         	pstmt=conn.prepareStatement(sql);
-        	
-        	pstmt.setString(1, ISBN);
-        	pstmt.setString(2, Title);
-        	pstmt.setString(3, Author);
-        	pstmt.setString(4, Category);
-        	pstmt.setString(5, fmt.format(System.currentTimeMillis())); //传入系统当前时间 
-        	pstmt.setFloat(6, Price);
-        	pstmt.setInt(7, Amount);
-        	pstmt.setInt(8, Remain_Amount);
-        	pstmt.setInt(9, Times);
-        	pstmt.setString(10, null);
-        	
-        	
-        	//fis = new FileInputStream(Cover);
-        	//pstmt.setBinaryStream(6, fis);
-        	
-        	int s = pstmt.executeUpdate();
-        	if(s>0){
-        		System.out.println("Add Book");
-        		System.out.println("successfully !");
-        	}else {
-    			System.out.println("unsucessfull.");
-    		}
-        	while(Amount>0){
-        		sql="insert into books values(null,?,0)";
-            	pstmt=conn.prepareStatement(sql);
-            	pstmt.setString(1, ISBN);
-            	int m = pstmt.executeUpdate();
-        		Amount--;
-        	}
-        	conn.close();
-        	pstmt.close();        		
+        	rs=pstmt.executeQuery();
+        	if(!rs.next()){
+        		System.out.println("通过if判断  addbook");
+				sql = "insert into isbn_books values(?,?,?,?,?,?,?,?,?,?)";
+				pstmt = conn.prepareStatement(sql);
+
+				pstmt.setString(1, ISBN);
+				pstmt.setString(2, Title);
+				pstmt.setString(3, Author);
+				pstmt.setString(4, Category);
+				pstmt.setString(5, fmt.format(System.currentTimeMillis())); // 传入系统当前时间
+				pstmt.setFloat(6, Price);
+				pstmt.setInt(7, Amount);
+				pstmt.setInt(8, Remain_Amount);
+				pstmt.setInt(9, Times);
+				pstmt.setString(10, null);
+
+				// fis = new FileInputStream(Cover);
+				// pstmt.setBinaryStream(6, fis);
+
+				int s = pstmt.executeUpdate();
+				if (s > 0) {
+					System.out.println("Add Book");
+					System.out.println("successfully !");
+				} else {
+					System.out.println("unsucessfull.");
+				}
+				while (Amount > 0) {
+					sql = "insert into books values(null,?,0)";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, ISBN);
+					int m = pstmt.executeUpdate();
+					Amount--;
+				}
+				conn.close();
+				pstmt.close();
+				request.setAttribute("message", "done");
+		        request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
+			}else{
+				request.setAttribute("message", "existed");
+				request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
+			}
 		} catch (Exception e) {
 			request.setAttribute("message", "not done");
 			request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
 			System.out.println("Error in connection : " + e);
-			System.out.println("Error!" + e);
-		}
-        request.setAttribute("message", "done");
-        request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
+			System.out.println("Error!" + e); 
+		}      
         //request.getRequestDispatcher("/AddBook.jsp?message='done'").forward(request, response);
         
 	}

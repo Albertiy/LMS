@@ -29,11 +29,15 @@
 				<% String message=(String)request.getAttribute("message");
 					if(message=="done"){
 				%>
-					alert("Book has been added");
+					alert("Book has been added!");
+				<%
+					}else if(message=="existed"){
+				%>
+					alert("ISBN of this Book is exist!");
 				<% 
 					}else if(message=="not done"){
 				%>
-					alert("Error");
+					alert("Add failed");
 				<%	};
 				%>
 				/*var myurl = GetQueryString("message");
