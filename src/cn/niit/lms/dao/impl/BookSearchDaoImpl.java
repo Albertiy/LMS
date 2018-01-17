@@ -25,8 +25,9 @@ public class BookSearchDaoImpl implements BookSearchDao {
 			stmt = conn.createStatement();
 			// 5.执行 SQL
 			ResultSet rs = stmt.executeQuery(sql);
-			Book book = new Book();
 			while (rs.next()) {
+				//不能写在外面
+				Book book = new Book();
 				book.setISBN(rs.getString("ISBN"));
 				book.setTitle(rs.getString("title"));
 				book.setAuthor(rs.getString("author"));

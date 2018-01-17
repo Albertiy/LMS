@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList" language="java"%>
+<%@page import="cn.niit.lms.domain.Book" language="java"%>
+
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -60,10 +63,12 @@
 						</div>
 						<div class="col-md-8 col-sm-7 col-xs-12">
 							<input type="text" id="search_type1" hidden value="Title">
-							<input type="text" id="search_info" class="form-control" aria-label="..." maxlength="50" title="最大长度不要超过50字符">
+							<input type="text" id="search_info" class="form-control"
+								aria-label="..." maxlength="50" title="最大长度不要超过50字符">
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-12">
-							<button type="button" class="btn btn-default btn-block sbutton" onclick="goSearch()">Search</button>
+							<button type="button" class="btn btn-default btn-block sbutton"
+								onclick="goSearch()">Search</button>
 						</div>
 					</div>
 					<h1>&nbsp;</h1>
@@ -71,28 +76,41 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+					<%
+                                ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookList");
+                                if (bookList != null && !bookList.isEmpty()) {%>
 					<table class="table table-hover">
 						<thead>
 							<tr>
 								<th>ISBN</th>
 								<th>Title</th>
 								<th>Author</th>
+								<th>Category</th>
 								<th>Amount</th>
 								<th>Remaining Amount</th>
 								<th>Price</th>
 							</tr>
 						</thead>
 						<tbody>
+							<% for (Book b : bookList) {
+							%>
 							<tr>
-								<td>123456</td>
-								<td>Java</td>
-								<td>Damon</td>
-								<td>100</td>
-								<td>55</td>
-								<td>26.5</td>
+								<td><%=b.getISBN()%></td>
+								<td><%=b.getTitle()%></td>
+								<td><%=b.getAuthor()%></td>
+								<td><%=b.getCategory()%></td>
+								<td><%=b.getAmount()%></td>
+								<td><%=b.getRemain_Amount()%></td>
+								<td><%=b.getPrice()%></td>
+								<td><input value=<%=b.getISBN()%> type="radio"
+									name="radioname" /></td>
 							</tr>
+							<% } %>
 						</tbody>
 					</table>
+					<% } else { %>
+					<h1 style="width:100%; text-align:center; color:red">No result!</h1>
+					<% } %>
 				</div>
 			</div>
 			<div class="row">
@@ -100,7 +118,7 @@
 					<a href="#" class="btn btn-primary btn-lg active" role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a href="#" class="btn btn-info active" role="button">Borrow</a>
+					<a class="btn btn-info active" role="button" onclick="getRadioValue()">Borrow</a>
 				</div>
 			</div>
 		</div>
@@ -117,4 +135,5 @@
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 <script src="/LMS/assets/js/index.js"></script>
+<script src="/LMS/assets/js/search.js"></script>
 </html>

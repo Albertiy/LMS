@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.niit.lms.domain.Book;
 import cn.niit.lms.service.BookService;
-import cn.niit.lms.service.UserService;
 
 @WebServlet("/Search")
 public class SearchServlet extends HttpServlet {
@@ -47,7 +46,7 @@ public class SearchServlet extends HttpServlet {
 			rs.include(request, response);
 		} else {
 			//System.out.println("Ready for search in MySQL");
-			ArrayList bookList = null;
+			ArrayList<Book> bookList = null;
 			try {
 				bookList = bservice.bookSearch(stype, sinfo);
 			} catch (Exception e) {
@@ -60,7 +59,10 @@ public class SearchServlet extends HttpServlet {
 				//System.out.println("Here is result: "+((Book)bookList.get(0)).getTitle());
 				System.out.println("Search result: "+bookList);
 				request.setAttribute("bookList", bookList);
-				response.sendRedirect(request.getContextPath() + "/search.jsp");
+				//这种重定向不传值
+				//response.sendRedirect(request.getContextPath() + "/search.jsp");
+				//这种就传值
+				request.getRequestDispatcher("search.jsp").forward(request, response);
 			} else {// 为防意外，再来一次
 				RequestDispatcher rs = request.getRequestDispatcher("search.jsp");
 				rs.include(request, response);
