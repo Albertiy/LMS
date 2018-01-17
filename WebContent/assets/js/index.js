@@ -25,4 +25,8 @@ $(document).ready(function () {
             //$("#drop_button").innerHtml("GOOD");
         });
     });
+
 });
+function goSearch(){
+    alert("Search");
+}
