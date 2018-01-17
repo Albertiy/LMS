@@ -17,6 +17,7 @@
 		<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 		<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 		<script src="/LMS/assets/js/index.js"></script>
+		<script src="/LMS/assets/js/BookManagement.js"></script>
 
 	</head>
 
@@ -142,7 +143,7 @@
 				<div class="col-md-9 col-xs-9" align="right">
 					<a href="AddBook.jsp" class="btn btn-success " role="button">ADD</a>
 					<a href="EditBook.jsp" class="btn btn-info " role="button">Edit</a>
-					<button type="button" class="btn btn-danger">Delete</button>
+					<button type="button" class="btn btn-danger" id="" onclick="getRadioValue()">Delete</button>
 				</div>
 
 			</div>

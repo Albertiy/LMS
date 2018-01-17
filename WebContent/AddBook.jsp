@@ -103,7 +103,8 @@
 
 				<h1 style="text-align: center">Add Book</h1>
 				<div style="padding: 20px 100px 10px;">
-					<form class="bs-example bs-example-form" id="form-addbook" role="form" action="AddBookServlet" method="post">
+					<form class="bs-example bs-example-form" id="form-addbook" role="form" 
+						action="AddBookServlet" method="post">
 
 						<dl class="form-group">
 							<dt class="input-label">
