@@ -50,7 +50,7 @@ public class AddBookServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String ISBN = request.getParameter("ISBN");
+		/*String ISBN = request.getParameter("ISBN");
 		String Title = request.getParameter("Title");
 		String Author = request.getParameter("Author");
 		String Category = request.getParameter("Category");
@@ -61,7 +61,7 @@ public class AddBookServlet extends HttpServlet {
 		Connection conn = null;  
         PreparedStatement pstmt = null;
         FileInputStream fis;
-        System.out.println("This AddBookServlet  Category: "+Category);
+        System.out.println("This AddBookServlet  Category: "+Category);*/
         
         try {        	
         	DiskFileItemFactory factory=new DiskFileItemFactory();
@@ -85,13 +85,13 @@ public class AddBookServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			System.out.println("Error in ServletFileUpload" + e1);
 		}
-        /*
-        try {
+        
+        /*try {
         	conn = JDBCUtils.getConnection();
         	System.out.println("Connection Successfully!");
         	String sql="insert into isbn_books(ISBN,title,author,category,price,cover) values(?,?,?,?,?,?)";
         	pstmt=conn.prepareStatement(sql);
-        	/*
+        	
         	ps.setString(1, ISBN);
         	ps.setString(2, Title);
         	ps.setString(3, Author);
