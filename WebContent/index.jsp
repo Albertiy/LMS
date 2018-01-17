@@ -79,7 +79,7 @@
 							<input type="text" class="form-control" aria-label="...">
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-12">
-							<button type="button" class="btn btn-default btn-block sbutton">Search</button>
+							<button type="button" class="btn btn-default btn-block sbutton" onclick="goSearch()">Search</button>
 						</div>
 					</div>
 					<h1>&nbsp;</h1>
