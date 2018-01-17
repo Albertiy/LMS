@@ -80,7 +80,6 @@
 					<h1>&nbsp;</h1>
 				</div>
 			</div>
-		<form action="UserManageServlet" method="post">
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table table-hover">
@@ -129,7 +128,6 @@
 					<a class="btn btn-info " role="button" >ClearFine</a>
 				</div>
 			</div>
-			</form>
 		</div>
 	</div>
 </body>

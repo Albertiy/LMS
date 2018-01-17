@@ -31,8 +31,8 @@ public class BookReturnServlet extends HttpServlet {
 		String bid = request.getParameter("bid");
 		System.out.println(bid);
 		//连接数据库
-		lms_jdbc jdbc = new lms_jdbc();
-		jdbc.creatConnection();
+		//lms_jdbc jdbc = new lms_jdbc();
+		//jdbc.creatConnection();
 		//执行删除语句
 		//jdbc.Query("delete from borrowed_books where BID="+bid);
 		//jdbc.Query("update books set UID = 0 where BID="+bid);
