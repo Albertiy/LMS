@@ -82,7 +82,8 @@
 								<!-- 计算总罚金fine -->
 								<%fine += rs.getInt("Fine"); %>
 								<td><%=rs.getInt("Fine") %></td>
-								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" onclick="BookReturn()">Return</button></td>
+								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
+								onclick="BookReturn(this.value)">Return</button></td>
 								
 							</tr>
 					 		<%} %> 

@@ -1,23 +1,27 @@
 package cn.niit.lms.manage;
 
 import java.io.IOException;
+import java.io.Writer;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import cn.niit.lms.jdbc.lms_jdbc;
+
+import com.oracle.jrockit.jfr.RequestableEvent;
+
 /**
- * Servlet implementation class BookReturnServlet
+ * Servlet implementation class UserManageServlet
  */
-@WebServlet("/BookReturnServlet")
-public class BookReturnServlet extends HttpServlet {
+@WebServlet("/UserManageServlet")
+public class UserManageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BookReturnServlet() {
+    public UserManageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,16 +31,7 @@ public class BookReturnServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setCharacterEncoding("GBK");
-		String bid = request.getParameter("bid");
-		System.out.println(bid);
-		//Á¬½ÓÊý¾Ý¿â
-		lms_jdbc jdbc = new lms_jdbc();
-		jdbc.creatConnection();
-		//Ö´ÐÐÉ¾³ýÓï¾ä
-		//jdbc.Query("delete from borrowed_books where BID="+bid);
-		//jdbc.Query("update books set UID = 0 where BID="+bid);
-		//response.getWriter().write("Servlet²âÊÔ");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -44,7 +39,17 @@ public class BookReturnServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("YTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		String uids = request.getParameter("radioname");
+		
+		response.setHeader("Conten-Type", "text/html; charset=UTF-8");
+		Writer out = response.getWriter();
+		out.write(uids);
+		out.flush();
+		out.close();
+		
 	}
 
 }

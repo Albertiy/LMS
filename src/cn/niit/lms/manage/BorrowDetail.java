@@ -11,7 +11,7 @@ public class BorrowDetail {
 	}
 	public static ResultSet RS(String id){
 		String uid = id;
-		lms_jdbc  jdbc = new lms_jdbc();
+		lms_jdbc jdbc = new lms_jdbc();
 		jdbc.creatConnection();
 		//�������ϲ�ѯ
 		jdbc.Query("Select books.BID, books.ISBN, title, author, category, Borrow_Date, Limit_Date, Fine "

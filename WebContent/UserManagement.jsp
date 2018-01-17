@@ -18,7 +18,7 @@
 <script type="text/javascript" src="/LMS/assets/js/usermanagement.js"></script>
 
 </head>
-<body><form action="BorrowDetail.jsp" method="post" id="UserManageform">
+<body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
 		<!-- 白色导航条是 navbar-default navbar-fixed-top让导航条固定在顶部，static-top为默认-->
 		<div class="container">
@@ -80,6 +80,7 @@
 					<h1>&nbsp;</h1>
 				</div>
 			</div>
+		<form action="UserManageServlet" method="post">
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table table-hover">
@@ -120,7 +121,6 @@
 				</div>
 			</div>
 			<div class="row">
-
 				<div class="col-md-3 col-xs-3">
 					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
 				</div>
@@ -128,12 +128,10 @@
 					<a class="btn btn-success " role="button" onclick="getRadioValue()">BorrowDetail</a> 
 					<a class="btn btn-info " role="button" >ClearFine</a>
 				</div>
-
 			</div>
-
+			</form>
 		</div>
 	</div>
-	</form>
 </body>
 <h1>&nbsp;</h1>
 <footer class="footer">
