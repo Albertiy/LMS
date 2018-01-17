@@ -14,9 +14,9 @@ public class BookService {
 	public ArrayList<Book> bookSearch(String stype, String sinfo){
 		
 		ArrayList<Book> bookList = bdao.searchBook(stype, sinfo);
-		if(bookList.equals(null))
+		if(bookList.equals(null)||bookList.isEmpty())
 		{
-			throw new RuntimeException("查询结果为空�?");
+			throw new RuntimeException("查询结果为空�?");
 		}
 		return bookList;
 	}

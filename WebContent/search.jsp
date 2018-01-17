@@ -44,25 +44,26 @@
 					<h1>&nbsp;</h1>
 					<h1>&nbsp;</h1>
 					<div class="row search-group">
-						<div class="col-md-2 col-xs-12">
+						<div class="col-md-2 col-sm-2 col-xs-12">
 							<button type="button"
 								class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" id="dropdownMenu1">
+								aria-expanded="false" id="drop_button">
 								Title <span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Title</a></li>
-								<li><a href="#">Author</a></li>
-								<li><a href="#">ISBN</a></li>
-								<li><a href="#">Category</a></li>
+							<ul class="dropdown-menu" id="search_type">
+								<li id="Title"><a>Title</a></li>
+								<li id="Author"><a>Author</a></li>
+								<li id="ISBN"><a>ISBN</a></li>
+								<li id="Category"><a>Category</a></li>
 							</ul>
 						</div>
-						<div class="col-md-8 col-xs-12">
-							<input type="text" class="form-control" aria-label="...">
+						<div class="col-md-8 col-sm-7 col-xs-12">
+							<input type="text" id="search_type1" hidden value="Title">
+							<input type="text" id="search_info" class="form-control" aria-label="..." maxlength="50" title="最大长度不要超过50字符">
 						</div>
-						<div class="col-md-2 col-xs-12">
-							<button type="button" class="btn btn-default btn-block sbutton">Search</button>
+						<div class="col-md-2 col-sm-2 col-xs-12">
+							<button type="button" class="btn btn-default btn-block sbutton" onclick="goSearch()">Search</button>
 						</div>
 					</div>
 					<h1>&nbsp;</h1>
@@ -115,4 +116,5 @@
 </footer>
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/assets/js/index.js"></script>
 </html>

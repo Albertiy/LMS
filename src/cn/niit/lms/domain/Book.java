@@ -72,7 +72,8 @@ public class Book {
     
     @Override
     public String toString(){
-    	return "I am Damon";
+    	return "Book{" + "ISBN=" + ISBN + ", Title=" + Title + ", Author=" + Author + ", Category=" + Category + ", Amount=" + Amount
+				+ ", Remain_Amount=" + Remain_Amount + ", Price=" + Price + '}';
     	
     }
 }
