@@ -18,6 +18,9 @@ public class Book {
 		this.Remain_Amount=Remain_Amount;
 		this.Price=Price;		
 	}
+	public Book() {
+		
+	}
 	public String getISBN() {
         return ISBN;
     }
