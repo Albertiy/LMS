@@ -16,7 +16,7 @@ function getRadioValue(){
 	}
 	else{
 		//跳转+传参
-		document.location.href="BorrowDetail.jsp?&uid="+val;
+		window.location.href="BorrowDetail.jsp?backurl="+window.location.href+"&uid="+val;
 	}
 }
 

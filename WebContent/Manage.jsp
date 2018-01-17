@@ -27,9 +27,9 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a id="home" href="home.jsp">Home</a></li>
-					<li><a id="about" href="about.jsp">***</a></li>
-					<li><a id="contact" href="contact.jsp">***</a></li>
+					<li><a id="home" href="index.jsp">Home</a></li>
+					<li><a id="about" href="#">***</a></li>
+					<li><a id="contact" href="#">***</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a>librarian</a></li>
