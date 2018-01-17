@@ -76,7 +76,8 @@
 							</ul>
 						</div>
 						<div class="col-md-8 col-sm-7 col-xs-12">
-							<input type="text" class="form-control" aria-label="...">
+							<input type="text" id="search_type1" hidden value="Title">
+							<input type="text" id="search_info" class="form-control" aria-label="..." maxlength="50" title="最大长度不要超过50字符">
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-12">
 							<button type="button" class="btn btn-default btn-block sbutton" onclick="goSearch()">Search</button>

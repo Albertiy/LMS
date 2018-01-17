@@ -27,7 +27,13 @@ public class SearchServlet extends HttpServlet {
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
-	        response.setContentType("text/html;charset=UTF-8");
+			request.setCharacterEncoding("UTF-8");
+			String stype = request.getParameter("stype").toString();
+			String sinfo = request.getParameter("sinfo").toString();
+			//检查语句：正常
+	        //response.setContentType("text/html;charset=UTF-8");
+	        //response.getWriter().append("Search Type: "+stype+"; Search Info: "+sinfo);
+			
 	        
 	    }
 }
