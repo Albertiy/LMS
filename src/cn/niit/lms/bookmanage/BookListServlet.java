@@ -2,7 +2,7 @@ package cn.niit.lms.bookmanage;
 
 import java.io.IOException;
 import cn.niit.lms.domain.*;
-import cn.niit.lms.jdbc.JDBCUtils;
+import cn.niit.lms.jdbc.*;
 
 import java.sql.*;
 import java.util.*;

@@ -120,12 +120,12 @@
 							<%while(rs.next()){ %>  
 							<tr>
 								<td><%=rs.getString("ISBN") %></td>
-								<td><%=rs.getString("title") %></td>
-								<td><%=rs.getString("author") %></td>
-								<td><%=rs.getString("category") %></td>
-								<td><%=rs.getInt("amounts") %></td>
-								<td><%=rs.getInt("remain_Amounts") %></td>
-								<td><%=rs.getFloat("price") %></td>
+								<td><%=rs.getString("Title") %></td>
+								<td><%=rs.getString("Author") %></td>
+								<td><%=rs.getString("Category") %></td>
+								<td><%=rs.getInt("Amount") %></td>
+								<td><%=rs.getInt("Remain_Amount") %></td>
+								<td><%=rs.getFloat("Price") %></td>
 								<td><input value=“<%=rs.getString("ISBN") %>” type="radio" name="radio" id="radio"/></td>
 								
 							</tr>
