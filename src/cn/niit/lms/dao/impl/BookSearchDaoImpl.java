@@ -30,17 +30,18 @@ public class BookSearchDaoImpl implements BookSearchDao {
             //5.执行 SQL
             ResultSet rs = ps.executeQuery();
             ArrayList bookList = new ArrayList();
-            Book tempBook = new Book();
+            Book book = new Book();
             while(rs.next()){
-				user.setUid(rs.getInt("uid"));
-				user.setUname(rs.getString("uname"));
-				user.setEmail(rs.getString("email"));
-				user.setPwd(rs.getString("pwd"));
-				user.setRole(rs.getString("role"));
-				user.setGender(rs.getBoolean("gender"));
-				user.setAddress(rs.getString("Address"));
-				user.setDob(rs.getString("dob"));
-				System.out.println("This guy SQLed by Email: "+user.toString());
+				book.setISBN(rs.getString("ISBN"));
+				book.setTitle(rs.getString("title"));
+				book.setAuthor(rs.getString("author"));
+				book.setCategory(rs.getString("category"));
+				book.setPrice((int)rs.getFloat("price"));
+				book.setAmount(rs.getInt("amounts"));
+				book.setRemain_Amount(rs.getInt("remain_amounts"));
+				//book.setTimes(rs.getString("dob"));
+				bookList.add(book);
+				//System.out.println("This guy SQLed by Email: "+user.toString());
 			}
             
             //6.关闭资源
