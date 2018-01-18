@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import = "cn.niit.lms.manage.UserManage" language="java" %>
+<%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
 <%  ResultSet rs = UserManage.getRS(); %>
 <!DOCTYPE html>
@@ -108,7 +109,18 @@
 								<td><%=rs.getString("email") %></td>
 								<td><%=rs.getString("address") %></td>
 								<td><%=rs.getString("dob") %></td>
-								<td>0</td>
+								<!-- 每刷出一行数据就要打开对应UID的BorrowDetaill 计算总fine -->
+								
+								<%  
+								String r= rs.getString("UID");
+								ResultSet rsfine = BorrowDetail.RS(r); 
+								int f = 0;
+								while(rsfine.next()){
+									f += rsfine.getInt("Fine");
+								}
+								%>		
+								<td><%=f %></td>
+								<% rsfine.close(); %>
 								<td><input value=<%=rs.getInt("UID") %> type="radio" name="radioname"/></td>
 								
 							</tr>

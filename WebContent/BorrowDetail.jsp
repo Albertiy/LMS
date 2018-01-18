@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
-<%  ResultSet rs = BorrowDetail.RS(request.getParameter("uid")); %>
+<% String uid = request.getParameter("uid"); %>
+<%  ResultSet rs = BorrowDetail.RS(uid); %>
 
 <!DOCTYPE html>
 <html lang='zh-CN'>
@@ -82,9 +83,14 @@
 								<!-- 计算总罚金fine -->
 								<%fine += rs.getInt("Fine"); %>
 								<td><%=rs.getInt("Fine") %></td>
+								<!-- 如果罚金不为零 -->
+								<% if(rs.getInt("Fine")!=0){ %>
+								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
+								onclick="BookReturn(this.value)">ClearR</button></td>
+								<% } else { %>
 								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
 								onclick="BookReturn(this.value)">Return</button></td>
-								
+								<%} %>
 							</tr>
 					 		<%} %> 
 					 	<% rs.close(); System.out.println("清理成功"); %> 

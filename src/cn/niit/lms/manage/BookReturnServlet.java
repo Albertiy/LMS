@@ -1,6 +1,8 @@
 package cn.niit.lms.manage;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,14 +31,20 @@ public class BookReturnServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setCharacterEncoding("GBK");
 		String bid = request.getParameter("bid");
+		String uid = request.getParameter("uid");
 		System.out.println(bid);
+		System.out.println(uid);
 		//连接数据库
 		//lms_jdbc jdbc = new lms_jdbc();
 		//jdbc.creatConnection();
 		//执行删除语句
 		//jdbc.Query("delete from borrowed_books where BID="+bid);
-		//jdbc.Query("update books set UID = 0 where BID="+bid);
-		//response.getWriter().write("Servlet测试");
+		
+		//跳回页面
+		response.sendRedirect("BorrowDetail.jsp?uid="+uid);
+
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("BorrowDetail.jsp");
+		//dispatcher .forward(request, response);
 	}
 
 	/**
