@@ -17,7 +17,7 @@ public class BookDao {
     	//从数据库查询书籍信息
         try {    
             conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement("select ISBN,Title,Author,Category,Amount,Remain_amount,Price from ISBN_Books");  
+            ps = conn.prepareStatement("select ISBN,Title,Author,Category,Amounts,Remain_amounts,Price from ISBN_Books");  
             rs = ps.executeQuery();  
             System.out.println("BookDao查询Book信息成功");  
         } catch (SQLException e) {  

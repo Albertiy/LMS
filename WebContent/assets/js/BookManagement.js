@@ -20,7 +20,7 @@ function getRadioValue(){
 	else{
 		//跳转+传参
 		console.log(val);
-		window.location.href="/LMS/DeleteBookServlet?ISBN=val";
+		window.location.href="/LMS/DeleteBookServlet?ISBN="+val;
 		
 	}
 }

@@ -51,20 +51,22 @@ public class DeleteBookServlet extends HttpServlet {
         		
         		//判断Remain_Amounts是否等于Amounts
         		//等于才能删除
-        		int Amount = rs.getInt("Amount");
-        		int Remain_Amount = rs.getInt("Remain_Amount");
-        		if(Amount==Remain_Amount){
-		        	sql = "delete from Books where ISBN = "+ISBN;
+        		int Amounts = rs.getInt("Amounts");
+        		int Remain_Amounts = rs.getInt("Remain_Amounts");
+        		if(Amounts==Remain_Amounts){
+        			
+        			//books表中的删除利用trigger实现
+		        	/*sql = "delete from Books where ISBN = "+ISBN;
 		        	pstmt = conn.prepareStatement(sql);
 		        	int s = pstmt.executeUpdate();
 					if (s > 0) {
 						System.out.println("Delete Book in books successfully !");
 					} else {
 						System.out.println("Delete Book in books unsucessfull.");
-					}
+					}*/
 					sql = "delete from ISBN_Books where ISBN = "+ISBN;
 		        	pstmt = conn.prepareStatement(sql);
-		        	s = pstmt.executeUpdate();
+		        	int s = pstmt.executeUpdate();
 					if (s > 0) {
 						System.out.println("Delete Book in ISBN_books successfully !");
 					} else {

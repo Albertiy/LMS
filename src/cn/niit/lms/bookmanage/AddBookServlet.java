@@ -62,9 +62,9 @@ public class AddBookServlet extends HttpServlet {
 		String sPrice = request.getParameter("Price");
 		System.out.println("Sprice  "+sPrice);
 		Float Price = Float.parseFloat(sPrice);
-		int Amount = Integer.parseInt(request.getParameter("Amount"));
-		System.out.println("Amount " + Amount);
-		int Remain_Amount=0;
+		int Amounts = Integer.parseInt(request.getParameter("Amount"));
+		System.out.println("Amounts " + Amounts);
+		int Remain_Amounts=Amounts;
 		int Times=0;
 		//File Cover= new File(request.getParameter("Cover"));
         //System.out.println("This AddBookServlet  Category: "+Category);
@@ -112,7 +112,7 @@ public class AddBookServlet extends HttpServlet {
         	
         	if(!rs.next()){
         		System.out.println("通过if判断  addbook");
-				sql = "insert into isbn_books values(?,?,?,?,?,?,?,?,?,?)";
+				sql = "insert into isbn_books values(?,?,?,?,?,?,?,?,?)";
 				pstmt = conn.prepareStatement(sql);
 
 				pstmt.setString(1, ISBN);
@@ -121,10 +121,10 @@ public class AddBookServlet extends HttpServlet {
 				pstmt.setString(4, Category);
 				pstmt.setString(5, fmt.format(System.currentTimeMillis())); // 传入系统当前时间
 				pstmt.setFloat(6, Price);
-				pstmt.setInt(7, Amount);
-				pstmt.setInt(8, Remain_Amount);
+				pstmt.setInt(7, Amounts);
+				pstmt.setInt(8, Remain_Amounts);
 				pstmt.setInt(9, Times);
-				pstmt.setString(10, null);
+				
 
 				// fis = new FileInputStream(Cover);
 				// pstmt.setBinaryStream(6, fis);
@@ -135,13 +135,13 @@ public class AddBookServlet extends HttpServlet {
 				} else {
 					System.out.println("Add Book unsucessfull.");
 				}
-				while (Amount > 0) {
+				/*while (Amount > 0) {								//通过数据库中trigger实现book同步添加
 					sql = "insert into books values(null,?,0)";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setString(1, ISBN);
 					int m = pstmt.executeUpdate();
 					Amount--;
-				}
+				}*/
 				conn.close();
 				pstmt.close();
 				request.setAttribute("message", "done");

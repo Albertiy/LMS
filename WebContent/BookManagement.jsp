@@ -148,8 +148,8 @@
 								<td><%=rs.getString("Title") %></td>
 								<td><%=rs.getString("Author") %></td>
 								<td><%=rs.getString("Category") %></td>
-								<td><%=rs.getInt("Amount") %></td>
-								<td><%=rs.getInt("Remain_Amount") %></td>
+								<td><%=rs.getInt("Amounts") %></td>
+								<td><%=rs.getInt("Remain_Amounts") %></td>
 								<td><%=rs.getFloat("Price") %></td>
 								<td><input value=<%=rs.getString("ISBN") %> type="radio" name="radio" id="radio"/></td>
 								
