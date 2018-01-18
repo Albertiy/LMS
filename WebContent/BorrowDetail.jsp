@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
-<% String uid = request.getParameter("uid"); %>
+<% String uid = request.getParameter("uid");  System.out.println("JSP:"+uid);%>
 <%  ResultSet rs = BorrowDetail.RS(uid); %>
 
 <!DOCTYPE html>
@@ -86,10 +86,10 @@
 								<!-- 如果罚金不为零 -->
 								<% if(rs.getInt("Fine")!=0){ %>
 								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
-								onclick="BookReturn(this.value)">ClearR</button></td>
+								onclick="BookReturn(this.value,<%=uid%>)">ClearR</button></td>
 								<% } else { %>
 								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
-								onclick="BookReturn(this.value)">Return</button></td>
+								onclick="BookReturn(this.value,<%=uid%>)">Return</button></td>
 								<%} %>
 							</tr>
 					 		<%} %> 

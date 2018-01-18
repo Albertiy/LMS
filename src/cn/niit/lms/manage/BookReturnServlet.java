@@ -32,8 +32,8 @@ public class BookReturnServlet extends HttpServlet {
 		response.setCharacterEncoding("GBK");
 		String bid = request.getParameter("bid");
 		String uid = request.getParameter("uid");
-		System.out.println(bid);
-		System.out.println(uid);
+		System.out.println("Jservlet:"+bid);
+		System.out.println("Jservlet:"+uid);
 		//连接数据库
 		//lms_jdbc jdbc = new lms_jdbc();
 		//jdbc.creatConnection();
@@ -43,7 +43,7 @@ public class BookReturnServlet extends HttpServlet {
 		//跳回页面
 		response.sendRedirect("BorrowDetail.jsp?uid="+uid);
 
-		//RequestDispatcher dispatcher = request.getRequestDispatcher("BorrowDetail.jsp");
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("BorrowDetail.jsp?uid="+uid);
 		//dispatcher .forward(request, response);
 	}
 
