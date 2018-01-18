@@ -1,4 +1,4 @@
-function detailsgetRadioValue(){
+function singlegetRadioValue(){
 //	alert("1");
 	var radios = document.getElementsByName("radio");
 //	alert("2");
@@ -16,8 +16,8 @@ function detailsgetRadioValue(){
 	}
 	else{
 		//跳转+传参
-		console.log(val);
-		window.location.href="/LMS/DetailsBook.jsp?ISBN="+val;
+		console.log("ISBN in SingleBook.js: "+val);
+		window.location.href="/LMS/EverySingleBook.jsp?ISBN="+val;
 		
 	}
 }
