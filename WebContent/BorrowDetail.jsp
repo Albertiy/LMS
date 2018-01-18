@@ -68,7 +68,7 @@
 								<th>Borrow Date</th>
 								<th>Limit Date</th>
 								<th>Fine</th>
-								<th></th>
+								<th></th><th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -83,13 +83,23 @@
 								<!-- 计算总罚金fine -->
 								<%fine += rs.getInt("Fine"); %>
 								<td><%=rs.getInt("Fine") %></td>
+								<!-- 如果书处于预约状态 -->
+								<% if(rs.getInt("State")==0){%>
+								<td >
+								<button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
+								onclick="SubmitBook(this.value,<%=uid%>)">Submit</button>
+								</td>
+								<td>
+								<button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
+								onclick="BookReturn(this.value,<%=uid%>)">Cancel</button>
+								</td>
 								<!-- 如果罚金不为零 -->
-								<% if(rs.getInt("Fine")!=0){ %>
+								<% } if(rs.getInt("State")!=0&&rs.getInt("Fine")!=0){ %>
 								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
-								onclick="BookReturn(this.value,<%=uid%>)">ClearR</button></td>
-								<% } else { %>
+								onclick="BookReturn(this.value,<%=uid%>)">ClearR</button></td><td></td>
+								<% } if(rs.getInt("State")!=0&&rs.getInt("Fine")==0) { %>
 								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
-								onclick="BookReturn(this.value,<%=uid%>)">Return</button></td>
+								onclick="BookReturn(this.value,<%=uid%>)">Return</button></td><td></td>
 								<%} %>
 							</tr>
 					 		<%} %> 
@@ -97,6 +107,8 @@
 						</tbody>
 						<tfoot>
 							<tr>
+								<td></td><td></td><td></td><td></td>
+								<td></td><td></td><td></td>
 								<th> Total Fine :</th>
 								<td><%=fine %></td>
 								<%BorrowDetail.setfine(fine); %>

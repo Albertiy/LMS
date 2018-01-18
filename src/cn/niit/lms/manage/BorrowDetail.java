@@ -14,7 +14,7 @@ public class BorrowDetail {
 		lms_jdbc jdbc = new lms_jdbc();
 		jdbc.creatConnection();
 		//�������ϲ�ѯ
-		jdbc.Query("Select books.BID, books.ISBN, title, author, category, Borrow_Date, Limit_Date, Fine "
+		jdbc.Query("Select books.BID, books.ISBN, title, author, category, Borrow_Date, Limit_Date, Fine, State "
 				+ "from books left join borrowed_books on (books.BID = borrowed_books.BID) "
 				+ "left join isbn_books on(books.ISBN=isbn_books.ISBN) "
 				+ "where books.UID=" + uid);
