@@ -18,7 +18,31 @@
 		<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 		<script src="/LMS/assets/js/index.js"></script>
 		<script src="/LMS/assets/js/BookManagement.js"></script>
-
+		<script>
+			$(document).ready(function () {
+				console.log('<%=request.getAttribute("message")%>');
+				<% String message=(String)request.getAttribute("message");
+					if(message=="done"){
+				%>
+					alert("Book has been deleted!");
+				<%
+					}else if(message=="unexist"){
+				%>
+					alert("This book is not in DataBase");
+				<%
+					}else if(message=="notequal"){
+				%>
+					alert("This book has not been cleared");
+				<% 
+					}else if(message=="not done"){
+				%>
+					alert("Delete failed");
+				<%	
+					};
+				%>
+				
+			});
+		</script>
 	</head>
 
 	<body>
@@ -127,7 +151,7 @@
 								<td><%=rs.getInt("Amount") %></td>
 								<td><%=rs.getInt("Remain_Amount") %></td>
 								<td><%=rs.getFloat("Price") %></td>
-								<td><input value=“<%=rs.getString("ISBN") %>” type="radio" name="radio" id="radio"/></td>
+								<td><input value=<%=rs.getString("ISBN") %> type="radio" name="radio" id="radio"/></td>
 								
 							</tr>
 					 		<%} %>

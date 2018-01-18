@@ -109,6 +109,7 @@ public class AddBookServlet extends HttpServlet {
         	sql="select * from isbn_books where ISBN = "+ISBN;
         	pstmt=conn.prepareStatement(sql);
         	rs=pstmt.executeQuery();
+        	
         	if(!rs.next()){
         		System.out.println("通过if判断  addbook");
 				sql = "insert into isbn_books values(?,?,?,?,?,?,?,?,?,?)";
@@ -130,10 +131,9 @@ public class AddBookServlet extends HttpServlet {
 
 				int s = pstmt.executeUpdate();
 				if (s > 0) {
-					System.out.println("Add Book");
-					System.out.println("successfully !");
+					System.out.println("Add Book successfully !");
 				} else {
-					System.out.println("unsucessfull.");
+					System.out.println("Add Book unsucessfull.");
 				}
 				while (Amount > 0) {
 					sql = "insert into books values(null,?,0)";
@@ -147,6 +147,8 @@ public class AddBookServlet extends HttpServlet {
 				request.setAttribute("message", "done");
 		        request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
 			}else{
+				conn.close();
+				pstmt.close();
 				request.setAttribute("message", "existed");
 				request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
 			}

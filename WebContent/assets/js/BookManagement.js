@@ -19,7 +19,8 @@ function getRadioValue(){
 	}
 	else{
 		//跳转+传参
-		window.location.href="/LMS/DeleteBookServlet?ISBN="+val;
+		console.log(val);
+		window.location.href="/LMS/DeleteBookServlet?ISBN=val";
 		
 	}
 }
