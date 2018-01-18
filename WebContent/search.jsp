@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" language="java"%>
+<%@page import="cn.niit.lms.domain.User" language="java"%>
 <%@page import="cn.niit.lms.domain.Book" language="java"%>
-
+<% session.removeAttribute("backUrl");
+System.out.println("search.jsp delete backUrl");%>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -32,11 +34,26 @@
 					<li><a id="about" href="about.jsp">***</a></li>
 					<li><a id="contact" href="contact.jsp">***</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a id="users" href="users.jsp">Role</a></li>
-					<!-- 角色类型从数据库读取 -->
-					<li><a id="logout" href="index.jsp">Log out</a></li>
-				</ul>
+				<!-- 显示Role和名称 -->
+				<%if (session.getAttribute("user") == null) {%>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="login" href="login.jsp">Login In</a></li>
+						<li><a id="signup" href="signup.jsp">Sign Up</a></li>
+					</ul>
+					<%}else{
+						String role= ((User)session.getAttribute("user")).getRole();
+						switch(role){
+						default: role = "Student";break;
+						case "t": role = "Teacher";break;
+						case "l": role = "Librarian";break;
+						case "a": role = "Admin";break;
+						}
+					%>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="user" href=""><strong><%=role %> | ${sessionScope.user.getUname()}</strong></a></li>
+						<li><a id="logout" href="Logout">Login Out</a></li>
+					</ul>
+					<%}%>
 			</div>
 		</div>
 	</nav>
@@ -115,10 +132,10 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3 col-xs-3">
-					<a href="#" class="btn btn-primary btn-lg active" role="button">Back</a>
+					<a href="#" class="btn btn-primary btn-lg" role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
-					<a class="btn btn-info active" role="button" onclick="getRadioValue()">Borrow</a>
+					<a class="btn btn-info" role="button" onclick="getRadioValue()">Reserve</a>
 				</div>
 			</div>
 		</div>

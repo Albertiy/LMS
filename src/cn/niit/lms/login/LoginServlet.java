@@ -52,8 +52,11 @@ public class LoginServlet extends HttpServlet {
 		}
 		if(!user.equals(null)){
 		// 登陆成功，保存到session并跳转
-		request.getSession().setAttribute("user", user);
-		response.sendRedirect(request.getContextPath()+"/index.jsp");
+			request.getSession().setAttribute("user", user);
+			if(request.getSession().getAttribute("backUrl") != null)
+		        response.sendRedirect(request.getSession().getAttribute("backUrl").toString());
+			else
+				response.sendRedirect(request.getContextPath()+"/index.jsp");
 		}else{//为防意外，再来一次
 			RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
 			request.setAttribute("warn", true);

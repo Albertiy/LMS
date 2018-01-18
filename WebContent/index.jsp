@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="cn.niit.lms.domain.User" language="java"%>
+<% session.removeAttribute("backUrl");
+System.out.println("index.jsp delete backUrl");%>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -31,14 +34,23 @@
 					<li><a id="about" href="#">***</a></li>
 					<li><a id="contact" href="#">***</a></li>
 				</ul>
+				<!-- 显示Role和名称 -->
 				<%if (session.getAttribute("user") == null) {%>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="login" href="login.jsp">Login In</a></li>
 					<li><a id="signup" href="signup.jsp">Sign Up</a></li>
 				</ul>
-				<%}else{%>
+				<%}else{
+					String role= ((User)session.getAttribute("user")).getRole();
+				    switch(role){
+				    default: role = "Student";break;
+				    case "t": role = "Teacher";break;
+				    case "l": role = "Librarian";break;
+				    case "a": role = "Admin";break;
+				    }
+				%>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a id="user" href=""><strong>${sessionScope.user.getUname()}</strong></a></li>
+					<li><a id="user" href=""><strong><%=role %> | ${sessionScope.user.getUname()}</strong></a></li>
 					<li><a id="logout" href="Logout">Login Out</a></li>
 				</ul>
 				<%}%>
