@@ -1,7 +1,9 @@
 /**
  * 
+ *//**
+ * 
  */
-function getRadioValue(){
+function editgetRadioValue(){
 //	alert("1");
 	var radios = document.getElementsByName("radio");
 //	alert("2");
@@ -20,7 +22,7 @@ function getRadioValue(){
 	else{
 		//跳转+传参
 		console.log(val);
-		window.location.href="/LMS/DeleteBookServlet?ISBN="+val;
+		window.location.href="/LMS/EditBookServlet?ISBN="+val;
 		
 	}
 }
