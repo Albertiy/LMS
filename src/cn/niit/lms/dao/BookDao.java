@@ -17,9 +17,21 @@ public class BookDao {
     	//从数据库查询书籍信息
         try {    
             conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement("select ISBN,Title,Author,Category,Amounts,Remain_amounts,Price from ISBN_Books");  
+            ps = conn.prepareStatement("select * from ISBN_Books");  
             rs = ps.executeQuery();  
             System.out.println("BookDao查询Book信息成功");  
+        } catch (SQLException e) {  
+            e.printStackTrace();  
+        }    
+         return rs;
+     }
+    public static ResultSet readbook(String ISBN){
+    	//从数据库查询书籍信息
+        try {    
+            conn = JDBCUtils.getConnection();
+            ps = conn.prepareStatement("select * from ISBN_Books where ISBN="+ISBN);  
+            rs = ps.executeQuery();  
+            System.out.println("BookDao通过ISBN查询Book信息成功");  
         } catch (SQLException e) {  
             e.printStackTrace();  
         }    

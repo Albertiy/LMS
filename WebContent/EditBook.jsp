@@ -1,5 +1,25 @@
+<%@page import="com.sun.java.swing.plaf.windows.resources.windows"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import = "cn.niit.lms.dao.*" language="java" %>
+	<%@ page import = "java.sql.*" language="java"  %>
+	<%  System.out.println((String)request.getParameter("ISBN"));
+		ResultSet rs = BookDao.readbook((String)request.getParameter("ISBN")); 
+		String ISBN = null;
+		String Title = null;
+		String Author = null;
+		String Category = null;
+		Float Price = null;
+		
+		if(rs.next()){
+			ISBN = rs.getString("ISBN");
+			Title = rs.getString("Title");
+			Author = rs.getString("Author");
+			Category = rs.getString("Category");
+			Price = rs.getFloat("Price");
+			
+		}
+	%>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -13,6 +33,24 @@
 
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/assets/js/dropdown.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log('<%=request.getAttribute("message")%>');
+		<% String message=(String)request.getAttribute("message");
+			if(message=="done"){
+		%>
+			alert("Book has been edited!");
+		<%
+			}else if(message=="not done"){
+		%>
+			alert("Edit failed");
+		<%	
+			};
+		%>
+	});
+		
+</script>
 
 </head>
 <body>
@@ -49,27 +87,16 @@
 			
 			<h1 style="text-align: center">Edit Book</h1>
 			<div style="padding: 20px 100px 10px;">
-				<form class="bs-example bs-example-form" role="form" action="AddBookServlet">
+				<form class="bs-example bs-example-form" role="form" action="EditBookServlet" method="post">
 				<!-- 书籍的具体信息根据要编辑的ISBN号从数据库检索 -->
-					<dl class="form-group">
-						<dt class="input-label">
-							<label class="form-label f5">ISBN</label>
-						</dt>
-						<dd>
-							<input type="text" name="ISBN" id="ISBN"
-								class="form-control form-control-lg"
-								placeholder="Please enter ISBN">
-						</dd>
-					</dl>
-					<br>
-					
+					<input hidden="hidden" name="ISBN" id="ISBN" value=<%= ISBN %>>
 					<dl class="form-group">
 						<dt class="input-label">
 							<label class="form-label f5">Title</label>
 						</dt>
 						<dd>
 							<input type="text" name="Title" id="Title"
-								class="form-control form-control-lg"
+								class="form-control form-control-lg" value=<%= Title %>
 								placeholder="Please enter Title">
 						</dd>
 					</dl>
@@ -81,7 +108,7 @@
 						</dt>
 						<dd>
 							<input type="text" name="Author" id="Author"
-								class="form-control form-control-lg"
+								class="form-control form-control-lg" value=<%= Author %>
 								placeholder="Please enter Author">
 						</dd>
 					</dl>
@@ -95,7 +122,7 @@
 							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false" id="drop_button">
-								Science <span class="caret"></span>
+								<%= Category %> <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
 								<li id="Science"><a href="#">Science</a></li>
@@ -104,6 +131,7 @@
 								<li id="Ohters"><a href="#">Others</a></li>
 							</ul>
 						</dd>
+						<input type="text" name="Category" id="Category" value="Science" hidden="hidden">
 					</dl>
 					<br>
 					
@@ -113,12 +141,26 @@
 						</dt>
 						<dd>
 							<input type="text" name="Price" id="Price"
-								class="form-control form-control-lg"
+								class="form-control form-control-lg" value=<%= Price %>
 								placeholder="Please enter Price">
 						</dd>
 					</dl>
 					<br>
+					<!-- Amount修改在每一类书的Details里修改
+					<dl class="form-group">
+						<dt class="input-label">
+							<label class="form-label f5">Amount</label>
+						</dt>
+						<dd>
+							<input type="text" name="Amounts" id="Amounts"
+								class="form-control form-control-lg" value=
+								placeholder="Please enter Amount">
+						</dd>
+					</dl>
+					<br>
+					-->
 					
+					<!-- 
 					<dl class="form-group">
 						<dt class="input-label">
 							<label class="form-label f5">Cover</label>
@@ -126,21 +168,21 @@
 						<dd>
 							<img src="${pageContext.request.contextPath}/assets/img/te.jpg" alt="book_thumb.jpg"
 								class="book_thumb ">
-							<!-- 图片根据ISBN号在数据库检索 -->
+							<!-- 图片根据ISBN号在数据库检索 --><!--
 							<input id="fileId1" type="file" accept="image/*	" name="file" />
 						</dd>
 					</dl>
+					-->
+				
+					<div class="row">
+						<div class="col-md-3 col-xs-3">
+							<a href="BookManagement.jsp" class="btn btn-primary" role="button">Back</a>
+						</div>
+						<div class="col-md-9 col-xs-9" align="right">
+							<button type="submit" class="btn btn-success">Confirm</button>
+						</div>
+					</div>
 				</form>
-
-
-				<div class="row">
-					<div class="col-md-3 col-xs-3">
-						<a href="BookManagement.jsp" class="btn btn-primary" role="button">Back</a>
-					</div>
-					<div class="col-md-9 col-xs-9" align="right">
-						<a href="#" class="btn btn-success " role="button">Confirm</a>
-					</div>
-				</div>
 			</div>
 		</div>	
 	</div>

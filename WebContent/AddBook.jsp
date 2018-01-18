@@ -38,7 +38,8 @@
 					}else if(message=="not done"){
 				%>
 					alert("Add failed");
-				<%	};
+				<%	
+					};
 				%>
 				/*var myurl = GetQueryString("message");
 				console.log(myurl);
@@ -144,23 +145,17 @@
 								<label class="form-label f5">Category</label>
 							</dt>
 							<dd class="btn-group">
-								<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton" data-toggle="dropdown" aria-haspopup="true"
+								<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton" 
+									data-toggle="dropdown" aria-haspopup="true"
 								    aria-expanded="false" id="drop_button">
 									Science
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li id="Science">
-										<a href="#">Science</a>
-									</li>
-									<li id="Math">
-										<a href="#">Math</a>
-									</li>
-									<li id="Art">
-										<a href="#">Art</a>
-									</li>
-									<li id="Ohters">
-										<a href="#">Others</a>
+									<li id="Science"><a href="#">Science</a></li>
+									<li id="Math"><a href="#">Math</a></li>
+									<li id="Art"><a href="#">Art</a></li>
+									<li id="Ohters"><a href="#">Others</a>
 									</li>
 								</ul>
 							</dd>

@@ -19,6 +19,7 @@
 		<script src="/LMS/assets/js/index.js"></script>
 		<script src="/LMS/assets/js/DeleteBook.js"></script>
 		<script src="/LMS/assets/js/EditBook.js"></script>
+		<script src="/LMS/assets/js/DetailsBook.js"></script>
 		<script>
 			$(document).ready(function () {
 				console.log('<%=request.getAttribute("message")%>');
@@ -166,8 +167,9 @@
 					<a href="Manage.jsp" class="btn btn-primary " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
+					<button type="button" class="btn btn-info" id="" onclick="detailsgetRadioValue()">Details</button>
 					<a href="AddBook.jsp" class="btn btn-success " role="button">ADD</a>
-					<button type="button" class="btn btn-danger" id="" onclick="editgetRadioValue()">Edit</button>
+					<button type="button" class="btn btn-info" id="" onclick="editgetRadioValue()">Edit</button>
 					<button type="button" class="btn btn-danger" id="" onclick="deletegetRadioValue()">Delete</button>
 				</div>
 
