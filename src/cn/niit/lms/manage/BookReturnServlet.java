@@ -32,13 +32,11 @@ public class BookReturnServlet extends HttpServlet {
 		response.setCharacterEncoding("GBK");
 		String bid = request.getParameter("bid");
 		String uid = request.getParameter("uid");
-		System.out.println("Jservlet:"+bid);
-		System.out.println("Jservlet:"+uid);
 		//连接数据库
-		//lms_jdbc jdbc = new lms_jdbc();
-		//jdbc.creatConnection();
+		lms_jdbc jdbc = new lms_jdbc();
+		jdbc.creatConnection();
 		//执行删除语句
-		//jdbc.Query("delete from borrowed_books where BID="+bid);
+		jdbc.Update("delete from borrowed_books where BID="+bid);
 		
 		//跳回页面
 		response.sendRedirect("BorrowDetail.jsp?uid="+uid);

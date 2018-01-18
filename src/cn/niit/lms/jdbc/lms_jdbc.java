@@ -38,6 +38,17 @@ public class lms_jdbc {
 		}
 	}
 	
+	public void Update(String mysql){
+		sql = mysql;//修改查询语句
+		try {
+			stmt.executeUpdate(sql);//执行
+			System.out.println("执行成功");
+		} catch (SQLException e) {
+			System.out.println("执行失败");
+			e.printStackTrace();
+		}
+	}
+	
 	//清理函数
 	public void sqlClose(){
 		try {

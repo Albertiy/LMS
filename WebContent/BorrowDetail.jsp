@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
-<% String uid = request.getParameter("uid");  System.out.println("JSP:"+uid);%>
+<% String uid = request.getParameter("uid");%>
 <%  ResultSet rs = BorrowDetail.RS(uid); %>
 
 <!DOCTYPE html>
