@@ -11,6 +11,7 @@ public class User {
 	private boolean gender;
 	private String address;
 	private String dob;
+	private int amount;
 
 	public int getUid() {
 		return uid;
@@ -84,10 +85,18 @@ public class User {
 		this.dob = dob;
 	}
 
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	
 	@Override
 	public String toString() {
 		return "User{" + "uname=" + uname + ", role=" + role + ", phone=" + phone + ", email=" + email + ", pwd=" + pwd
-				+ ", gender=" + gender + ", address=" + address + ", dob=" + dob + '}';
+				+ ", gender=" + gender + ", address=" + address + ", dob=" + dob + ", amount=" + amount + '}';
 	}
 
 }

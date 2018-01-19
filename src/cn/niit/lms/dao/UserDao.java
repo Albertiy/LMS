@@ -1,6 +1,7 @@
 
 package cn.niit.lms.dao;
 
+import cn.niit.lms.domain.Rule;
 import cn.niit.lms.domain.User;
 
 //数据接口
@@ -13,4 +14,6 @@ public interface UserDao {
 	User findUserByName(String uname);
 	//用 Phone 查询用户
 	User findUserByPhone(String phone);
+	//获取对应的Rule设定
+	Rule getRule(String role);
 }

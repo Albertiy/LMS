@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import cn.niit.lms.dao.UserDao;
+import cn.niit.lms.domain.Rule;
 import cn.niit.lms.domain.User;
 import cn.niit.lms.jdbc.JDBCUtils;
 
@@ -17,7 +18,7 @@ public class UserDaoImpl implements UserDao {
         //1.获得连接
         Connection conn = JDBCUtils.getConnection();
         //2.准备sql     
-        String sql = "insert into users values(0,?,?,?,?,?,?,?,?);";
+        String sql = "insert into users values(0,?,?,?,?,?,?,?,?,0);";
         java.sql.PreparedStatement ps = null;
         //3.准备PreparedStatement对象
         try {
@@ -31,6 +32,7 @@ public class UserDaoImpl implements UserDao {
             ps.setBoolean(6, u.getGender());
             ps.setString(7, u.getAddress());
             ps.setString(8, u.getDob());
+            //新增了一个Amount借了多少本为0
             //ps.setDouble(6, Double.parseDouble(u.getContact_no()));
 
             //5.执行 SQL
@@ -81,6 +83,7 @@ public class UserDaoImpl implements UserDao {
 				user.setGender(rs.getBoolean("gender"));
 				user.setAddress(rs.getString("Address"));
 				user.setDob(rs.getString("dob"));
+				user.setAmount(rs.getInt("amount"));
 				System.out.println("This guy SQLed by Email: "+user.toString());
 				return user;
 			} else {
@@ -129,6 +132,7 @@ public class UserDaoImpl implements UserDao {
 				user.setGender(rs.getBoolean("gender"));
 				user.setAddress(rs.getString("Address"));
 				user.setDob(rs.getString("dob"));
+				user.setAmount(rs.getInt("amount"));
 				System.out.println("This guy SQLed by Uname: "+user.toString());
 				return user;
 			} else {
@@ -177,6 +181,7 @@ public class UserDaoImpl implements UserDao {
 				user.setGender(rs.getBoolean("gender"));
 				user.setAddress(rs.getString("Address"));
 				user.setDob(rs.getString("dob"));
+				user.setAmount(rs.getInt("amount"));
 				System.out.println("This guy SQLed by phone: "+user.toString());
 				return user;
 			} else {
@@ -184,6 +189,35 @@ public class UserDaoImpl implements UserDao {
 			}
 		} catch (SQLException se) {
 			System.out.println(se);
+		} finally {
+			JDBCUtils.close(conn, pstmt, rs);
+		}
+		return null;
+	}
+
+	@Override
+	public Rule getRule(String role) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		Connection conn=null;
+		Rule rule=new Rule();
+		rule.setRole(role);
+		conn = JDBCUtils.getConnection();
+		String sql = "SELECT * FROM lmsdb.rules WHERE role=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, role);
+			rs = pstmt.executeQuery();// 这个返回�?
+			if (rs.next()) {
+				rule.setBook_limit(rs.getInt("book_limit"));
+				rule.setDay_fine(rs.getInt("day_fine"));
+				rule.setLimit_month(rs.getInt("limit_month"));
+				return rule;
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
 		} finally {
 			JDBCUtils.close(conn, pstmt, rs);
 		}

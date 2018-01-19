@@ -4,7 +4,12 @@
 <%@page import="cn.niit.lms.domain.User" language="java"%>
 <%@page import="cn.niit.lms.domain.Book" language="java"%>
 <% session.removeAttribute("backUrl");
-System.out.println("search.jsp delete backUrl");%>
+System.out.println("search.jsp delete backUrl");
+String logined = "false";
+if (session.getAttribute("user") != null) {
+    logined = "true";
+    }
+%>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -152,5 +157,33 @@ System.out.println("search.jsp delete backUrl");%>
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 <script src="/LMS/assets/js/index.js"></script>
-<script src="/LMS/assets/js/search.js"></script>
+<script>
+function getRadioValue(){
+    //alert("Reserve Button Clicked");
+    var radios = document.getElementsByName("radioname");
+    var val;
+    for(var i=0;i<radios.length;i++){
+        if(radios[i].checked){
+            val = radios[i].value;
+            break;
+            }
+        }
+    if(val==null){
+        alert("Please choose one");
+        }else{//登录检测
+            var logined = '<%=logined%>';
+            if(logined=='false'){
+                window.location.href=getPath()+"/login.jsp";
+			}else{
+				window.location.href=getPath()+"/Reserve";
+			}
+		}
+	 };
+function getPath() {
+    var pathName = document.location.pathname;
+    var index = pathName.substr(1).indexOf("/");
+    var result = pathName.substr(0, index + 1);
+    return result;
+};
+</script>
 </html>

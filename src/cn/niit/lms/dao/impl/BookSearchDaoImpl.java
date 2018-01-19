@@ -9,9 +9,12 @@ import javax.sql.*;
 
 import cn.niit.lms.jdbc.JDBCUtils;
 import cn.niit.lms.dao.BookSearchDao;
+import cn.niit.lms.dao.UserDao;
 import cn.niit.lms.domain.Book;
+import cn.niit.lms.domain.Rule;
 
 public class BookSearchDaoImpl implements BookSearchDao {
+	UserDao udao = new UserDaoImpl();
 
 	@Override
 	public ArrayList<Book> searchBook(String stype, String sinfo) {
@@ -47,6 +50,35 @@ public class BookSearchDaoImpl implements BookSearchDao {
 			throw new RuntimeException("Failed to connect the DB, or SQL wrong!");
 		}
 		return bookList;
+	}
+
+	@Override
+	public boolean reserveBook(int UID,String role,int ISBN) {
+		Connection conn = JDBCUtils.getConnection();
+		//先search Book表
+		String sql = "select BID from Books where ISBN = '"+ISBN+"' and UID = 0";
+		java.sql.Statement stmt=null;
+		int BID=0;
+		try {
+			stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			//获取头一个BID
+			if(rs.next()){
+				BID=rs.getInt("BID");
+			}else{//没有就结束
+				JDBCUtils.close(conn, stmt, null);
+				return false;
+			}
+			//获取Role规则
+			Rule rule=udao.getRule(role);
+			rule.getLimit_month();
+			sql="insert into borrowed_books values("+UID+","+BID+",current_date(),current_date(),default,default);";
+			JDBCUtils.close(conn, stmt, rs);
+		}catch(SQLException se){
+			se.printStackTrace();
+			throw new RuntimeException("Failed to connect the DB, or SQL wrong!");
+		}
+		return false;
 	}
 
 }
