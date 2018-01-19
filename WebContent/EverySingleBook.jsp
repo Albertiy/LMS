@@ -11,11 +11,20 @@
 <%  	String ISBN = request.getParameter("ISBN");
 		System.out.println("ISBN in EverySingleBook.jsp:"+ISBN);
 		ArrayList<SingleBook> test = new ArrayList<SingleBook>();
+		if(ISBN==null){
+		ISBN = (String)request.getAttribute("ISBN");
+		System.out.println("ISBN in if:"+ISBN);
 		test = SingleBookDao.readsingleBook(ISBN);
-		System.out.println("EverySingleBook: "+test.size());
-		for (SingleBook singleBook : test) {
-			System.out.println(singleBook.toString());
+		System.out.println("EverySingleBook when ISBN==null: "+test.size());
+		}else{
+			System.out.println("ISBN in EverySingleBook.jsp when ISBN!= null:"+ISBN);
+			test = SingleBookDao.readsingleBook(ISBN);
+			System.out.println("EverySingleBook when ISBN !=null: "+test.size());
+			for (SingleBook singleBook : test) {
+				System.out.println(singleBook.toString());
+			}
 		}
+		
 	%>	
 	<!DOCTYPE html>
 	<html lang='zh-CN'>
@@ -30,8 +39,29 @@
 
 		<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 		<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
-
-
+		<script src="/LMS/assets/js/SingleBook.js"></script>
+		<script>
+			$(document).ready(function () {
+				console.log('<%=request.getAttribute("message")%>');
+				<% String message=(String)request.getAttribute("message");
+					if(message=="done"){
+				%>
+					alert("SingleBook has been deleted!");
+				<%
+					}else if(message=="borrwed"){
+				%>
+					alert("This book has been borrowed");
+				
+				<% 
+					}else if(message=="not done"){
+				%>
+					alert("Delete failed");
+				<%	
+					};
+				%>
+				
+			});
+		</script>
 
 	</head>
 
@@ -79,8 +109,7 @@
 			
 			<h1 style="text-align: center">Every Single Book</h1>
 			<div style="padding: 20px 100px 10px;">
-				<form class="bs-example bs-example-form" id="form-addbook" role="form" 
-						action="AddBookServlet" method="post">
+				<form class="bs-example bs-example-form" id="form-addbook" role="form" >
 				<div class="col-md-12">
 					<table class="table table-hover" id="booktable">
 						<thead>
@@ -103,7 +132,7 @@
 								<td><%=sb.getCategory() %></td>
 								
 								<td>
-									<input value=<%=sb.getISBN()%> 
+									<input value=<%=sb.getBID()%> 
 										type="radio" name="radio" id="radio"/>
 								</td>
 								
@@ -120,8 +149,8 @@
 						<a href="BookManagement.jsp" class="btn btn-primary" role="button">Back</a>
 					</div>
 					<div class="col-md-9 col-xs-9" align="right">
-						<button type="submit" class="btn btn-success">Add</button>
-						<button type="submit" class="btn btn-danger">Delete</button>
+						<button type="button" class="btn btn-success" onclick="prom()">Add</button>
+						<button type="button" class="btn btn-danger" onclick="deletesingle()">Delete</button>
 					</div>
 				</div>
 				</form>
