@@ -23,7 +23,7 @@ public class UserManage {
 	//展开结果集数据库
 	public static ResultSet getRS(){
 		//检测ManageSearchServlet修改sql是否成功；
-		System.out.println(sql);
+		//System.out.println(sql);
 		
 		lms_jdbc jdbc = new lms_jdbc();
 		jdbc.creatConnection();
@@ -31,7 +31,7 @@ public class UserManage {
 		//恢复sql值，方便重新刷新页面
 		sql="Select * from users ";
 		
-		System.out.println(sql);
+		//System.out.println(sql);
 		
 		return jdbc.rs;
 		

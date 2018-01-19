@@ -17,7 +17,10 @@ $(document).ready(function () {
         	console.log(this.id);
             var stype = this.id;
             //alert(stype);
-            dropButton.innerHTML=stype+" <span class='caret'></span>";
+            if(stype=="uName")
+            	dropButton.innerHTML="Name <span class='caret'></span>";
+            else
+            	dropButton.innerHTML=stype+" <span class='caret'></span>";
             //修改隐藏的input的value
             $("#search_type1").val(stype);
             //dropButton.value=""+stype;
@@ -30,7 +33,7 @@ $(document).ready(function () {
 });
 
 function Search(){
-	alert(1);
+	//alert(1);
     var stype=$("#search_type1").val();
     var sinfo=$("#search_info").val();
 	document.location.href="/LMS/ManageSearchServlet?backurl="+window.location.href+"&LiName="+stype +"&InputSearch="+sinfo ;
