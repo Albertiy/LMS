@@ -128,8 +128,11 @@
 									f += rsfine.getInt("Fine");
 								}
 								%>		
-								<td><%=f %></td>
-								<% rsfine.close(); %>
+								<%if (f > 0){ %>
+									<td><b><font color = red><%=f %></font></b></td>
+								<%} else { %>
+									<td><%=f %></td>
+								<%} rsfine.close(); %>
 								<td><input value=<%=rs.getInt("UID") %> type="radio" name="radioname"/></td>
 								
 							</tr>

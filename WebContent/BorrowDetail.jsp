@@ -58,7 +58,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table table-hover" id="BorrowDetailTable">
-					<%int fine=0;%>
+					<%int fine = 0;%>
 						<thead>
 							<tr>
 								<th>ISBN</th>
@@ -82,11 +82,15 @@
 								<td><%=rs.getString("Borrow_Date") %></td>
 								<td><%=rs.getString("Limit_Date") %></td>
 								<!-- 计算总罚金fine -->
-								<%fine += rs.getInt("Fine"); %>
+								<%fine += rs.getInt("Fine"); 
+								if (rs.getInt("Fine")>0){
+								%>
+								<td><b><font color = red><%=rs.getInt("Fine") %></font></b></td>
+								<%} else { %>
 								<td><%=rs.getInt("Fine") %></td>
 								<!-- 如果书处于预约状态 -->
-								<% if(rs.getInt("State")==0){%>
-								<td>Incomplete</td>
+								<%} if(rs.getInt("State")==0){%>
+								<td><b><font color = red>Incomplete</font></b></td>
 								<td >
 								<button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
 								onclick="SubmitBook(this.value,<%=uid%>)">Submit</button>
@@ -97,11 +101,11 @@
 								</td>
 								<!-- 如果罚金不为零 -->
 								<% } if(rs.getInt("State")!=0&&rs.getInt("Fine")!=0){ %>
-								<td>Completed</td>
+								<td><b><font color = green>Completed</font></b></td>
 								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
 								onclick="BookReturn(this.value,<%=uid%>)">ClearR</button></td><td></td>
 								<% } if(rs.getInt("State")!=0&&rs.getInt("Fine")==0) { %>
-								<td>Completed</td>
+								<td><b><font color = green>Completed</font></b></td>
 								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
 								onclick="BookReturn(this.value,<%=uid%>)">Return</button></td><td></td>
 								<%} %>
@@ -114,8 +118,12 @@
 								<td></td><td></td><td></td><td></td>
 								<td></td><td></td><td></td>
 								<th> Total Fine :</th>
-								<td><%=fine %></td>
-								<%BorrowDetail.setfine(fine); %>
+								<%if (fine > 0){ %>
+									<td><b><font color = red><%=fine %></font></b></td>
+								<%}  else {%>
+									<td><%=fine %></td>
+								<%} %>
+								<%BorrowDetail.setfine(fine);%>
 							</tr>
 						</tfoot>
 					</table>
