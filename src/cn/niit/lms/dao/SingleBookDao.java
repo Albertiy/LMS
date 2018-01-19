@@ -18,7 +18,6 @@ public class SingleBookDao {
             st = conn.createStatement();
             System.out.println("ISBN in SingleBookDao: "+ISBN);
             sql="select b.bid, ib.ISBN, ib.title, ib.author, ib.category from Books b left join ISBN_Books ib on b.ISBN = ib.ISBN where B.ISBN='"+ISBN+"'";  
-            System.out.println(sql);
             rs = st.executeQuery(sql);  
            while(rs.next()){
         	   	SingleBook sBook = new SingleBook();

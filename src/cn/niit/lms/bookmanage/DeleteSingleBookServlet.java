@@ -76,7 +76,7 @@ public class DeleteSingleBookServlet extends HttpServlet {
 				}
         		conn.close();
 				pstmt.close();
-        		request.setAttribute("message", "done");
+        		request.setAttribute("message", "delete done");
         		request.setAttribute("ISBN", ISBN);
     			request.getRequestDispatcher("/EverySingleBook.jsp").forward(request, response);
         	}else{
@@ -89,7 +89,7 @@ public class DeleteSingleBookServlet extends HttpServlet {
 
         		
 		} catch (Exception e) {
-			request.setAttribute("message", "not done");
+			request.setAttribute("message", "delete not done");
 			request.setAttribute("ISBN", ISBN);
 			request.getRequestDispatcher("/EverySingleBook.jsp").forward(request, response);
 			System.out.println("Error in connection : " + e);

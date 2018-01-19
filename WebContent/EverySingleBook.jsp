@@ -20,9 +20,6 @@
 			System.out.println("ISBN in EverySingleBook.jsp when ISBN!= null:"+ISBN);
 			test = SingleBookDao.readsingleBook(ISBN);
 			System.out.println("EverySingleBook when ISBN !=null: "+test.size());
-			for (SingleBook singleBook : test) {
-				System.out.println(singleBook.toString());
-			}
 		}
 		
 	%>	
@@ -40,11 +37,12 @@
 		<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 		<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 		<script src="/LMS/assets/js/SingleBook.js"></script>
+		
 		<script>
 			$(document).ready(function () {
 				console.log('<%=request.getAttribute("message")%>');
 				<% String message=(String)request.getAttribute("message");
-					if(message=="done"){
+					if(message=="delete done"){
 				%>
 					alert("SingleBook has been deleted!");
 				<%
@@ -53,9 +51,17 @@
 					alert("This book has been borrowed");
 				
 				<% 
-					}else if(message=="not done"){
+					}else if(message=="delete not done"){
 				%>
 					alert("Delete failed");
+					<% 
+					}else if(message=="add done"){
+				%>
+					alert("Add failed");
+					<% 
+					}else if(message=="add not done"){
+				%>
+					alert("Add failed");
 				<%	
 					};
 				%>
@@ -120,6 +126,7 @@
 								<th>Author</th>
 								<th>Category</th>
 								<th></th>
+								
 							</tr>
 						</thead>
 						<tbody id="SingleBookrecords">
@@ -137,6 +144,12 @@
 								</td>
 								
 							</tr>
+							<tr>
+								<td>
+									<input type="text" value=<%=sb.getISBN()%> name="ISBN" id="ISBN" hidden="hidden"/>
+								<td/>
+							</tr>
+							
 					 		<%	
 					 			} 
 					 		%>
