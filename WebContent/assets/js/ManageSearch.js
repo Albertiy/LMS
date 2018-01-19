@@ -36,5 +36,11 @@ function Search(){
 	//alert(1);
     var stype=$("#search_type1").val();
     var sinfo=$("#search_info").val();
-	document.location.href="/LMS/ManageSearchServlet?backurl="+window.location.href+"&LiName="+stype +"&InputSearch="+sinfo ;
+    //System.out.print(sinfo);
+    if(sinfo==""){
+    	alert("Please Write Some content");
+    	document.location.href="UserManagement.jsp";
+    }
+    	else
+    	document.location.href="/LMS/ManageSearchServlet?backurl="+window.location.href+"&LiName="+stype +"&InputSearch="+sinfo ;
 };
