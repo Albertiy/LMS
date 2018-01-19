@@ -32,7 +32,7 @@ public class ManageSearchServlet extends HttpServlet {
 		String InputSearch = request.getParameter("InputSearch"); 
 		
 		
-		String SQL="Select * from users where " + "liname = " + "InputSearch";
+		String SQL="Select * from users where " + liname + " = '" + InputSearch+"'";
 		
 		//检测两个参数传值/获取是否正确。
 		System.out.println(SQL);
@@ -40,7 +40,6 @@ public class ManageSearchServlet extends HttpServlet {
 		// 修改UserManage 的sql，达到刷新表格的目的。
 		UserManage.sql=SQL;
 		
-		//跳回页面
 		response.sendRedirect("UserManagement.jsp");
 	}
 

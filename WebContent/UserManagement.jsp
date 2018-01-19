@@ -17,6 +17,7 @@
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 <script src="/LMS/assets/js/index.js"></script>
 <script type="text/javascript" src="/LMS/assets/js/usermanagement.js"></script>
+<script type="text/javascript" src="/LMS/assets/js/ManageSearch.js"></script>
 
 </head>
 <body>
@@ -61,17 +62,18 @@
 						<div class="col-md-2 col-sm-2 col-xs-12">
 							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" id="drop_button">
-								Name <span class="caret"></span>
+								aria-expanded="false" id="drop_button"> Name <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" id="search_type">
-								<li id="Name"><a >Name</a></li>
+								<li id="uName"><a >Name</a></li>
 								<li id="Email"><a >E-mail</a></li>
 								<li id="Phone"><a >Phone</a></li>
 							</ul>
 						</div>
 						<div class="col-md-8 col-sm-7 col-xs-12">
-							<input type="text" class="form-control" aria-label="...">
+							<input type="text" id="search_type1" hidden value="uName">
+							<input type="text" id="search_info" class="form-control" aria-label="..." maxlength="50" title="最大长度不要超过50字符">
+						<!-- 	<input type="text" class="form-control" aria-label="...">   -->
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-12">
 							<button type="button" class="btn btn-default btn-block sbutton" onclick="Search()">Search</button>
@@ -142,7 +144,7 @@
 		</div>
 	</div>
 </body>
-<h1>&nbsp;</h1>
+ <h1>&nbsp;</h1>
 <footer class="footer">
 	<div class="container">
 		<p class="text-muted">
