@@ -68,14 +68,13 @@
 								<li id="Name"><a >Name</a></li>
 								<li id="Email"><a >E-mail</a></li>
 								<li id="Phone"><a >Phone</a></li>
-								<li id="Category"><a >Category</a></li>
 							</ul>
 						</div>
 						<div class="col-md-8 col-sm-7 col-xs-12">
 							<input type="text" class="form-control" aria-label="...">
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-12">
-							<button type="button" class="btn btn-default btn-block sbutton">Search</button>
+							<button type="button" class="btn btn-default btn-block sbutton" onclick="Search()">Search</button>
 						</div>
 					</div>
 					<h1>&nbsp;</h1>

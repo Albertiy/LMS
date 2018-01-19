@@ -21,4 +21,7 @@ function getRadioValue(){
 	}
 }
 
+function Search(liname,inputsearch){
+	document.location.href="/LMS/ManageSearchServlet?backurl="+window.location.href+"&LiName="+liname"&InputSearch="+inputsearch;
+}
 //var value = $('input:radio[name="radioname"]:checked').val();

@@ -18,11 +18,21 @@ public class UserManage {
 	
 	public static ResultSet rs; //创建结果集 
 */
+
+	public static String sql="Select * from users ";
 	//展开结果集数据库
 	public static ResultSet getRS(){
+		//检测ManageSearchServlet修改sql是否成功；
+		System.out.println(sql);
+		
 		lms_jdbc jdbc = new lms_jdbc();
 		jdbc.creatConnection();
-		jdbc.Query("Select * from users ");
+		jdbc.Query(sql);
+		//恢复sql值，方便重新刷新页面
+		sql="Select * from users ";
+		
+		System.out.println(sql);
+		
 		return jdbc.rs;
 		
 		/*
