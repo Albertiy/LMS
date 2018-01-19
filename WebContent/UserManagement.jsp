@@ -103,9 +103,17 @@
 						<%while(rs.next()){ %>  
 							<tr>
 								<td><%=rs.getString("uname") %></td>
-								<td><%=rs.getString("gender") %></td>
+								<%if(rs.getInt("gender")==1){ %>
+									<td>Man</td>
+								<%} else { %>
+									<td>Woman</td>
+								<%} %>
 								<td><%=rs.getString("pwd") %></td>
-								<td><%=rs.getString("role") %></td>
+								<%if(rs.getString("role").equals("s")){ %>
+									<td>Student</td>
+								<%} else { %>
+									<td>Teacher</td>
+								<%} %>
 								<td><%=rs.getString("phone") %></td>
 								<td><%=rs.getString("email") %></td>
 								<td><%=rs.getString("address") %></td>
