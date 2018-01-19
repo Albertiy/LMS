@@ -12,12 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.niit.lms.domain.Book;
-import cn.niit.lms.service.BookService;
+import cn.niit.lms.domain.Rule;
+import cn.niit.lms.domain.User;
+import cn.niit.lms.service.BookSearchService;
+import cn.niit.lms.service.UserService;
 
 @WebServlet("/Search")
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private BookService bservice = new BookService();
+	private BookSearchService bservice = new BookSearchService();
+	private UserService uservice = new UserService();
 
 	public SearchServlet() {
 		super();
@@ -38,6 +42,12 @@ public class SearchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String stype = request.getParameter("stype").toString();
 		String sinfo = request.getParameter("sinfo").toString();
+		User userSession = (User)request.getSession().getAttribute("user");
+		//若userSession非空，保存rule到Session
+		if(userSession!=null){
+			Rule rule=uservice.getRule(userSession.getRole());
+			request.getSession().setAttribute("rule", rule);
+		}
 		// System.out.println("stype: "+stype+"| sinfo: "+sinfo);
 		// 搜索为空直接回页面
 		if (sinfo.equals("")) {

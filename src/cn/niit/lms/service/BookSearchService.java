@@ -8,7 +8,7 @@ import cn.niit.lms.dao.impl.BookSearchDaoImpl;
 import cn.niit.lms.dao.impl.UserDaoImpl;
 import cn.niit.lms.domain.Book;
 
-public class BookService {
+public class BookSearchService {
 	private BookSearchDao bdao = new BookSearchDaoImpl();
 	
 	public ArrayList<Book> bookSearch(String stype, String sinfo){

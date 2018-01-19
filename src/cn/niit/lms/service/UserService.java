@@ -2,11 +2,15 @@ package cn.niit.lms.service;
 
 import cn.niit.lms.dao.UserDao;
 import cn.niit.lms.dao.impl.UserDaoImpl;
+import cn.niit.lms.domain.Rule;
 import cn.niit.lms.domain.User;
+import cn.niit.lms.dao.BookSearchDao;
+import cn.niit.lms.dao.impl.BookSearchDaoImpl;
 
 //提供Servlet调用的功能，使用Dao接口访问数据�?
 public class UserService {
 	private UserDao udao = new UserDaoImpl();
+	private BookSearchDao bsdao = new BookSearchDaoImpl();
 	
 	//登陆成功返回�?个User对象
 	public User login(User u){
@@ -40,4 +44,14 @@ public class UserService {
         //2.调用User数据接口，执行保存操作
         udao.save(u);
     }
+	
+	public Rule getRule(String role){
+		return udao.getRule(role);
+	}
+
+	public boolean reserveBook(int UID,Rule rule,String ISBN){
+		System.out.println("[user service]: "+"UID: "+UID+" ,role: "+rule.getRole()+", ISBN: "+ISBN);
+		return bsdao.reserveBook(UID, rule, ISBN);
+	}
+
 }

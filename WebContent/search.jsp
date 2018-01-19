@@ -3,12 +3,29 @@
 <%@page import="java.util.ArrayList" language="java"%>
 <%@page import="cn.niit.lms.domain.User" language="java"%>
 <%@page import="cn.niit.lms.domain.Book" language="java"%>
+<%@page import="cn.niit.lms.domain.Rule" language="java"%>
 <% session.removeAttribute("backUrl");
 System.out.println("search.jsp delete backUrl");
 String logined = "false";
+String remain = "false";//可借标记
+String reserve = "none";
 if (session.getAttribute("user") != null) {
     logined = "true";
+    if(session.getAttribute("rule") != null){
+        Rule rule = (Rule)session.getAttribute("rule");
+        int amount = ((User)session.getAttribute("user")).getAmount();
+        int book_limit = rule.getBook_limit();
+        System.out.println("剩余可借："+(book_limit-amount)+" 本");
+        if((book_limit-amount)>=1)//大于等于1，可借
+            remain = "true";
+    }else{
+    	System.out.println("未获取到rule！");
     }
+    }
+if(session.getAttribute("reserve") != null) {
+	reserve = (String)session.getAttribute("reserve");
+	session.removeAttribute("reserve");
+}
 %>
 <!DOCTYPE html>
 <html lang='zh-CN'>
@@ -98,9 +115,8 @@ if (session.getAttribute("user") != null) {
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<%
-                                ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookList");
-                                if (bookList != null && !bookList.isEmpty()) {%>
+					<% ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookList");
+                       if (bookList != null && !bookList.isEmpty()) {%>
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -125,7 +141,7 @@ if (session.getAttribute("user") != null) {
 								<td><%=b.getRemain_Amount()%></td>
 								<td><%=b.getPrice()%></td>
 								<td><input value=<%=b.getISBN()%> type="radio"
-									name="radioname" /></td>
+									name="radioname" <%if(b.getRemain_Amount()<=2){%>hidden=hidden<%}%>></td>
 							</tr>
 							<% } %>
 						</tbody>
@@ -158,6 +174,16 @@ if (session.getAttribute("user") != null) {
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 <script src="/LMS/assets/js/index.js"></script>
 <script>
+$(document).ready(function(){
+	var reserve = "<%=reserve%>";
+	if(reserve == "true"){
+		reserve = '${sessionScope.user.getAmount()}';
+		alert("Borrowed Success! \n Already Borrow: "+reserve);
+	}else if(reserve == "false"){
+		reserve = '${sessionScope.user.getAmount()}%>';
+		alert("Borrowed failed! \n Already Borrow: "+reserve);
+	}
+});
 function getRadioValue(){
     //alert("Reserve Button Clicked");
     var radios = document.getElementsByName("radioname");
@@ -170,12 +196,19 @@ function getRadioValue(){
         }
     if(val==null){
         alert("Please choose one");
-        }else{//登录检测
-            var logined = '<%=logined%>';
+    }else{/*登录检测, 标记月用的JSP变量一定要在代码最前面*/
+       var logined = '<%=logined%>';
             if(logined=='false'){
                 window.location.href=getPath()+"/login.jsp";
 			}else{
-				window.location.href=getPath()+"/Reserve";
+				var remain = '<%=remain%>';
+				if(remain=='true'){
+					window.location.href=getPath()+"/Reserve?ISBN="+val;
+				}
+				else{
+					//可借书不足
+					alert("Your remain borrow amount is 0. You can return some books first.");
+				}
 			}
 		}
 	 };
