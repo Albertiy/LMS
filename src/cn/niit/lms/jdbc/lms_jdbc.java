@@ -14,14 +14,15 @@ public class lms_jdbc {
 	//jdbc
 	public boolean creatConnection(){
 		try{
+			System.out.println("#进入LMS_JDBC#");
 			Class.forName(driver); //注册JDBC驱动
 			conn=DriverManager.getConnection(url,"root","password"); //连接数据库
 			stmt = conn.createStatement(); // 实例化Statement对
-			System.out.println("数据库连接成功");
+			System.out.println("#数据库连接成功#");
 			return true;
 		}
 		catch(Exception e){
-			System.out.println("数据库连接失败"+e.toString());
+			System.out.println("#数据库连接失败#"+e.toString());
 			return false;
 		}
 	}	
@@ -31,9 +32,9 @@ public class lms_jdbc {
 		sql = mysql;//修改查询语句
 		try {
 			rs = stmt.executeQuery(sql);//执行
-			System.out.println("执行成功");
+			System.out.println("#查询语句执行成功#");
 		} catch (SQLException e) {
-			System.out.println("执行失败");
+			System.out.println("#查询语句执行失败#");
 			e.printStackTrace();
 		}
 	}
@@ -42,9 +43,9 @@ public class lms_jdbc {
 		sql = mysql;//修改查询语句
 		try {
 			stmt.executeUpdate(sql);//执行
-			System.out.println("执行成功");
+			System.out.println("#更新语句执行成功#");
 		} catch (SQLException e) {
-			System.out.println("执行失败");
+			System.out.println("#更新语句执行失败#");
 			e.printStackTrace();
 		}
 	}
@@ -55,7 +56,6 @@ public class lms_jdbc {
 			rs.close();
 			stmt.close();
 			conn.close();
-			System.out.println("清理成功");
 		} catch (SQLException se) {
 			// TODO Auto-generated catch block
 			se.printStackTrace();
@@ -72,6 +72,7 @@ public class lms_jdbc {
 				se.printStackTrace();
 			}
 		}
+		System.out.println("#清理成功#");
 	}
 	
 

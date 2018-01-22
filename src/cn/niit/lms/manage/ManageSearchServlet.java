@@ -28,6 +28,7 @@ public class ManageSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("!进入ManageSearchServlet.java!");
 		String liname = request.getParameter("LiName"); 
 		String InputSearch = request.getParameter("InputSearch"); 
 		
@@ -35,12 +36,13 @@ public class ManageSearchServlet extends HttpServlet {
 		String SQL="Select * from users where " + liname + " = '" + InputSearch+"'";
 		
 		//检测两个参数传值/获取是否正确。
-		System.out.println(SQL);
+		//System.out.println(SQL);
 		
 		// 修改UserManage 的sql，达到刷新表格的目的。
-		//UserManage.sql=SQL;
+		UserManage.sql=SQL;
 		
 		response.sendRedirect("UserManagement.jsp");
+		System.out.println("!退出ManageSearchServlet.java!");
 	}
 
 	/**

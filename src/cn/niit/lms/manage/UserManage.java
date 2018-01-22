@@ -22,6 +22,7 @@ public class UserManage {
 	public static String sql="Select * from users ";
 	//展开结果集数据库
 	public static ResultSet getRS(){
+		System.out.println("!进入Usermanage.java!");
 		//检测ManageSearchServlet修改sql是否成功；
 		//System.out.println(sql);
 		
@@ -32,7 +33,7 @@ public class UserManage {
 		sql="Select * from users ";
 		
 		//System.out.println(sql);
-		
+		System.out.println("!退出Usermanage.java!");
 		return jdbc.rs;
 		
 		/*

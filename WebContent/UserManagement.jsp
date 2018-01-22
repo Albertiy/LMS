@@ -3,7 +3,9 @@
 <%@ page import = "cn.niit.lms.manage.UserManage" language="java" %>
 <%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
-<%  ResultSet rs = UserManage.getRS(); %>
+
+<%  System.out.println("---UserManagement.jsp 开始加载---"); ResultSet rs = UserManage.getRS(); %>
+
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -18,7 +20,6 @@
 <script src="/LMS/assets/js/index.js"></script>
 <script type="text/javascript" src="/LMS/assets/js/usermanagement.js"></script>
 <script type="text/javascript" src="/LMS/assets/js/ManageSearch.js"></script>
-
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -122,11 +123,14 @@
 								
 								<%  
 								String r= rs.getString("UID");
+								System.out.println("--计算用户 "+r+" 的罚金Fine--");
 								ResultSet rsfine = BorrowDetail.RS(r); 
 								int f = 0;
 								while(rsfine.next()){
 									f += rsfine.getInt("Fine");
 								}
+								System.out.println("--Fine计算完成--");
+								rsfine.close();
 								%>		
 								<%if (f > 0){ %>
 									<td><b><font color = red><%=f %></font></b></td>
@@ -138,7 +142,7 @@
 							</tr>
 					 	<%} %> 
 					 	
-					 	<% rs.close(); System.out.println("清理成功"); %> 
+					 	<% rs.close(); System.out.println("--清理成功--"); %> 
 						</tbody>
 					</table>
 				</div>
@@ -164,5 +168,6 @@
 		</p>
 	</div>
 </footer>
-
 </html>
+<% System.out.println("---UserManagement.jsp 加载完成---"); %>
+<% System.out.println("--------------------------------------"); %>

@@ -10,6 +10,7 @@ public class BorrowDetail {
 		fine = sfine;
 	}
 	public static ResultSet RS(String id){
+		System.out.println("!½øÈë BorrowDetail.java!");
 		String uid = id;
 		lms_jdbc jdbc = new lms_jdbc();
 		jdbc.creatConnection();
@@ -18,6 +19,7 @@ public class BorrowDetail {
 				+ "left join borrowed_books on (books.BID = borrowed_books.BID) "
 				+ "left join isbn_books on(books.ISBN=isbn_books.ISBN) "
 				+ "where books.UID=" + uid);
+		System.out.println("!ÍË³öBorrowDetail.java!");
 		return jdbc.rs;
 	}
 }

@@ -3,7 +3,7 @@
 <%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
 <% String uid = request.getParameter("uid");%>
-<%  ResultSet rs = BorrowDetail.RS(uid); %>
+<% System.out.println("---BorrowDetail.jsp 开始加载---");  ResultSet rs = BorrowDetail.RS(uid); %>
 
 <!DOCTYPE html>
 <html lang='zh-CN'>
@@ -111,7 +111,7 @@
 								<%} %>
 							</tr>
 					 		<%} %> 
-					 	<% rs.close(); System.out.println("清理成功"); %> 
+					 	<% rs.close(); System.out.println("--清理成功--"); %> 
 						</tbody>
 						<tfoot>
 							<tr>
@@ -149,3 +149,5 @@
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 </html>
+<% System.out.println("---BorrowDetail.jsp 加载完成---"); %>
+<% System.out.println("--------------------------------------"); %>

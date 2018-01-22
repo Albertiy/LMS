@@ -29,6 +29,7 @@ public class SubmitBookServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("!进入SubmitBookServlet.java!");
 		response.setCharacterEncoding("GBK");
 		String bid = request.getParameter("bid");
 		String uid = request.getParameter("uid");
@@ -38,9 +39,9 @@ public class SubmitBookServlet extends HttpServlet {
 		jdbc.creatConnection();
 		//执行修改语句 书的状态从预约变成借出
 		jdbc.Update("update borrowed_books set State = 1 where BID="+bid);
-		
 		//跳回页面
 		response.sendRedirect("BorrowDetail.jsp?uid="+uid);
+		System.out.println("!退出SubmitBookServlet.java!");
 	}
 
 	/**
