@@ -10,7 +10,8 @@
 <%@ page import = "cn.niit.lms.dao.*" %>
 
 <%
-	String UID=(String)session.getAttribute("UID");
+	User u = (User)session.getAttribute("user");
+	int UID= u.getUid();
 	ArrayList<BorrowBooks> test = new ArrayList<BorrowBooks>();
 	test = BookDao.readBorrowBooks(UID);
 %>
@@ -31,7 +32,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<%for (BorrowBooks bb : test){ %>
+					<%
+						for (BorrowBooks bb : test){
+							String State = "Reserved";
+							if(bb.getState()==1){
+								State="Borrowed";
+							}
+					%>
 					<tr>
 						<td><%=bb.getISBN() %></td>
 						<td><%=bb.getTitle() %></td>						
@@ -39,7 +46,7 @@
 						<td><%=bb.getBorrow_Date() %></td>	
 						<td><%=bb.getRuturn_Date() %></td>
 						<td><%=bb.getFine()%></td>
-						<td><%=bb.getState() %></td>
+						<td><%=State %></td>
 					</tr>
 					<%} %>
 			</tbody>

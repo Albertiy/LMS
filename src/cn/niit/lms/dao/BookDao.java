@@ -43,7 +43,7 @@ public class BookDao {
          return rs;
      }
     
-    public static ArrayList<BorrowBooks> readBorrowBooks(String UID){
+    public static ArrayList<BorrowBooks> readBorrowBooks(int UID){
     	
     	ArrayList<BorrowBooks> BorrowBook= new ArrayList<BorrowBooks>();
     	String sql=null;
@@ -51,7 +51,7 @@ public class BookDao {
         try {    
             conn = JDBCUtils.getConnection();
             sql=("select bb.Borrow_Date, bb.Limit_Date, bb.Fine,bb.State, "
-            		+ "ib.title, ib.author from borrowed_books bb left join Books b on bb.BID = b.BID "
+            		+ "ib.isbn,ib.title, ib.author from borrowed_books bb left join Books b on bb.BID = b.BID "
             		+ "left join ISBN_Books ib on b.ISBN = ib.ISBN"
             				+" where bb.UID="+UID);           
             System.out.println(sql);
