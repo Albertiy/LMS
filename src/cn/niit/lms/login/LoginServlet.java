@@ -53,6 +53,12 @@ public class LoginServlet extends HttpServlet {
 		if(!user.equals(null)){
 		// 登陆成功，保存到session并跳转
 			request.getSession().setAttribute("user", user);
+			//如果是图书管理员，跳转至管理页面
+			if(user.getRole().equals("l")||user.getRole().equals("a"))
+			{
+				response.sendRedirect(request.getContextPath()+"/Manage.jsp");
+				return;
+			}
 			if(request.getSession().getAttribute("backUrl") != null)
 		        response.sendRedirect(request.getSession().getAttribute("backUrl").toString());
 			else

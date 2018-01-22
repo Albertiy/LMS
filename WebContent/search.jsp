@@ -40,6 +40,7 @@ if(session.getAttribute("reserve") != null) {
 </head>
 <body>
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
+	
 	<div class="hero-background">
 		<div class="container">
 			<div class="row">
