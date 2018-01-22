@@ -118,6 +118,7 @@
 						<tbody>
 						<%while(rs.next()){ %>  
 							<tr>
+							<%if(!rs.getString("role").equals("l")) {%>
 								<td><%=rs.getString("uname") %></td>
 								<%if(rs.getInt("gender")==1){ %>
 									<td>Man</td>
@@ -155,7 +156,7 @@
 								<td><input value=<%=rs.getInt("UID") %> type="radio" name="radioname"/></td>
 								
 							</tr>
-					 	<%} %> 
+					 	<%} }%> 
 					 	
 					 	<% rs.close(); System.out.println("--清理成功--"); %> 
 						</tbody>
