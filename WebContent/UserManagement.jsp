@@ -148,8 +148,8 @@
 					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
+					<a class="btn btn-info " role="button" onclick="ModifyPWD()" >ModifyPWD</a>
 					<a class="btn btn-success " role="button" onclick="getRadioValue()">BorrowDetail</a> 
-					<a class="btn btn-info " role="button" >ClearFine</a>
 				</div>
 			</div>
 		</div>
