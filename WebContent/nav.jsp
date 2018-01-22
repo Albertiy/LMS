@@ -27,7 +27,8 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a id="home" href="index.jsp">Home</a></li>
-					<%if (user!=null&&(user.getRole()=="l"||user.getRole()=="a")) {%>
+					<!-- 不要用 =="" ，用 .equals("") -->
+					<%if (user!=null&&(user.getRole().equals("l")||user.equals("a"))) {%>
 					<li><a id="manage" href="Manage.jsp">Manage</a></li>
 					<%} %>
 				</ul>
