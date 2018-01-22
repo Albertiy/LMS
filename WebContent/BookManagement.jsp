@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 	<%@ page import = "cn.niit.lms.dao.*" language="java" %>
 	<%@ page import = "java.sql.*" language="java"  %>
+	<%@	page import="java.util.ArrayList" language="java"%>
+	<%@ page import="cn.niit.lms.domain.Book" language="java"%>
 	<%  ResultSet rs = BookDao.readbook(); %>
 	<!DOCTYPE html>
 	<html lang='zh-CN'>
@@ -20,6 +22,7 @@
 		<script src="/LMS/assets/js/DeleteBook.js"></script>
 		<script src="/LMS/assets/js/EditBook.js"></script>
 		<script src="/LMS/assets/js/SingleBook.js"></script>
+		<script src="/LMS/assets/js/BookManagement.js"></script>
 		<script>
 			$(document).ready(function () {
 				console.log('<%=request.getAttribute("message")%>');
@@ -74,7 +77,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a id="users" href="users.jsp">Role</a>
+							<a id="users" href="Users.jsp">Role</a>
 						</li>
 						<!-- 角色类型从数据库读取 -->
 						<li>
@@ -103,7 +106,7 @@
 									Title
 									<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" id="search_type">
 									<li id="Title">
 										<a href="#">Title</a>
 									</li>
@@ -119,10 +122,12 @@
 								</ul>
 							</div>
 							<div class="col-md-8 col-xs-12">
-								<input type="text" class="form-control" aria-label="...">
+								<input type="text" id="search_type1" hidden value="Title">
+								<input type="text" id="search_info" class="form-control" 
+										aria-label="..." maxlength="50" title="最大长度不要超过50字符">
 							</div>
 							<div class="col-md-2 col-xs-12">
-								<button type="button" class="btn btn-default btn-block sbutton">Search</button>
+								<button type="button" class="btn btn-default btn-block sbutton" onclick="goSearch1()">Search</button>
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
@@ -143,22 +148,38 @@
 							</tr>
 						</thead>
 						<tbody id="bookrecords">
-							
-							<%while(rs.next()){ %>  
-							<tr>
-								<td><%=rs.getString("ISBN") %></td>
-								<td><%=rs.getString("Title") %></td>
-								<td><%=rs.getString("Author") %></td>
-								<td><%=rs.getString("Category") %></td>
-								<td><%=rs.getInt("Amounts") %></td>
-								<td><%=rs.getInt("Remain_Amounts") %></td>
-								<td><%=rs.getFloat("Price") %></td>
-								<td>
-									<input value=<%=rs.getString("ISBN") %> 
-										type="radio" name="radio" id="radio"/>
-								</td>
-								
-							</tr>
+							<% ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("BookList");%>
+							<% if(bookList != null && !bookList.isEmpty()){ %>
+								<% for (Book b : bookList) {%>
+								<tr>
+									<td><%=b.getISBN()%></td>
+									<td><%=b.getTitle()%></td>
+									<td><%=b.getAuthor()%></td>
+									<td><%=b.getCategory()%></td>
+									<td><%=b.getAmount()%></td>
+									<td><%=b.getRemain_Amount()%></td>
+									<td><%=b.getPrice()%></td>
+									<td><input value=<%=b.getISBN()%> type="radio"
+										name="radio" id="radio"></td>
+								</tr>
+								<% } %>
+							<% }else{ %>
+								<%while(rs.next()){ %>  
+								<tr>
+									<td><%=rs.getString("ISBN") %></td>
+									<td><%=rs.getString("Title") %></td>
+									<td><%=rs.getString("Author") %></td>
+									<td><%=rs.getString("Category") %></td>
+									<td><%=rs.getInt("Amounts") %></td>
+									<td><%=rs.getInt("Remain_Amounts") %></td>
+									<td><%=rs.getFloat("Price") %></td>
+									<td>
+										<input value=<%=rs.getString("ISBN") %> 
+											type="radio" name="radio" id="radio"/>
+									</td>
+									
+								</tr>
+						 		<%} %>
 					 		<%} %>
 					 		<% System.out.println("BookManagement数据插入成功"); %> 
 					 		<% rs.close(); %>
