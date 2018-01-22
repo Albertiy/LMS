@@ -53,7 +53,7 @@ public class BookDao {
             sql=("select bb.Borrow_Date, bb.Limit_Date, bb.Fine,bb.State, "
             		+ "ib.title, ib.author from borrowed_books bb left join Books b on bb.BID = b.BID "
             		+ "left join ISBN_Books ib on b.ISBN = ib.ISBN"
-            				+"where bb.UID="+UID);           
+            				+" where bb.UID="+UID);           
             System.out.println(sql);
             pstmt = conn.prepareStatement(sql); 
             rs = pstmt.executeQuery(); 
