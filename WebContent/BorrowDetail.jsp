@@ -47,7 +47,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="hero-background">
+	<div class="hero-background"  style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -92,17 +92,17 @@
 								<%} if(rs.getInt("State")==0){%>
 								<td><b><font color = red>Incomplete</font></b></td>
 								<td >
-								<button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
+								<button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-warning btn-xs" type="button" 
 								onclick="SubmitBook(this.value,<%=uid%>)">Submit</button>
 								</td>
 								<td>
-								<button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
+								<button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-danger btn-xs" type="button" 
 								onclick="BookReturn(this.value,<%=uid%>)">Cancel</button>
 								</td>
 								<!-- 如果罚金不为零 -->
 								<% } if(rs.getInt("State")!=0&&rs.getInt("Fine")!=0){ %>
 								<td><b><font color = green>Completed</font></b></td>
-								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-info btn-xs" type="button" 
+								<td ><button value=<%=rs.getInt("BID")%> name="breturn" class="btn btn-success btn-xs" type="button" 
 								onclick="BookReturn(this.value,<%=uid%>)">ClearR</button></td><td></td>
 								<% } if(rs.getInt("State")!=0&&rs.getInt("Fine")==0) { %>
 								<td><b><font color = green>Completed</font></b></td>
@@ -137,7 +137,6 @@
 		</div>
 	</div>
 </body>
-<h1>&nbsp;</h1>
 <footer class="footer">
 	<div class="container">
 		<p class="text-muted">

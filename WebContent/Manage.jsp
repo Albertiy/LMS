@@ -38,16 +38,17 @@
 			</div>
 		</div>
 	</nav>
-	<h1>&nbsp;</h1>
-	<div class="hero-background">
+	<div class="hero-background" style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
 		<div class="container"> 
 			<div class="row">
 				<div class="col-md-12">
 					<h1>&nbsp;</h1>
+					<br></br><br></br><br></br>
 					<h2 class="text-center">Librarain Management</h2>
 				</div>
 			</div>
 			<h1>&nbsp;</h1>
+			<br></br><br></br>
 			<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-2"></div>

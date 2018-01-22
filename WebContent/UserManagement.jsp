@@ -48,7 +48,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="hero-background">
+	<div class="hero-background" style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -159,7 +159,6 @@
 		</div>
 	</div>
 </body>
- <h1>&nbsp;</h1>
 <footer class="footer">
 	<div class="container">
 		<p class="text-muted">
