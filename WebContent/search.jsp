@@ -5,7 +5,7 @@
 <%@page import="cn.niit.lms.domain.Book" language="java"%>
 <%@page import="cn.niit.lms.domain.Rule" language="java"%>
 <% session.removeAttribute("backUrl");
-System.out.println("search.jsp delete backUrl");
+System.out.println("[search.jsp]: Delete backUrl");
 String logined = "false";
 String remain = "false";//可借标记
 String reserve = "none";
@@ -39,46 +39,7 @@ if(session.getAttribute("reserve") != null) {
 <link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 </head>
 <body>
-	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand">Library Management System</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a id="home" href="index.jsp">Home</a></li>
-					<li><a id="about" href="about.jsp">***</a></li>
-					<li><a id="contact" href="contact.jsp">***</a></li>
-				</ul>
-				<!-- 显示Role和名称 -->
-				<%if (session.getAttribute("user") == null) {%>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a id="login" href="login.jsp">Login In</a></li>
-						<li><a id="signup" href="signup.jsp">Sign Up</a></li>
-					</ul>
-					<%}else{
-						String role= ((User)session.getAttribute("user")).getRole();
-						switch(role){
-						default: role = "Student";break;
-						case "t": role = "Teacher";break;
-						case "l": role = "Librarian";break;
-						case "a": role = "Admin";break;
-						}
-					%>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a id="user" href=""><strong><%=role %> | ${sessionScope.user.getUname()}</strong></a></li>
-						<li><a id="logout" href="Logout">Login Out</a></li>
-					</ul>
-					<%}%>
-			</div>
-		</div>
-	</nav>
+	<jsp:include flush="true" page="nav.jsp"></jsp:include>
 	<div class="hero-background">
 		<div class="container">
 			<div class="row">
@@ -101,7 +62,7 @@ if(session.getAttribute("reserve") != null) {
 							</ul>
 						</div>
 						<div class="col-md-8 col-sm-7 col-xs-12">
-							<input type="text" id="search_type1" hidden value="Title">
+							<input type="text" id="search_type1" hidden="hidden" value="Title">
 							<input type="text" id="search_info" class="form-control"
 								aria-label="..." maxlength="50" title="最大长度不要超过50字符">
 						</div>
@@ -153,7 +114,7 @@ if(session.getAttribute("reserve") != null) {
 			</div>
 			<div class="row">
 				<div class="col-md-3 col-xs-3">
-					<a href="#" class="btn btn-primary btn-lg" role="button">Back</a>
+					<a href="javascript:history.go(-1)" class="btn btn-primary btn-lg" role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
 					<a class="btn btn-info" role="button" onclick="getRadioValue()">Reserve</a>
@@ -172,16 +133,16 @@ if(session.getAttribute("reserve") != null) {
 </footer>
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
-<script src="/LMS/assets/js/index.js"></script>
+<script src="/LMS/assets/js/search.js"></script>
 <script>
 $(document).ready(function(){
 	var reserve = "<%=reserve%>";
 	if(reserve == "true"){
 		reserve = '${sessionScope.user.getAmount()}';
-		alert("Borrowed Success! \n Already Borrow: "+reserve);
+		alert("Reserve Success! \n Already Borrow: "+reserve);
 	}else if(reserve == "false"){
 		reserve = '${sessionScope.user.getAmount()}%>';
-		alert("Borrowed failed! \n Already Borrow: "+reserve);
+		alert("Reserve failed! \n Already Borrow: "+reserve);
 	}
 });
 function getRadioValue(){
@@ -212,11 +173,6 @@ function getRadioValue(){
 			}
 		}
 	 };
-function getPath() {
-    var pathName = document.location.pathname;
-    var index = pathName.substr(1).indexOf("/");
-    var result = pathName.substr(0, index + 1);
-    return result;
-};
+
 </script>
 </html>

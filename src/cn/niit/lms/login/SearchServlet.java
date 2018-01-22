@@ -54,15 +54,17 @@ public class SearchServlet extends HttpServlet {
 			//System.out.println("sinfo is empty: search no results");
 			RequestDispatcher rs = request.getRequestDispatcher("search.jsp");
 			rs.include(request, response);
+			return;
 		} else {
 			//System.out.println("Ready for search in MySQL");
 			ArrayList<Book> bookList = null;
 			try {
 				bookList = bservice.bookSearch(stype, sinfo);
 			} catch (Exception e) {
-				System.out.println("Result is Empty!");
+				System.out.println("[SearchServlet]: Result is empty");
 				RequestDispatcher rs = request.getRequestDispatcher("search.jsp");
 				rs.include(request, response);
+				return;
 			}
 			if (bookList != null && !bookList.isEmpty()) {
 				// 读取成功，进入搜索结果页
@@ -73,9 +75,11 @@ public class SearchServlet extends HttpServlet {
 				//response.sendRedirect(request.getContextPath() + "/search.jsp");
 				//这种就传值
 				request.getRequestDispatcher("search.jsp").forward(request, response);
+				return;
 			} else {// 为防意外，再来一次
 				RequestDispatcher rs = request.getRequestDispatcher("search.jsp");
 				rs.include(request, response);
+				return;
 			}
 
 		}
