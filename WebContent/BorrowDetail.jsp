@@ -32,8 +32,8 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
-					<table class="table table-hover" id="BorrowDetailTable">
+				<div class="col-md-12" style="height:315px; overflow:auto">
+					<table class="table table-hover" id="BorrowDetailTable" >
 					<%int fine = 0;%>
 						<thead>
 							<tr>
@@ -105,6 +105,7 @@
 					</table>
 				</div>
 			</div>
+			<br></br>
 			<div class="row">
 				<div class="col-md-3 col-xs-3">
 					<a href="UserManagement.jsp" class="btn btn-primary btn-lg " role="button">Back</a>

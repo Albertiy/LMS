@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12" style="height:315px; overflow:auto">
 					<table class="table table-hover">
 						<thead>
 							<tr>
