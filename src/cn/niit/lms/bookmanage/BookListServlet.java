@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 /**
  * Servlet implementation class BookListServlet
  */

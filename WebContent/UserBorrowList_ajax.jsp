@@ -5,6 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User's borrowlist page</title>
+<%@ page import = "java.util.ArrayList" %>
+<%@ page import = "cn.niit.lms.domain.*" %>
+<%@ page import = "cn.niit.lms.dao.*" %>
+
+<%
+	String UID=(String)session.getAttribute("UID");
+	ArrayList<BorrowBooks> test = new ArrayList<BorrowBooks>();
+	test = BookDao.readBorrowBooks(UID);
+%>
+
 </head>
 <body>
 		<div class="col-md-12">
@@ -17,18 +27,30 @@
 						<th>Borrow Date</th>
 						<th>Return Date</th>
 						<th>Fine</th>
+						<th>State</th>
 					</tr>
 				</thead>
 				<tbody>
+					<%for (BorrowBooks bb : test){ %>
 					<tr>
-						<td>123456</td>
-						<td>Java</td>
-						<td>Damon</td>
-						<td>2017-12-12</td>
-						<td>2018-3-13</td>
-						<td>26.5</td>
+						<td><%=bb.getISBN() %></td>
+						<td><%=bb.getTitle() %></td>						
+						<td><%=bb.getAuthor() %></td>
+						<td><%=bb.getBorrow_Date() %></td>	
+						<td><%=bb.getRuturn_Date() %></td>
+						<td><%=bb.getFine()%></td>
+						<%
+							int state=bb.getState();
+							switch(state){
+							case 0:
+						%>
+							<td>Reserved</td> <%break; %>
+							<%case 1: %>
+							<td>Borrowed</td> <%break; %>
+							<%} %>
 					</tr>
-				</tbody>
+					<%} %>
+			</tbody>
 			</table>
 	</div>
 </body>

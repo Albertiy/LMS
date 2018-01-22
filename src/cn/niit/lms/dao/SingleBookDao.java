@@ -29,7 +29,7 @@ public class SingleBookDao {
 				sBook.setBID(rs.getInt("BID"));
 				BookList.add(sBook);
 			}
-			System.out.println("BookDao通过ISBN查询Book信息成功");
+			System.out.println("SingleBookDao通过ISBN查询Book信息成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

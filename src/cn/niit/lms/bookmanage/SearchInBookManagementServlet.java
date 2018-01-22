@@ -58,6 +58,7 @@ public class SearchInBookManagementServlet extends HttpServlet {
 			//System.out.println("sinfo is empty: search no results");
 			RequestDispatcher rs = request.getRequestDispatcher("BookManagement.jsp");
 			rs.include(request, response);
+			return;
 		} else {
 			//System.out.println("Ready for search in MySQL");
 			ArrayList<Book> bookList = null;
@@ -67,6 +68,7 @@ public class SearchInBookManagementServlet extends HttpServlet {
 				System.out.println("Result is Empty!");
 				RequestDispatcher rs = request.getRequestDispatcher("BookManagement.jsp");
 				rs.include(request, response);
+				return;
 			}
 			if (bookList != null && !bookList.isEmpty()) {
 				// 读取成功，进入搜索结果页
@@ -77,9 +79,11 @@ public class SearchInBookManagementServlet extends HttpServlet {
 				//response.sendRedirect(request.getContextPath() + "/search.jsp");
 				//这种就传值
 				request.getRequestDispatcher("BookManagement.jsp").forward(request, response);
+				return;
 			} else {// 为防意外，再来一次
 				RequestDispatcher rs = request.getRequestDispatcher("BookManagement.jsp");
 				rs.include(request, response);
+				return;
 			}
 
 		}

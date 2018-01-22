@@ -41,7 +41,6 @@ public class AddRecommendBookServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);String ISBN = request.getParameter("ISBN");
 		String Title = request.getParameter("Title");
 		String Author = request.getParameter("Author");	
 		
@@ -77,7 +76,8 @@ public class AddRecommendBookServlet extends HttpServlet {
 				request.setAttribute("message", "Add done");
 			    request.getRequestDispatcher("/Users.jsp").forward(request, response);
         	
-        	}else {												
+        	}else {		
+        		pstmt.close();
         		sql = "update recommend_books set rTimes=rTimes+1 where Title='"+Title+"' and author='"+Author+"'";
 				pstmt = conn.prepareStatement(sql); 
 				int s = pstmt.executeUpdate();
