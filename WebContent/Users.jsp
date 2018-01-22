@@ -22,10 +22,6 @@
 			htmlobj=$.ajax({url:"UserBorrowList_ajax.jsp",async:false});
 			$("#showdiv").html(htmlobj.responseText);
 		});
-		$("#fine").click(function(){
-			htmlobj=$.ajax({url:"UserFine_ajax.jsp",async:false});
-			$("#showdiv").html(htmlobj.responseText);
-		});
 		$("#recommend").click(function(){
 			htmlobj=$.ajax({url:"UserRecommend_ajax.jsp",async:false});
 			$("#showdiv").html(htmlobj.responseText);
@@ -49,7 +45,6 @@
 						<ul class="nav nav-pills nav-stacked">
 							<li id="info" role="presentation" class="active"><a href="#">Info</a></li>
   							<li id="blist" role="presentation"><a href="#">Borrow List</a></li>
-  							<li id="fine" role="presentation"><a href="#">Fine</a></li>
   							<li id="recommend" role="presentation"><a href="#">Recommend</a></li>
 						</ul>
 						

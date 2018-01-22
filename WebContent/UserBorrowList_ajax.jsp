@@ -10,6 +10,7 @@
 <%@ page import = "cn.niit.lms.dao.*" %>
 
 <%
+	float TotalFine = 0;
 	User u = (User)session.getAttribute("user");
 	int UID= u.getUid();
 	ArrayList<BorrowBooks> test = new ArrayList<BorrowBooks>();
@@ -38,6 +39,7 @@
 							if(bb.getState()==1){
 								State="Borrowed";
 							}
+							TotalFine = TotalFine+bb.getFine();
 					%>
 					<tr>
 						<td><%=bb.getISBN() %></td>
@@ -51,6 +53,11 @@
 					<%} %>
 			</tbody>
 			</table>
+		<div>
+			<label class="form-label f5">TotalFine:</label>
+			<span style="color:red"><%=TotalFine %></span>
+				
+		</div>
 	</div>
 </body>
 </html>
