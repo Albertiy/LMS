@@ -36,7 +36,7 @@ public class ManageModifyPWDServlet extends HttpServlet {
 		lms_jdbc jdbc = new lms_jdbc();
 		jdbc.creatConnection();
 		//执行更新语句，修改密码
-		jdbc.Update("Update users set pwd = "+pwd+" where UID="+uid);
+		jdbc.Update("Update users set pwd='"+pwd+"' where UID="+uid);
 		//跳回页面
 		response.sendRedirect("UserManagement.jsp");
 		System.out.println("!退出ManageModifyPWDServlet.java!");

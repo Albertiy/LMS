@@ -31,6 +31,7 @@ public class lms_jdbc {
 	public void Query(String mysql){
 		sql = mysql;//修改查询语句
 		try {
+			System.out.println("#"+sql+"#");
 			rs = stmt.executeQuery(sql);//执行
 			System.out.println("#查询语句执行成功#");
 		} catch (SQLException e) {
@@ -42,6 +43,7 @@ public class lms_jdbc {
 	public void Update(String mysql){
 		sql = mysql;//修改查询语句
 		try {
+			System.out.println("#"+sql+"#");
 			stmt.executeUpdate(sql);//执行
 			System.out.println("#更新语句执行成功#");
 		} catch (SQLException e) {
