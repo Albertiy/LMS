@@ -3,7 +3,7 @@
 <%@ page import = "cn.niit.lms.manage.UserManage" language="java" %>
 <%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
-
+<%@page import="cn.niit.lms.domain.User" language="java"%>
 <%  System.out.println("---UserManagement.jsp 开始加载---"); ResultSet rs = UserManage.getRS(); %>
 
 <!DOCTYPE html>
@@ -23,7 +23,6 @@
 </head>
 <body>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
-		<!-- 白色导航条是 navbar-default navbar-fixed-top让导航条固定在顶部，static-top为默认-->
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -37,14 +36,30 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a id="home" href="index.jsp">Home</a></li>
-					<li><a id="about" href="about.jsp">***</a></li>
-					<li><a id="contact" href="contact.jsp">***</a></li>
 				</ul>
+				<!-- 显示Role和名称 -->
+				<%  System.out.println("[nav.jsp]: Include the nav bar!");
+                String userInfo="";
+                if (session.getAttribute("user") == null) {%>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a id="librarian" href="#">Librarian</a></li>
-					<!-- 角色类型从数据库读取 -->
-					<li><a id="logout" href="index.jsp">Log out</a></li>
+					<li><a id="login" href="login.jsp">Login In</a></li>
+					<li><a id="signup" href="signup.jsp">Sign Up</a></li>
 				</ul>
+				<%}else{
+                    String role= ((User)session.getAttribute("user")).getRole();
+                    switch(role){
+                    default: role = "Student";userInfo="Users.jsp";break;
+                    case "t": role = "Teacher";userInfo="Users.jsp";break;
+                    case "l": role = "Librarian";break;
+                    case "a": role = "Admin";break;
+                    }
+                %>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a id="user" href="<%=userInfo %>"><strong><%=role %>
+								| ${sessionScope.user.getUname()}</strong></a></li>
+					<li><a id="logout" href="Logout">Login Out</a></li>
+				</ul>
+				<%}%>
 			</div>
 		</div>
 	</nav>
