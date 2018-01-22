@@ -22,7 +22,7 @@ public class BookSearchDaoImpl implements BookSearchDao {
 		// 1.获得连接
 		Connection conn = JDBCUtils.getConnection();
 		// 2.准备sql
-		String sql = "select * from ISBN_Books where " + stype + " LIKE '%" + sinfo + "%'";
+		String sql = "select * from ISBN_Books where " + stype + " LIKE '%" + sinfo + "%'"; //Good
 		java.sql.Statement stmt=null;
 		try {
 			stmt = conn.createStatement();
