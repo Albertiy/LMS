@@ -33,7 +33,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12" style="height:315px; overflow:auto">
-					<table class="table table-hover" id="BorrowDetailTable" >
+					<table class="table table-hover" id="BorrowDetailTable"  >
 					<%int fine = 0;%>
 						<thead>
 							<tr>
