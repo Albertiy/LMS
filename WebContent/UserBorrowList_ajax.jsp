@@ -39,15 +39,7 @@
 						<td><%=bb.getBorrow_Date() %></td>	
 						<td><%=bb.getRuturn_Date() %></td>
 						<td><%=bb.getFine()%></td>
-						<%
-							int state=bb.getState();
-							switch(state){
-							case 0:
-						%>
-							<td>Reserved</td> <%break; %>
-							<%case 1: %>
-							<td>Borrowed</td> <%break; %>
-							<%} %>
+						<td><%=bb.getState() %></td>
 					</tr>
 					<%} %>
 			</tbody>

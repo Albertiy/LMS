@@ -7,21 +7,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+
 import cn.niit.lms.domain.BorrowBooks;
 import cn.niit.lms.domain.SingleBook;
 import cn.niit.lms.jdbc.JDBCUtils;
 
 public class BookDao {
 	private	static Connection conn=null;
-	private	static PreparedStatement ps = null;
+	private	static PreparedStatement pstmt = null;
 	public static ResultSet rs;
 	
     public static ResultSet readbook(){
     	//从数据库查询书籍信息
         try {    
             conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement("select * from ISBN_Books");  
-            rs = ps.executeQuery();  
+            pstmt = conn.prepareStatement("select * from ISBN_Books");  
+            rs = pstmt.executeQuery();  
             System.out.println("BookDao查询Book信息成功");  
         } catch (SQLException e) {  
             e.printStackTrace();  
@@ -32,8 +34,8 @@ public class BookDao {
     	//从数据库查询书籍信息
         try {    
             conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement("select * from ISBN_Books where ISBN="+ISBN);  
-            rs = ps.executeQuery();  
+            pstmt = conn.prepareStatement("select * from ISBN_Books where ISBN="+ISBN);  
+            rs = pstmt.executeQuery();  
             System.out.println("BookDao通过ISBN查询Book信息成功");  
         } catch (SQLException e) {  
             e.printStackTrace();  
@@ -44,15 +46,17 @@ public class BookDao {
     public static ArrayList<BorrowBooks> readBorrowBooks(String UID){
     	
     	ArrayList<BorrowBooks> BorrowBook= new ArrayList<BorrowBooks>();
-    	
+    	String sql=null;
     	//从数据库查询书籍信息
         try {    
             conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement("select bb.Borrow_Date, bb.Limit_Date, bb.Fine,bb.State, "
+            sql=("select bb.Borrow_Date, bb.Limit_Date, bb.Fine,bb.State, "
             		+ "ib.title, ib.author from borrowed_books bb left join Books b on bb.BID = b.BID "
             		+ "left join ISBN_Books ib on b.ISBN = ib.ISBN"
-            				+"where bb.UID="+UID);  
-            rs = ps.executeQuery(); 
+            				+"where bb.UID="+UID);           
+            System.out.println(sql);
+            pstmt = conn.prepareStatement(sql); 
+            rs = pstmt.executeQuery(); 
             
             while (rs.next()) {
 				BorrowBooks bBook = new BorrowBooks();
@@ -77,7 +81,7 @@ public class BookDao {
     public static void close(){
 		try {
 			rs.close();
-			ps.close();
+			pstmt.close();
 			conn.close();
 			System.out.println("清理成功");
 		} catch (SQLException se) {
@@ -87,7 +91,7 @@ public class BookDao {
 			e.printStackTrace();
 		} finally{
 			try{
-				if(ps != null) ps.close();
+				if(pstmt != null) pstmt.close();
 			} catch(SQLException se2){
 			}
 			try{
