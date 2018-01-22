@@ -9,6 +9,10 @@
 <title>LMS-Search</title>
 </head>
 <body>
+<%  System.out.println("[nav.jsp]: Include the nav bar!");
+    String userInfo="";
+    User user=(User)session.getAttribute("user");
+    %>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -23,11 +27,12 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a id="home" href="index.jsp">Home</a></li>
+					<%if (user!=null&&(user.getRole()=="l"||user.getRole()=="a")) {%>
+					<li><a id="manage" href="Manage.jsp">Manage</a></li>
+					<%} %>
 				</ul>
 				<!-- 显示Role和名称 -->
-				<%  System.out.println("[nav.jsp]: Include the nav bar!");
-                String userInfo="";
-                if (session.getAttribute("user") == null) {%>
+				<% if (session.getAttribute("user") == null) {%>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="login" href="login.jsp">Login In</a></li>
 					<li><a id="signup" href="signup.jsp">Sign Up</a></li>
