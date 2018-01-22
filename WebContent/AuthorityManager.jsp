@@ -9,9 +9,9 @@
 </head>
 <body>
 <% User user = (User)session.getAttribute("user");
-   if(user!=null){
-	   if(!user.getRole().equals("s")&&!user.getRole().equals("t")){
-		   System.out.println("[AuthorityUser]: 来者不是Student或Teacher！");
+   if(user==null){
+	   if(!user.getRole().equals("l")&&!user.getRole().equals("a")){
+		   System.out.println("[AuthorityUser]: 来者不是Librarian或Admin！");
 		   response.sendRedirect(request.getContextPath()+"/index.jsp");
 		   return;
 	   }
