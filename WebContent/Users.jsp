@@ -31,6 +31,24 @@
 		
 </script> 
 
+<script>
+			$(document).ready(function () {
+				console.log('<%=request.getAttribute("message")%>');
+				<% String message=(String)request.getAttribute("message");
+					if(message=="Add done"){
+				%>
+					alert("Book has been recommended!");
+				<%
+					}else if(message=="not done"){
+				%>
+					alert("Recommend failed");
+				<%	
+					};
+				%>
+				
+			});
+		</script>
+
 <%@ page import = "cn.niit.lms.domain.*" %>
 <%@ page import = "cn.niit.lms.dao.*" %>
 
