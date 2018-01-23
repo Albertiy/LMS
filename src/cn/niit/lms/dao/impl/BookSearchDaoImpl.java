@@ -35,7 +35,7 @@ public class BookSearchDaoImpl implements BookSearchDao {
 				book.setTitle(rs.getString("title"));
 				book.setAuthor(rs.getString("author"));
 				book.setCategory(rs.getString("category"));
-				book.setPrice((int) rs.getFloat("price"));
+				book.setPrice(rs.getFloat("price"));
 				book.setAmount(rs.getInt("amounts"));
 				book.setRemain_Amount(rs.getInt("remain_amounts"));
 				// book.setTimes(rs.getString("dob"));

@@ -1,11 +1,6 @@
 @CHARSET "UTF-8";
 
 /* user-reg/1.0.0 header-1130.css Date:2017-08-26 01:13:31 */
-.header .logo, .i-company, .i-def, .i-error, .i-error1, .i-global,
-	.i-suc {
-	background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/icon.png)
-		no-repeat
-}
 
 .i-error {
 	background-position: -17px -100px
@@ -31,11 +26,6 @@
 	background-position: -17px -117px
 }
 
-.header {
-	height: 110px;
-	background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/headbg.jpg)
-		repeat-x left bottom
-}
 
 .header .logo {
 	width: 160px;
@@ -65,11 +55,6 @@
 	color: #333
 }
 /* user-reg/1.0.0 common.css Date:2016-10-13 17:02:34 */
-.feedback, .i-clear, .i-company, .i-def, .i-error, .i-error1, .i-global,
-	.i-suc, .registerDialog .close, .registerDialog .ico {
-	background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/icon.png)
-		no-repeat
-}
 
 .i-error {
 	background-position: -17px -100px
@@ -280,12 +265,6 @@ body, button, input, txt {
 /* user-reg/1.0.0 personal-reg-1130.css Date:2017-08-19 00:07:39 */
 @charset "UTF-8"; 
 
-.form-item-valid .i-status, .i-company, .i-def, .i-error, .i-error1,
-	.i-global, .i-info, .i-pwd-medium, .i-pwd-strong, .i-pwd-weak, .i-suc,
-	.voiceVerifyDialog .ico {
-	background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/icon.png)
-		no-repeat
-}
 
 .i-error {
 	background-position: -17px -100px
@@ -452,18 +431,6 @@ body {
 	border-right: solid 1px #ddd
 }
 
-.form-item-phone .arrow {
-	background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/icon.png)
-		no-repeat;
-	width: 15px;
-	height: 15px;
-	display: inline-block;
-	margin-top: 15px;
-	margin-left: 5px;
-	background-position: -2px -151px;
-	*zoom: 1;
-	*height: 20px
-}
 
 .form-item-phone .down {
 	background-position: -2px -151px
@@ -506,10 +473,6 @@ body {
 	background-position: 0 -117px
 }
 
-.pending .i-status {
-	background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/loading.gif);
-	display: block
-}
 
 .phone-binded {
 	border: solid 1px #f91
@@ -679,15 +642,6 @@ body {
 	height: 605px;
 	padding-left: 90px;
 	border-left: solid 1px #e6e6e6
-}
-
-.reg-other .phone-fast-reg {
-	background:
-		url(//misc.360buyimg.com/user/reg/1.0.0/widget/personal-reg-1130/i/phone.jpg)
-		no-repeat;
-	width: 213px;
-	height: 270px;
-	margin-top: 50px
 }
 
 .reg-other .company-reg {
@@ -860,12 +814,7 @@ body {
 	border-radius: 3
 }
 
-.ui-dialog .ui-dialog-close {
-	background:
-		url(//misc.360buyimg.com/user/reg/1.0.0/widget/personal-reg-1130/i/x.png)
-		no-repeat;
-	background-size: 13px 13px
-} /* user-reg/1.0.0 footer.css Date:2016-04-14 17:06:54 */
+ /* user-reg/1.0.0 footer.css Date:2016-04-14 17:06:54 */
 .footer {
 	font-size: 12px;
 	text-align: center;

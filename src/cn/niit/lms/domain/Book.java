@@ -8,9 +8,9 @@ public class Book {
 	private String Category;
 	private int Amount;
 	private int Remain_Amount;
-	private int Price;
+	private float Price;
 
-	public Book(String ISBN, String Title, String Author, String Category, int Amount, int Remain_Amount, int Price) {
+	public Book(String ISBN, String Title, String Author, String Category, int Amount, int Remain_Amount, float Price) {
 		this.ISBN = ISBN;
 		this.Title = Title;
 		this.Author = Author;
@@ -72,11 +72,11 @@ public class Book {
 		this.Remain_Amount = Remain_Amount;
 	}
 
-	public int getPrice() {
+	public float getPrice() {
 		return Price;
 	}
 
-	public void setPrice(int Price) {
+	public void setPrice(float Price) {
 		this.Price = Price;
 	}
 
