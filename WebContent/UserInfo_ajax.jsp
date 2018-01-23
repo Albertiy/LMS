@@ -15,11 +15,18 @@
 	User u = (User)session.getAttribute("user");
 	String name = u.getUname();
 	String phone = u.getPhone();
-	String role = u.getRole();
+	String role = "Student";
+	if(u.getRole()=="t"){
+		role = "Teacher";}
+	else if(u.getRole() == "l"){
+		role = "Librarian";}
+	String gender = "Male";
+	if(!u.getGender()){
+		gender="Female";}
 	String email = u.getEmail();
 	String address = u.getAddress();
 	String dob = u.getDob();
-	System.out.println(phone);
+	
 	
 %>
 
@@ -38,7 +45,7 @@
 		<label for="role" class="col-sm-2 control-label">Role:</label>
 		<div class="col-sm-10">
 			<input type="text" readonly class="form-control" id="role"
-			name="role" value="">
+			name="role" value="<%= role %>">
 		</div>
 	</div>
 	<h5>&nbsp;</h5>
@@ -62,7 +69,7 @@
 		<label for="gender" class="col-sm-2 control-label">Gender:</label>
 		<div class="col-sm-10">
 			<input type="text" readonly class="form-control" id="gender"
-			name="gender" value="">
+			name="gender" value="<%= gender %>">
 		</div>
 	</div>
 	<h5>&nbsp;</h5>
