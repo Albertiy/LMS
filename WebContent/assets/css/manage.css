@@ -1,10 +1,10 @@
 @CHARSET "UTF-8";
 
 .hero-background {
-    background-image: url("../img/hero-illustration.svg");
+    background-size:100%;
     background-repeat: repeat-x;
     background-position: top center;
-    min-height: 300px;
+    min-height: 1100px;
 }
 
 .search-group{

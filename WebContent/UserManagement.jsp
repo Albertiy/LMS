@@ -24,7 +24,7 @@
 </head>
 <body>
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
-	<div class="hero-background" style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
+	<div class="hero-background" style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)" >
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

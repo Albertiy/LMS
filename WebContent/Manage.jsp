@@ -10,12 +10,14 @@
 <link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/manage.css" rel="stylesheet">
-<link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
-<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
+
+<!--  <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet"> 
+<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">-->
 </head>
 <body>
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
-	<div class="hero-background" style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
+	<div class="hero-background"
+		style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
 		<div class="container"> 
 			<div class="row">
 				<div class="col-md-12">
