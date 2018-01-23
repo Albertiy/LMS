@@ -9,4 +9,6 @@ public interface BookSearchDao {
 	ArrayList<Book> searchBook(String stype,String sinfo);
 	
 	boolean reserveBook(int UID,Rule rule,String ISBN);
+
+	ArrayList<Book> hotBook(int limit);
 }

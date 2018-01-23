@@ -96,4 +96,33 @@ public class BookSearchDaoImpl implements BookSearchDao {
 		}
 	}
 
+	@Override
+	public ArrayList<Book> hotBook(int limit) {
+		Connection conn = JDBCUtils.getConnection();
+		String sql = "select * from lmsdb.isbn_books order by times DESC limit "+limit;
+		System.out.println("[Hot book sql stat]: "+sql);
+		java.sql.Statement stmt=null;
+		ArrayList<Book> hotBooks= new ArrayList<Book>();
+		ResultSet rs = null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while(rs.next()){
+				Book b = new Book();
+				b.setTitle(rs.getString("title"));
+				b.setAuthor(rs.getString("author"));
+				b.setISBN(rs.getString("ISBN"));
+				hotBooks.add(b);
+				
+			}
+			System.out.println("[BookSearchDaoImpl]: hotBooks："+hotBooks);
+			}catch(Exception e){
+				System.out.println("[BookSearchDaoImpl]: hotBooks获取失败！");
+			}finally{
+				JDBCUtils.close(conn, stmt, rs);
+			}
+		return hotBooks;
+	}
+
 }

@@ -94,7 +94,7 @@ System.out.println("[index.jsp]: delete backUrl");%>
 					alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
-				<h4 class="text-center">JAVA SPEED LEARN</h4>
+				<h4 class="text-center">No Book</h4>
 				<h5 class="text-center">Nobody</h5>
 			</div>
 		</div>

@@ -20,4 +20,14 @@ public class BookSearchService {
 		}
 		return bookList;
 	}
+	
+	public ArrayList<Book> hotBook(int limit){
+		
+		ArrayList<Book> bookList = bdao.hotBook(limit);
+		if(bookList.equals(null)||bookList.isEmpty())
+		{
+			throw new RuntimeException("查询结果为空�?");
+		}
+		return bookList;
+	}
 }

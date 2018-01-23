@@ -78,6 +78,7 @@ public class UserDaoImpl implements UserDao {
 				user.setUid(rs.getInt("uid"));
 				user.setUname(rs.getString("uname"));
 				user.setEmail(rs.getString("email"));
+				user.setPhone(rs.getString("phone"));
 				user.setPwd(rs.getString("pwd"));
 				user.setRole(rs.getString("role"));
 				user.setGender(rs.getBoolean("gender"));
@@ -128,6 +129,7 @@ public class UserDaoImpl implements UserDao {
 				user.setUname(rs.getString("uname"));
 				user.setEmail(rs.getString("email"));
 				user.setPwd(rs.getString("pwd"));
+				user.setPhone(rs.getString("phone"));
 				user.setRole(rs.getString("role"));
 				user.setGender(rs.getBoolean("gender"));
 				user.setAddress(rs.getString("Address"));
@@ -177,6 +179,7 @@ public class UserDaoImpl implements UserDao {
 				user.setUname(rs.getString("uname"));
 				user.setEmail(rs.getString("email"));
 				user.setPwd(rs.getString("pwd"));
+				user.setPhone(rs.getString("phone"));
 				user.setRole(rs.getString("role"));
 				user.setGender(rs.getBoolean("gender"));
 				user.setAddress(rs.getString("Address"));
