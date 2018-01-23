@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="cn.niit.lms.domain.User" language="java"%>
+<%@page import="cn.niit.lms.service.BookSearchService" language="java"%>
+<%@page import="java.util.ArrayList" language="java"%>
+<%@page import="cn.niit.lms.domain.Book" language="java" %>
 <% session.removeAttribute("backUrl");
 System.out.println("[index.jsp]: delete backUrl");%>
 <!DOCTYPE html>
@@ -69,34 +72,23 @@ System.out.println("[index.jsp]: delete backUrl");%>
 			</h1>
 		</div>
 		<div class="row">
+		<% BookSearchService bsservice = new BookSearchService();
+		   ArrayList<Book> hotBooks = bsservice.hotBook(3);
+		   if(hotBooks!=null&&!hotBooks.isEmpty()){
+			   for (Book b : hotBooks) { %>
 			<div class="col-xs-6 col-md-4">
 				<img
 					src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg"
 					alt="book_thumb.jpg"
 					class="img-thumbnail img-responsive book_thumb center-block">
 				<h6>&nbsp;</h6>
-				<h4 class="text-center">JAVA SPEED LEARN</h4>
-				<h5 class="text-center">Nobody</h5>
-
+				<h4 class="text-center"><%=b.getTitle() %></h4>
+				<h5 class="text-center"><%=b.getAuthor() %></h5>
+				<h5 class="text-center"><%=b.getISBN() %></h5>
 			</div>
-			<div class="col-xs-6 col-md-4">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg"
-					alt="book_thumb.jpg"
-					class="img-thumbnail img-responsive book_thumb center-block">
-				<h6>&nbsp;</h6>
-				<h4 class="text-center">JAVA SPEED LEARN</h4>
-				<h5 class="text-center">Nobody</h5>
-			</div>
-			<div class="col-xs-6 col-md-4">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/book_thumb.jpg"
-					alt="book_thumb.jpg"
-					class="img-thumbnail img-responsive book_thumb center-block">
-				<h6>&nbsp;</h6>
-				<h4 class="text-center">No Book</h4>
-				<h5 class="text-center">Nobody</h5>
-			</div>
+			<%}}else{ %>
+			<h3 style="color:red">Get Hot Books Failed!</h3>
+			<%} %>
 		</div>
 	</div>
 	<h1>&nbsp;</h1>
