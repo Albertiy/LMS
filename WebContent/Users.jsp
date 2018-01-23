@@ -12,6 +12,8 @@
 <link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 
 <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+<script src="/LMS/assets/js/Users.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#info").click(function(){
@@ -31,7 +33,7 @@
 		
 </script> 
 
-<script>
+		<script>
 			$(document).ready(function () {
 				console.log('<%=request.getAttribute("message")%>');
 				<% String message=(String)request.getAttribute("message");
@@ -46,7 +48,9 @@
 					};
 				%>
 				
+				
 			});
+			
 		</script>
 
 <%@ page import = "cn.niit.lms.domain.*" %>
@@ -112,7 +116,7 @@
 							<div class="form-group">
 								<label for="name" class="col-sm-2 control-label">Name:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="uname"
+									<input type="text" readonly="readonly" class="form-control" id="uname"
 										name="name" value="<%= name %>">
 								</div>
 							</div>
@@ -120,7 +124,7 @@
 							<div class="form-group">
 								<label for="role" class="col-sm-2 control-label">Role:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="role"
+									<input type="text" readonly="readonly" class="form-control" id="role"
 										name="role" value="<%= role %>">
 								</div>
 							</div>
@@ -128,7 +132,7 @@
 							<div class="form-group">
 								<label for="phone" class="col-sm-2 control-label">Phone:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="phone"
+									<input type="text" readonly="readonly" class="form-control" id="phone"
 										name="phone" value="<%=phone %>">
 								</div>
 							</div>
@@ -136,7 +140,7 @@
 							<div class="form-group">
 								<label for="email" class="col-sm-2 control-label">Eamil:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="email"
+									<input type="text" readonly="readonly" class="form-control" id="email"
 										name="email" value="<%= email%>">
 								</div>
 							</div>
@@ -144,7 +148,7 @@
 							<div class="form-group">
 								<label for="gender" class="col-sm-2 control-label">Gender:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="gender"
+									<input type="text" readonly="readonly" class="form-control" id="gender"
 										name="gender" value="<%= gender %>">
 								</div>
 							</div>
@@ -152,7 +156,7 @@
 							<div class="form-group">
 								<label for="address" class="col-sm-2 control-label">Address:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="address"
+									<input type="text" readonly="readonly" class="form-control" id="address"
 										name="address" value="<%= address %>">
 								</div>
 							</div>
@@ -160,12 +164,16 @@
 							<div class="form-group">
 								<label for="dob" class="col-sm-2 control-label">Birthday:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="dob"
+									<input type="text" readonly="readonly" class="form-control" id="dob"
 										name="dob" value="<%= dob %>">
 								</div>
 							</div>
-							<div>
-								
+							<h5>&nbsp;</h5>
+							<div class="row">
+								<div class="col-md-12 col-xs-12" align="right">
+									<button type="button" id="modify" class="btn btn-primary" onclick="modifyinfo()">Modify</button>
+									<button type="submit" class="btn btn-success">Confirm</button>
+								</div>
 							</div>
 						</form>
 
