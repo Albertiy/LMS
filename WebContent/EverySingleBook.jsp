@@ -90,7 +90,6 @@
 								<th>Author</th>
 								<th>Category</th>
 								<th></th>
-								
 							</tr>
 						</thead>
 						<tbody id="SingleBookrecords">
@@ -105,14 +104,14 @@
 								<td>
 									<input value=<%=sb.getBID()%> 
 										type="radio" name="radio" id="radio"/>
+									<input type="text" value=<%=sb.getISBN()%> name="ISBN" id="ISBN" hidden="hidden"/>
 								</td>
 								
 							</tr>
-							<tr>
-								<td>
-									<input type="text" value=<%=sb.getISBN()%> name="ISBN" id="ISBN" hidden="hidden"/>
-								<td/>
-							</tr>
+							
+							
+								
+							
 							
 					 		<%	
 					 			} 
