@@ -4,7 +4,8 @@
 <%@ page import = "cn.niit.lms.manage.BorrowDetail" language="java" %>
 <%@ page import = "java.sql.*" language="java"  %>
 <%@page import="cn.niit.lms.domain.User" language="java"%>
-<%  System.out.println("---UserManagement.jsp 开始加载---"); ResultSet rs = UserManage.getRS(); %>
+<%  System.out.println("---UserManagement.jsp 开始加载---"); 
+	ResultSet rs = UserManage.getRS(); %>
 
 <!DOCTYPE html>
 <html lang='zh-CN'>
@@ -76,7 +77,9 @@
 							</tr>
 						</thead>
 						<tbody>
-						<%while(rs.next()){ %>  
+						<% int i = 0;
+							while(rs.next()){  i++;
+						%>
 							<tr>
 							<%if(!rs.getString("role").equals("l")) {%>
 								<td><%=rs.getString("uname") %></td>
@@ -117,7 +120,12 @@
 								
 							</tr>
 					 	<%} }%> 
-					 	
+					 	<%if(i==0){%>
+					 	<script type="text/javascript" language="javascript">
+								alert("No search for this user");
+								window.document.location.href="UserManagement.jsp";
+						</script>
+						<%} %>
 					 	<% rs.close(); System.out.println("--清理成功--"); %> 
 						</tbody>
 					</table>
