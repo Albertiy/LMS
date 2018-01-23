@@ -31,6 +31,21 @@
 		
 </script> 
 
+<%@ page import = "cn.niit.lms.domain.*" %>
+<%@ page import = "cn.niit.lms.dao.*" %>
+
+<%
+	User u = (User)session.getAttribute("user");
+	String name = u.getUname();
+	String phone = u.getPhone();
+	String role = u.getRole();
+	String email = u.getEmail();
+	String address = u.getAddress();
+	String dob = u.getDob();
+	System.out.println(phone);
+	
+%>
+
 </head>
 
 <body>
@@ -73,7 +88,7 @@
 								<label for="name" class="col-sm-2 control-label">Name:</label>
 								<div class="col-sm-10">
 									<input type="text" readonly class="form-control" id="uname"
-										name="name" value="">
+										name="name" value="<%= name %>">
 								</div>
 							</div>
 							<h5>&nbsp;</h5>
@@ -89,7 +104,7 @@
 								<label for="phone" class="col-sm-2 control-label">Phone:</label>
 								<div class="col-sm-10">
 									<input type="text" readonly class="form-control" id="phone"
-										name="phone" value="">
+										name="phone" value="<%=phone %>">
 								</div>
 							</div>
 							<h5>&nbsp;</h5>
@@ -97,7 +112,7 @@
 								<label for="email" class="col-sm-2 control-label">Eamil:</label>
 								<div class="col-sm-10">
 									<input type="text" readonly class="form-control" id="email"
-										name="email" value="">
+										name="email" value="<%= email%>">
 								</div>
 							</div>
 							<h5>&nbsp;</h5>
@@ -113,7 +128,7 @@
 								<label for="address" class="col-sm-2 control-label">Address:</label>
 								<div class="col-sm-10">
 									<input type="text" readonly class="form-control" id="address"
-										name="address" value="">
+										name="address" value="<%= address %>">
 								</div>
 							</div>
 							<h5>&nbsp;</h5>
@@ -121,7 +136,7 @@
 								<label for="dob" class="col-sm-2 control-label">Birthday:</label>
 								<div class="col-sm-10">
 									<input type="text" readonly class="form-control" id="dob"
-										name="dob" value="">
+										name="dob" value="<%= dob %>">
 								</div>
 							</div>
 						</form>
