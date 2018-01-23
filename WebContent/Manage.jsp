@@ -11,8 +11,8 @@
 	rel="stylesheet">
 <link type="text/css" href="/LMS/assets/css/manage.css" rel="stylesheet">
 
-<!--  <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet"> 
-<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">-->
+ <link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet"> 
+<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
