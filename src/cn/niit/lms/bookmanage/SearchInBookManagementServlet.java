@@ -56,6 +56,7 @@ public class SearchInBookManagementServlet extends HttpServlet {
 		// 搜索为空直接回页面
 		if (sinfo.equals("")) {
 			//System.out.println("sinfo is empty: search no results");
+			request.setAttribute("message", "No Book");
 			RequestDispatcher rs = request.getRequestDispatcher("BookManagement.jsp");
 			rs.include(request, response);
 			return;
@@ -66,6 +67,7 @@ public class SearchInBookManagementServlet extends HttpServlet {
 				bookList = bservice.bookSearch(stype, sinfo);
 			} catch (Exception e) {
 				System.out.println("Result is Empty!");
+				request.setAttribute("message", "No Book");
 				RequestDispatcher rs = request.getRequestDispatcher("BookManagement.jsp");
 				rs.include(request, response);
 				return;

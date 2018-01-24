@@ -18,6 +18,7 @@
 
 		<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 		<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/LMS/bootstrap/js/bootstrap.js"></script>
 		<script src="/LMS/assets/js/index.js"></script>
 		<script src="/LMS/assets/js/DeleteBook.js"></script>
 		<script src="/LMS/assets/js/EditBook.js"></script>
@@ -42,6 +43,10 @@
 					}else if(message=="not done"){
 				%>
 					alert("Delete failed");
+				<% 
+					}else if(message=="No Book"){
+				%>
+					alert("This Book isn't exist");
 				<%	
 					};
 				%>
@@ -129,6 +134,7 @@
 								</tr>
 								<% } %>
 							<% }else{ %>
+								
 								<%while(rs.next()){ %>  
 								<tr>
 									<td><%=rs.getString("ISBN") %></td>
