@@ -53,7 +53,7 @@
 													<label class="form-label f5" for="userEmail">Email</label>
 												</dt>
 												<dd>
-													<input type="userEmail" name="userEmail" id="userEmail" required maxlength="32"
+													<input type="email" name="userEmail" id="userEmail" required maxlength="32"
 													 class="form-control form-control-lg input-block js-email-notice-trigger"
 													 placeholder="you@example.com">
 												</dd>
