@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+
+@media (min-width: 768px){
+	.bs-example {
+    margin-right: 0;
+    margin-left: 0;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    }
+}
+
+.bs-example {
+    position: relative;
+    padding: 45px 15px 15px;
+    margin: 0 -15px 15px;
+    /*
+    border-color: #e5e5e5 #eee #eee;
+    border-style: solid;
+    border-width: 1px 0;*/
+    /*-webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);*/
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset, 0 .5em 1em rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+    z-index: 1;
+    overflow: hidden;
+    /*模糊的強弱與透明度*/
+    /*background-color: #fff;
+    opacity: 0.7;*/
+    /*
+    -webkit-filter: blur(15px);
+    filter: blur(15px);*/
+}
+
+.bs-example::after{
+	content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px);
+    margin: -30px;
+    background-image: url(../img/te.jpg);
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.content {
+    z-index: 1;
+    background-position: center top;
+    background-size: cover;
+    overflow: hidden;
+}
+.content:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8);
+    z-index: -1;
+}
+.content::after {
+    background-image: url(xxx.jpg);
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px);
+    margin: -30px;
+}
