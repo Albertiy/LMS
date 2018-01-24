@@ -38,72 +38,75 @@
 
 </head>
 <body>
-<form class="bs-example bs-example-form" role="form" action="ModifyInfo" method="post">
-	<div class="form-group">
-		<label for="name" class="col-sm-2 control-label">Name:</label>
-		<div class="col-sm-10">
-			<input type="text" readonly="readonly" class="form-control" id="uname" required maxlength="16" 
-			name="name" value="<%= name %>">
+	<form class="bs-example bs-example-form" role="form"
+		action="ModifyInfo" method="post">
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">Name:</label>
+			<div class="col-sm-10">
+				<input type="text" readonly="readonly" class="form-control" required
+					maxlength="16" pattern="[^ ]*" id="Name" name="Name"
+					value="<%= name %>">
+			</div>
 		</div>
-	</div>
-	<h5>&nbsp;</h5>
-	<div class="form-group">
-		<label for="role" class="col-sm-2 control-label">Role:</label>
-		<div class="col-sm-10">
-			<input type="text" readonly class="form-control" id="role"
-			name="role" value="<%= role %>">
+		<h5>&nbsp;</h5>
+		<div class="form-group">
+			<label for="role" class="col-sm-2 control-label">Role:</label>
+			<div class="col-sm-10">
+				<input type="text" readonly class="form-control" id="role"
+					name="role" value="<%= role %>">
+			</div>
 		</div>
-	</div>
-	<h5>&nbsp;</h5>
-	<div class="form-group">
-		<label for="phone" class="col-sm-2 control-label">Phone:</label>
-		<div class="col-sm-10">
-			<input type="text" readonly="readonly" class="form-control" id="phone" required maxlength="11"
-			name="phone" value="<%= phone %>">
+		<h5>&nbsp;</h5>
+		<div class="form-group">
+			<label for="phone" class="col-sm-2 control-label">Phone:</label>
+			<div class="col-sm-10">
+				<input type="text" readonly="readonly" class="form-control"
+					id="Phone" maxlength="11" required name="Phone" value="<%=phone %>">
+			</div>
 		</div>
-	</div>
-	<h5>&nbsp;</h5>
-	<div class="form-group">
-		<label for="email" class="col-sm-2 control-label">Eamil:</label>
-		<div class="col-sm-10">
-			<input type="text" readonly class="form-control" id="email" 
-			name="email" value="<%= email %>">
+		<h5>&nbsp;</h5>
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">Eamil:</label>
+			<div class="col-sm-10">
+				<input type="text" readonly class="form-control" id="Email"
+					name="Email" value="<%= email%>">
+			</div>
 		</div>
-	</div>
-	<h5>&nbsp;</h5>
-	<div class="form-group">
-		<label for="gender" class="col-sm-2 control-label">Gender:</label>
-		<div class="col-sm-10">
-			<input type="radio" disabled="disabled" name="userGender" id="female"
-				value="female" <%=s1 %>> Male 
-			<input type="radio" disabled="disabled" name="userGender" id="male" 
-				value="male" <%=s2 %> > Female
-
+		<h5>&nbsp;</h5>
+		<div class="form-group">
+			<label for="gender" class="col-sm-2 control-label">Gender:</label>
+			<div class="col-sm-10">
+				<input type="radio" disabled="disabled" name="Gender" id="male"
+					value="Male" <%=s1 %>> Male <input type="radio"
+					disabled="disabled" name="Gender" id="female" value="Female"
+					<%=s2 %>> Female
+			</div>
 		</div>
-	</div>
-	<h5>&nbsp;</h5>
-	<div class="form-group">
-		<label for="address" class="col-sm-2 control-label">Address:</label>
-		<div class="col-sm-10">
-			<input type="text" readonly="readonly" class="form-control" id="address" required
-			name="address" value="<%= address %>">
+		<h5>&nbsp;</h5>
+		<div class="form-group">
+			<label for="address" class="col-sm-2 control-label">Address:</label>
+			<div class="col-sm-10">
+				<input type="text" readonly="readonly" class="form-control"
+					id="Address" required name="Address" value="<%= address %>">
+			</div>
 		</div>
-	</div>
-	<h5>&nbsp;</h5>
-	<div class="form-group">
-		<label for="dob" class="col-sm-2 control-label">Birthday:</label>
-		<div class="col-sm-10">
-			<input type="date" name="dob" id="dob" disabled="disabled" required
-						class="form-control" value="<%=dob %>">
+		<h5>&nbsp;</h5>
+		<div class="form-group">
+			<label for="dob" class="col-sm-2 control-label">Birthday:</label>
+			<div class="col-sm-10">
+				<input type="date" name="Dob" id="Dob" disabled="disabled" required
+					class="form-control" value="<%=dob %>">
+			</div>
 		</div>
-	</div>
-	<h5>&nbsp;</h5>
+		<h5>&nbsp;</h5>
 		<div class="row">
 			<div class="col-md-12 col-xs-12" align="right">
-				<button type="button" id="modify" class="btn btn-primary" onclick="modifyinfo()">Modify</button>
+				<button type="button" id="modify" class="btn btn-primary"
+					onclick="modifyinfo()">Modify</button>
 				<button type="submit" class="btn btn-success">Confirm</button>
 			</div>
 		</div>
 	</form>
+
 
 </body>
