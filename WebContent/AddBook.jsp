@@ -78,7 +78,8 @@
 							</dt>
 							<dd>
 								<input type="text" name="ISBN" id="ISBN" required="required" pattern="^(\d{11}|\d{13})$" title="only numbers length is 11 or 13"
-								    oninvalid="setCustomValidity('only numbers length is 11 or 13')" class="form-control form-control-lg" placeholder="Please enter ISBN">
+								    oninvalid="setCustomValidity('only numbers length is 11 or 13')" oninput="setCustomValidity('')"
+								     class="form-control form-control-lg" placeholder="Please enter ISBN">
 							</dd>
 						</dl>
 						<br>
@@ -89,7 +90,7 @@
 							</dt>
 							<dd>
 								<input type="text" name="Title" id="Title" required="required" pattern="([0-9a-zA-Z]){1,50}" title="maxlength is 50" oninvalid="setCustomValidity('maxlength is 50')"
-								    class="form-control form-control-lg" placeholder="Please enter Title">
+								    oninput="setCustomValidity('')" class="form-control form-control-lg" placeholder="Please enter Title">
 							</dd>
 						</dl>
 						<br>
@@ -100,7 +101,7 @@
 							</dt>
 							<dd>
 								<input type="text" name="Author" id="Author" required="required" pattern="^[a-zA-Z]{1,50}$" title="only character maxlength is 50"
-								    oninvalid="setCustomValidity('only character maxlength is 50')" class="form-control form-control-lg" placeholder="Please enter Author">
+								    oninvalid="setCustomValidity('only character maxlength is 50')" oninput="setCustomValidity('')" class="form-control form-control-lg" placeholder="Please enter Author">
 							</dd>
 						</dl>
 						<br>
@@ -134,7 +135,7 @@
 							</dt>
 							<dd>
 								<input type="text" name="Price" id="Price" required="required" pattern="^(([1-9]\d{0,9})|0)(\.\d{1,2})?$" oninvalid="setCustomValidaty=('round to 2 decimal places')"
-								    class="form-control form-control-lg" placeholder="Please enter Price">
+								    oninput="setCustomValidity('')" class="form-control form-control-lg" placeholder="Please enter Price">
 							</dd>
 						</dl>
 						<br>

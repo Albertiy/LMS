@@ -130,7 +130,9 @@
 								<label for="name" class="col-sm-2 control-label">Name:</label>
 								<div class="col-sm-10">
 									<input type="text" readonly="readonly" class="form-control" required maxlength="16" 
-										pattern="[^ ]*"	id="Name" name="Name" value="<%= name %>">
+										pattern="[^ ]*"	oninvalid="setCustomValidity('maxlength is 16')"
+										oninput="setCustomValidity('')"
+										id="Name" name="Name" value="<%= name %>">
 								</div>
 							</div>
 							<h5>&nbsp;</h5>
@@ -145,7 +147,9 @@
 							<div class="form-group">
 								<label for="phone" class="col-sm-2 control-label">Phone:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly="readonly" class="form-control" id="Phone" maxlength="11"
+									<input type="tel" readonly="readonly" class="form-control" id="Phone" maxlength="11"
+										oninvalid="setCustomValidity('maxlength is 11')"
+										oninput="setCustomValidity('')"
 										required name="Phone" value="<%=phone %>">
 								</div>
 							</div>
@@ -153,7 +157,7 @@
 							<div class="form-group">
 								<label for="email" class="col-sm-2 control-label">Eamil:</label>
 								<div class="col-sm-10">
-									<input type="text" readonly class="form-control" id="Email"
+									<input type="email" readonly class="form-control" id="Email"
 										name="Email" value="<%= email%>">
 								</div>
 							</div>
@@ -172,7 +176,10 @@
 								<label for="address" class="col-sm-2 control-label">Address:</label>
 								<div class="col-sm-10">
 									<input type="text" readonly="readonly" class="form-control" id="Address"
-										required name="Address" value="<%= address %>">
+										required maxlength="50" 
+										oninvalid="setCustomValidity('Cannot be null')"
+										oninput="setCustomValidity('')"
+										name="Address" value="<%= address %>">
 								</div>
 							</div>
 							<h5>&nbsp;</h5>

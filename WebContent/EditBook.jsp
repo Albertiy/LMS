@@ -70,7 +70,10 @@
 							<label class="form-label f5">Title</label>
 						</dt>
 						<dd>
-							<input type="text" name="Title" id="Title"
+							<input type="text" name="Title" id="Title" required="required" 
+								pattern="([0-9a-zA-Z]){1,50}" title="maxlength is 50" 
+								oninvalid="setCustomValidity('maxlength is 50')"
+								oninput="setCustomValidity('')"	
 								class="form-control form-control-lg" value=<%= Title %>
 								placeholder="Please enter Title">
 						</dd>
@@ -82,7 +85,10 @@
 							<label class="form-label f5">Author</label>
 						</dt>
 						<dd>
-							<input type="text" name="Author" id="Author"
+							<input type="text" name="Author" id="Author" required="required" 
+								pattern="^[a-zA-Z]{1,50}$" title="only character maxlength is 50"
+								oninvalid="setCustomValidity('only character maxlength is 50')"
+								oninput="setCustomValidity('')" 
 								class="form-control form-control-lg" value=<%= Author %>
 								placeholder="Please enter Author">
 						</dd>
@@ -115,7 +121,10 @@
 							<label class="form-label f5">Price</label>
 						</dt>
 						<dd>
-							<input type="text" name="Price" id="Price"
+							<input type="text" name="Price" id="Price" required="required" 
+								pattern="^(([1-9]\d{0,9})|0)(\.\d{1,2})?$" 
+								oninvalid="setCustomValidaty=('round to 2 decimal places')"
+								oninput="setCustomValidity('')" 
 								class="form-control form-control-lg" value=<%= Price %>
 								placeholder="Please enter Price">
 						</dd>
