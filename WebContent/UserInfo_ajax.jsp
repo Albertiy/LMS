@@ -38,7 +38,7 @@
 
 </head>
 <body>
-<form class="bs-example bs-example-form" role="form">
+<form class="bs-example bs-example-form" role="form" action="ModifyInfo" method="post">
 	<div class="form-group">
 		<label for="name" class="col-sm-2 control-label">Name:</label>
 		<div class="col-sm-10">
