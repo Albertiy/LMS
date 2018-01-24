@@ -10,7 +10,7 @@
 </head>
 <body>
 <%  System.out.println("[nav.jsp]: Include the nav bar!");
-    String userInfo="";
+    String userInfo="#";
     User user=(User)session.getAttribute("user");
     %>
 	<nav id="top_navbar" class="navbar navbar-default  navbar-fixed-top">
@@ -43,8 +43,8 @@
                     switch(role){
                     default: role = "Student";userInfo="Users.jsp";break;
                     case "t": role = "Teacher";userInfo="Users.jsp";break;
-                    case "l": role = "Librarian";userInfo="";break;
-                    case "a": role = "Admin";userInfo="";break;
+                    case "l": role = "Librarian";userInfo="#";break;
+                    case "a": role = "Admin";userInfo="#";break;
                     }
                 %>
 				<ul class="nav navbar-nav navbar-right">
