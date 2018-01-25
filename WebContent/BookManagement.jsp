@@ -4,27 +4,29 @@
 	<%@ page import = "java.sql.*" language="java"  %>
 	<%@	page import="java.util.ArrayList" language="java"%>
 	<%@ page import="cn.niit.lms.domain.Book" language="java"%>
+	<%@ page import="cn.niit.lms.domain.*" language="java"%>
 	<%  ResultSet rs = BookDao.readbook(); %>
 	<!DOCTYPE html>
 	<html lang='zh-CN'>
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>LMS-BookManagement</title>
-		<link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
-		<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LMS-BookManagement</title>
+<link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/index.css" rel="stylesheet">
+<link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 
-		<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
-		<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/LMS/bootstrap/js/bootstrap.js"></script>
-		<script src="/LMS/assets/js/index.js"></script>
-		<script src="/LMS/assets/js/DeleteBook.js"></script>
-		<script src="/LMS/assets/js/EditBook.js"></script>
-		<script src="/LMS/assets/js/SingleBook.js"></script>
-		<script src="/LMS/assets/js/BookManagement.js"></script>
-		<script>
+<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+<script src="/LMS/bootstrap/js/bootstrap.js"></script>
+<script src="/LMS/assets/js/index.js"></script>
+<script src="/LMS/assets/js/DeleteBook.js"></script>
+<script src="/LMS/assets/js/EditBook.js"></script>
+<script src="/LMS/assets/js/SingleBook.js"></script>
+<script src="/LMS/assets/js/BookManagement.js"></script>
+<script>
 			$(document).ready(function () {
 				console.log('<%=request.getAttribute("message")%>');
 				<% String message=(String)request.getAttribute("message");
@@ -53,11 +55,25 @@
 				
 			});
 		</script>
-	</head>
+<%
+	User user = (User)session.getAttribute("user");
+	if (user != null) {
+		if (!user.getRole().equals("l") && !user.getRole().equals("a")) {
+			System.out.println("[AuthorityUser]: 来者不是Librarian或Admin！");
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
+			return;
+		}
+	} else {
+		System.out.println("[AuthorityUser]: 尚未登录！");
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
+		return;
+	}
+%>
+</head>
 
-	<body>
+<body>
 		<jsp:include flush="true" page="nav.jsp"></jsp:include>
-
+		
 		<div class="hero-background">
 			<div class="container">
 				<div class="row">

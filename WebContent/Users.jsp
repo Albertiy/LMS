@@ -66,6 +66,17 @@
 
 <%
 	User u = (User)session.getAttribute("user");
+	if(u!=null){
+		   if(!u.getRole().equals("s")&&!u.getRole().equals("t")){
+			   System.out.println("[AuthorityUser]: 来者不是Student或Teacher！");
+			   response.sendRedirect(request.getContextPath()+"/index.jsp");
+			   return;
+		   }
+	}else{
+	    System.out.println("[AuthorityUser]: 尚未登录！");
+	    response.sendRedirect(request.getContextPath()+"/login.jsp");
+	    return;
+	}
 	String name = u.getUname();
 	String phone = u.getPhone();
 	String role = "Student";
