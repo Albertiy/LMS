@@ -15,6 +15,10 @@
 		   response.sendRedirect(request.getContextPath()+"/index.jsp");
 		   return;
 	   }
+   }else{
+       System.out.println("[AuthorityUser]: 尚未登录！");
+       response.sendRedirect(request.getContextPath()+"/login.jsp");
+       return;
    }
 %>
 </body>
