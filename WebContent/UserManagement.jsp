@@ -40,8 +40,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>&nbsp;</h1>
-					<h2 class="text-center">User Management</h2>
+					<h1>&nbsp;</h1><br></br>
+					<h2 class="text-center" style="filter:Acpha(Opacity=50);opacity:0.5">User Management</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -65,7 +65,7 @@
 						<!-- 	<input type="text" class="form-control" aria-label="...">   -->
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-12">
-							<button type="button" class="btn btn-default btn-block sbutton" onclick="Search()">Search</button>
+							<button type="button" class="btn btn-info btn-block sbutton" onclick="Search()" >Search</button>
 						</div>
 					</div>
 					<h1>&nbsp;</h1>
@@ -145,7 +145,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3 col-xs-3">
-					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button">Back</a>
+					<a href="Manage.jsp" class="btn btn-primary btn-lg " role="button" >Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
 					<a class="btn btn-info " role="button" onclick="ModifyPWD()" >ModifyPWD</a>
@@ -155,7 +155,7 @@
 		</div>
 	</div>
 </body>
-<footer class="footer">
+<footer class="footer" style="filter:Acpha(Opacity=50);opacity:0.5">
 	<div class="container">
 		<p class="text-muted">
 			<u>Library Management System</u> design and build by <strong>BayMax</strong>,

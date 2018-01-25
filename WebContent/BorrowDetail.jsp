@@ -36,18 +36,18 @@
 <body>
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
 	<div class="hero-background"  style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
-		<div class="container">
-			<div class="row">
+		<div class="container" >
+			<div class="row" >
 				<div class="col-md-12">
 					<h1>&nbsp;</h1>
 					<h1>&nbsp;</h1>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" >
 				<div class="col-md-12" style="height:315px; overflow:auto">
 					<table class="table table-hover" id="BorrowDetailTable"  >
 					<%int fine = 0;%>
-						<thead>
+						<thead >
 							<tr>
 								<th>ISBN</th>
 								<th>Title</th>
