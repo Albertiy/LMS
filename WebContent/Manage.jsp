@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="cn.niit.lms.domain.User" language="java"%>
+<% User user = (User)session.getAttribute("user");
+   if(user!=null){
+	   if(!user.getRole().equals("l")&&!user.getRole().equals("a")){
+		   System.out.println("[AuthorityUser]: 来者不是Librarian或Admin！");
+		   response.sendRedirect(request.getContextPath()+"/index.jsp");
+		   return;
+	   }
+   }else{
+	   System.out.println("[AuthorityUser]: 尚未登录！");
+	   response.sendRedirect(request.getContextPath()+"/login.jsp");
+       return;
+   }
+%>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -15,7 +28,7 @@
 <link type="text/css" href="/LMS/assets/css/users.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include flush="true" page="AuthorityManager.jsp"></jsp:include>
+	<!-- <jsp:include flush="true" page="AuthorityManager.jsp"></jsp:include> -->
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
 	<div class="hero-background"
 		style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
