@@ -23,12 +23,12 @@
 		<div class="container" style="padding-top: 70px">
 			<div class="bs-example">
 				<form accept-charset="UTF-8" action="testInput" method="post"
-					enctype="multipart/form-data" class="form-horizontal">
+					enctype="multipart/form-data" class="form-horizontal" id="formImg">
 					<div class="form-group">
-						<label for="form_file" class="col-sm-2 control-label">选择图片</label>
+						<label for="form_file" class="col-sm-2 control-label">更换封面</label>
 						<!-- accept="image/*"， accept="image/png, image/jpeg, image/gif, image/jpg"无效 -->
 						<div class="col-sm-10">
-							<label for="form_file" class="btn btn-primary">更换头像</label>
+							<label for="form_file" class="btn btn-primary">选择图片</label>
 							<!-- style="display:none"有效, hidden=hidden无效, style="position:absolute;clip:rect(0 0 0 0);"有效 -->
 							<input type="file" name="file" id="form_file" accept="image/*"
 								style="display: none">
@@ -54,6 +54,16 @@
 	</div>
 	<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+	$("#formImg").submit(function () {
+		var filePath = $("#form_file").val();
+		var fileSize = document.getElementById("fomr_file").files[0].size / 1024;
+		if(fileSize > 2048){  
+            alert("图片大小不能超过2MB");
+            return false;
+        }  
+	});
+	</script>
 </body>
 </html>
 

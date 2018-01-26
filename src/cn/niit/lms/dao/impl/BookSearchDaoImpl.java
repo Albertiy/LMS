@@ -18,7 +18,7 @@ public class BookSearchDaoImpl implements BookSearchDao {
 
 	@Override
 	public ArrayList<Book> searchBook(String stype, String sinfo) {
-		ArrayList bookList = new ArrayList();
+		ArrayList<Book> bookList = new ArrayList<Book>();
 		// 1.获得连接
 		Connection conn = JDBCUtils.getConnection();
 		// 2.准备sql
