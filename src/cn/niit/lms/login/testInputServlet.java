@@ -97,6 +97,7 @@ public class testInputServlet extends HttpServlet {
 	            System.out.println("☆☆☆☆☆☆☆☆ 参数解析中 ☆☆☆☆☆☆☆☆☆");
 	            //4、使用ServletFileUpload解析器解析上传数据，解析结果返回的是一个List<FileItem>集合，
 	            //	  每一个FileItem对应一个Form表单的输入项
+	            String ISBNname = null;
 	            List<FileItem> list = upload.parseRequest(request);
 	            for (FileItem item : list) {
 	                //如果封装的是普通输入项文本数据
@@ -104,6 +105,9 @@ public class testInputServlet extends HttpServlet {
 	                    String fieldname = item.getFieldName();
 	                    String value = item.getString("UTF-8");
 	                    System.out.println("[参数]：\t" + fieldname + " = " + value);
+	                    if(fieldname.equals("ISBN")){
+	                    	ISBNname = value;
+	                    }
 	                    //pwout.print(fieldname + " = " + value);
 	                    //获得了id
 	                    //owner_id = Integer.parseInt(value);
@@ -115,7 +119,7 @@ public class testInputServlet extends HttpServlet {
 
 	                    if (filename == null || filename.trim().equals("")) {
 	                    	System.out.println("[参数]：\t上传文件为空！");
-	                    	message=message.concat("\n\t某一文件输入为空！\n");
+	                    	message=message.concat("\n\t| 某一文件输入为空！\n");
 	                        continue;
 	                    }
 	                    //处理获取到的上传文件的文件名的路径部分，只保留文件名部分
@@ -124,10 +128,14 @@ public class testInputServlet extends HttpServlet {
 	                    message=message.concat("文件名：" + filename + "<br>");
 	                    //如果需要限制上传的文件类型，那么可以通过文件的扩展名来判断上传的文件类型是否合法
 	                    String fileExtName = filename.substring(filename.lastIndexOf(".") + 1);
-	                    System.out.println("上传的文件的扩展名是：" + fileExtName);
-
+	                    System.out.println("| 上传的文件的扩展名是：" + fileExtName);
 	                    //pwout.print("扩展名：" + fileExtName + "<br>");
 	                    message=message.concat("扩展名：" + fileExtName + "<br>");
+	                    if(ISBNname != null){
+	                    	System.out.println("| 保存到服务器的文件名是：" + ISBNname+"."+fileExtName);
+	                    	filename = ISBNname+"."+fileExtName;
+	                    }
+	                    message=message.concat("保存到服务器的文件名是：" + ISBNname+"."+fileExtName + "<br>");
 	                    
 	                    FileOutputStream out;
 	                    //获取item中上传文件的输入流
@@ -138,7 +146,7 @@ public class testInputServlet extends HttpServlet {
 	                        //得到文件的保存目录
 	                        //String realSavePath = makePath(saveFilename, savePath);
 	                        String realSavePath = savePath;
-	                        System.out.println("目标文件夹：" + realSavePath);
+	                        System.out.println("| 目标文件夹：" + realSavePath);
 	                        //创建一个文件输出流
 	                        out = new FileOutputStream(realSavePath + "\\" + saveFilename);
 	                        //创建一个缓冲区
