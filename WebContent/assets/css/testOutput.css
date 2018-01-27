@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+.hero-background {
+	background-size:100%;
+    background-repeat: repeat-x;
+    background-position: top center;
+    min-height: 900px;
+}
+
+.search-group{
+	margin:0 auto;
+	max-width: 880px;
+}
+
+.book_thumb{
+	
+	height:175px;
+	width:150px;
+	display:bolck;
+	cursor:pointer;
+}
+
+.book_cover{
+    max-height:450px;	
+    max-width:350px;
+    /*position:absolute;*/
+}
+.hide_img{
+	display:none;
+}
+
+#div_img{
+	height:50px;
+	width:50px;
+	position:absolute;
+	/*background:red;*/
+	top:0px;
+	left:0px;
+}
+
+.footer {
+  height: 100px;
+  background-color: #eee;
+}
+.footer .container {
+  max-width: 680px;
+  padding: 0 15px;
+}
+.footer .container .text-muted {
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 720px){
+	.sbutton{
+	   btn-block;
+	}
+}

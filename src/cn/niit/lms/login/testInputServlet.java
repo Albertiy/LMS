@@ -42,6 +42,8 @@ public class testInputServlet extends HttpServlet {
 	        String savePath = null;
 	        String tempPath = this.getServletContext().getRealPath("/Temp");
 	        String redirect="";
+	        boolean inputSuccess = false;
+	        String url = "";
 	        //传统方法无法获取到request的参数！
 	        if (request.getParameter("cpath") != null) {
 	        	/*
@@ -135,8 +137,9 @@ public class testInputServlet extends HttpServlet {
 	                    	System.out.println("| 保存到服务器的文件名是：" + ISBNname+"."+fileExtName);
 	                    	filename = ISBNname+"."+fileExtName;
 	                    }
-	                    message=message.concat("保存到服务器的文件名是：" + ISBNname+"."+fileExtName + "<br>");
-	                    
+	                    message=message.concat("保存到服务器的文件名是：" + filename + "<br>");
+	                    //用来传递的url
+	                    url = filename;
 	                    FileOutputStream out;
 	                    //获取item中上传文件的输入流
 	                    try (InputStream in = item.getInputStream()) {
@@ -162,6 +165,7 @@ public class testInputServlet extends HttpServlet {
 	                    out.close();
 	                    item.delete();
 	                    message=message.concat("文件上传成功！");
+	                    inputSuccess = true;
 	                    //pwout.print("上传结果：文件上传成功！<br>");
 	                    //filename是之前的文件名，完整路径中的文件名是修改过的防重复名
 	                    //n1.newFile(owner_id, filename, realSavePath+"\\"+saveFilename);
@@ -188,7 +192,10 @@ public class testInputServlet extends HttpServlet {
 	        //这个跳转不改变URl，导致刷新后Servlet会再次执行
 	        //request.getRequestDispatcher("/testInput.jsp"+redirect).forward(request, response);
 	        //用这个！
-	        response.sendRedirect(request.getContextPath() + "/testInput.jsp");
+	        if(inputSuccess)
+	        	response.sendRedirect(request.getContextPath() + "/testOutput.jsp?url="+url);
+	        else
+	        	response.sendRedirect(request.getContextPath() + "/testInput.jsp");
 	        return;
 	}
 }
