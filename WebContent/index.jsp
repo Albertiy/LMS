@@ -3,9 +3,13 @@
 <%@page import="cn.niit.lms.domain.User" language="java"%>
 <%@page import="cn.niit.lms.service.BookSearchService" language="java"%>
 <%@page import="java.util.ArrayList" language="java"%>
-<%@page import="cn.niit.lms.domain.Book" language="java" %>
+<%@page import="cn.niit.lms.domain.Book" language="java"%>
 <% session.removeAttribute("backUrl");
-System.out.println("[index.jsp]: delete backUrl");%>
+System.out.println("[index.jsp]: delete backUrl");
+BookSearchService bsservice = new BookSearchService();
+ArrayList<Book> hotBooks = bsservice.hotBook(3);
+System.out.println("hotBooks: "+hotBooks);
+%>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -72,9 +76,7 @@ System.out.println("[index.jsp]: delete backUrl");%>
 			</h1>
 		</div>
 		<div class="row">
-		<% BookSearchService bsservice = new BookSearchService();
-		   ArrayList<Book> hotBooks = bsservice.hotBook(3);
-		   if(hotBooks!=null&&!hotBooks.isEmpty()){
+		<% if(hotBooks!=null&&!hotBooks.isEmpty()){
 			   for (Book b : hotBooks) { %>
 			<div class="col-xs-6 col-md-4">
 				<img
