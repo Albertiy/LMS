@@ -46,7 +46,7 @@
 				%>
 					alert("SingleBook has been deleted!");
 				<%
-					}else if(message=="borrwed"){
+					}else if(message=="borrowed"){
 				%>
 					alert("This book has been borrowed");
 				
