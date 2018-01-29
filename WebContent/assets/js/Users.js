@@ -10,5 +10,8 @@ function modifyinfo() {
 	for (var i = 0; i < rs1.length; i++) {
 		rs1[i].disabled = false;
 	}
-
+	var btn =document.getElementById("modify");  
+    btn.style.display="none"; 
+    var btn1 =document.getElementById("confirm");  
+    btn1.style.display="block"; 
 };

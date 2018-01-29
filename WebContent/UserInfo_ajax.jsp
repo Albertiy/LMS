@@ -109,9 +109,9 @@
 		<h5>&nbsp;</h5>
 		<div class="row">
 			<div class="col-md-12 col-xs-12" align="right">
-				<button type="button" id="modify" class="btn btn-primary"
-					onclick="modifyinfo()">Modify</button>
-				<button type="submit" class="btn btn-success">Confirm</button>
+				<button type="button" id="modify" class="btn btn-primary" 
+					onclick="modifyinfo()" style="display:block">Modify</button>
+				<button type="submit" id="confirm"class="btn btn-success" style="display:none">Confirm</button>
 			</div>
 		</div>
 	</form>
