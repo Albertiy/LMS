@@ -20,12 +20,13 @@
 
 <script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
-<script src="/LMS/bootstrap/js/bootstrap.js"></script>
+
 <script src="/LMS/assets/js/index.js"></script>
 <script src="/LMS/assets/js/DeleteBook.js"></script>
 <script src="/LMS/assets/js/EditBook.js"></script>
 <script src="/LMS/assets/js/SingleBook.js"></script>
 <script src="/LMS/assets/js/BookManagement.js"></script>
+
 <script>
 			$(document).ready(function () {
 				console.log('<%=request.getAttribute("message")%>');
@@ -87,25 +88,18 @@
 						<h1>&nbsp;</h1>
 						<div class="row search-group">
 							<div class="col-md-2 col-xs-12">
-								<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton" data-toggle="dropdown" aria-haspopup="true"
-								 aria-expanded="false" id="drop_button">
-									Title
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" id="search_type">
-									<li id="Title">
-										<a href="#">Title</a>
-									</li>
-									<li id="Author">
-										<a href="#">Author</a>
-									</li>
-									<li id="ISBN">
-										<a href="#">ISBN</a>
-									</li>
-									<li id="Category">
-										<a href="#">Category</a>
-									</li>
-								</ul>
+								<button type="button"
+								class="btn btn-default btn-block dropdown-toggle sbutton"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false" id="drop_button">
+								Title <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="search_type">
+								<li id="Title"><a>Title</a></li>
+								<li id="Author"><a>Author</a></li>
+								<li id="ISBN"><a>ISBN</a></li>
+								<li id="Category"><a>Category</a></li>
+							</ul>
 							</div>
 							<div class="col-md-8 col-xs-12">
 								<input type="text" id="search_type1" hidden value="Title">
