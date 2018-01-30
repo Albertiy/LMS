@@ -34,21 +34,24 @@
 <script type="text/javascript" src="/LMS/assets/js/usermanagement.js"></script>
 <script type="text/javascript" src="/LMS/assets/js/ManageSearch.js"></script>
 </head>
+			<style>
+			.div-a{filter:alpha(Opacity=50);-moz-opacity:0.5;opacity:0.5}
+			</style>
 <body>
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
-	<div class="hero-background" style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)" >
+	<div class="hero-background" style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg);" >
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>&nbsp;</h1><br></br>
-					<h2 class="text-center" style="filter:Acpha(Opacity=50);opacity:0.5">User Management</h2>
+					<h1>&nbsp;</h1>
+					<h2 class="text-center" >User Management</h2>
 				</div>
 			</div>
+			<h1>&nbsp;</h1>
 			<div class="row">
 				<div class="col-md-12">
-					<h1>&nbsp;</h1>
 					<div class="row search-group">
-						<div class="col-md-2 col-sm-2 col-xs-12">
+						<div class="col-md-2 col-sm-2 col-xs-12 div-a" >
 							<button type="button" class="btn btn-default btn-block dropdown-toggle sbutton"
 								data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false" id="drop_button"> Name <span class="caret"></span>
@@ -59,7 +62,7 @@
 								<li id="Phone"><a >Phone</a></li>
 							</ul>
 						</div>
-						<div class="col-md-8 col-sm-7 col-xs-12">
+						<div class="col-md-8 col-sm-7 col-xs-12  div-a" >
 							<input type="text" id="search_type1" hidden value="uName">
 							<input type="text" id="search_info" class="form-control" aria-label="..." maxlength="50" title="最大长度不要超过50字符">
 						<!-- 	<input type="text" class="form-control" aria-label="...">   -->
@@ -68,7 +71,7 @@
 							<button type="button" class="btn btn-info btn-block sbutton" onclick="Search()" >Search</button>
 						</div>
 					</div>
-					<h1>&nbsp;</h1>
+					<h1>&nbsp;</h1><br></br>
 				</div>
 			</div>
 			<div class="row">

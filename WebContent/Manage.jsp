@@ -31,7 +31,7 @@
 	<!-- <jsp:include flush="true" page="AuthorityManager.jsp"></jsp:include> -->
 	<jsp:include flush="true" page="nav.jsp"></jsp:include>
 	<div class="hero-background"
-		style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg)">
+		style="background:url(${pageContext.request.contextPath}/assets/img/te.jpg); ">
 		<div class="container"> 
 			<div class="row">
 				<div class="col-md-12">
@@ -42,10 +42,13 @@
 			</div>
 			<h1>&nbsp;</h1>
 			<br></br><br></br>
+			<style>
+			.div-a{filter:alpha(Opacity=50);-moz-opacity:0.5;opacity:0.5}
+			</style>
 			<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-2"></div>
-				<div class="col-md-4">
+				<div class="col-md-4 div-a">
 						<a id="manageusers" href="UserManagement.jsp">
 						<button type="button" class="btn btn-primary btn-lg btn-block">Manage Users</button>
 						</a>
@@ -55,7 +58,7 @@
 							}
 						</style>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 div-a">
 						<a id="managebooks" href="BookManagement.jsp">
 						<button type="button" class="btn btn-primary btn-lg btn-block">Manage Books</button>
 						</a>
