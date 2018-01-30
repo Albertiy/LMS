@@ -42,9 +42,11 @@
 			</div>
 			<h1>&nbsp;</h1>
 			<br></br><br></br>
+			
 			<style>
 			.div-a{filter:alpha(Opacity=50);-moz-opacity:0.5;opacity:0.5}
 			</style>
+			
 			<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-2"></div>
