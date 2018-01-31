@@ -69,7 +69,7 @@ System.out.println("hotBooks: "+hotBooks);
 		</div>
 	</div>
 
-	<div class="container">
+	 <div class="container">
 		<div class="page-header">
 			<h1>
 				Hot Books <small>Just Now</small>
@@ -93,7 +93,6 @@ System.out.println("hotBooks: "+hotBooks);
 			<%} %>
 		</div>
 	</div>
-	<h1>&nbsp;</h1>
 	<jsp:include flush="true" page="footer.jsp"></jsp:include>
 	<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>

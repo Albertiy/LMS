@@ -16,6 +16,7 @@
 		<title>LMS-Login</title>
 		<link type="text/css" href="/LMS/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="/LMS/assets/css/login.css" rel="stylesheet">
+		<link type="text/css" href="/LMS/assets/css/footer.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -73,18 +74,8 @@
 			</div>
 		</div>
 
-		<h1>&nbsp;</h1>
+		<jsp:include flush="true" page="footer.jsp"></jsp:include>
 
-		<footer class="footer">
-			<div class="container">
-				<p class="text-muted">
-					<u>Library Management System</u> design and build by
-					<strong>BayMax</strong>,
-					<strong>Damon</strong> and
-					<strong>Albert</strong>.
-				</p>
-			</div>
-		</footer>
 		<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 		<script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
