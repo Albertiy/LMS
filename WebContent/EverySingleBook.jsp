@@ -147,14 +147,5 @@
 		</div>
 	</div>
 	</body>
-	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">
-				<u>Library Management System</u> design and build by
-				<strong>BayMax</strong>,
-				<strong>Damon</strong> and
-				<strong>Albert</strong>.
-			</p>
-		</div>
-	</footer>
+	<jsp:include flush="true" page="footer.jsp"></jsp:include>
 	</html>
