@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.footer {
+    min-height: 100px;
+    background-color: #eee;
+  }
+  .footer .container {
+    max-width: 90%;
+    padding: 0 15px;
+    margin:0 auto;
+  }
+  .footer .container .text-muted {
+    margin: 20px 0;
+  }
+  
+  .footer a{
+    color: dimgray;
+  }

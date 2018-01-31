@@ -123,16 +123,8 @@ if(session.getAttribute("reserve") != null) {
 			</div>
 		</div>
 	</div>
-</body>
-<footer class="footer">
-	<div class="container">
-		<p class="text-muted">
-			<u>Library Management System</u> design and build by <strong>BayMax</strong>,
-			<strong>Damon</strong> and <strong>Albert</strong>.
-		</p>
-	</div>
-</footer>
-<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
+	<jsp:include flush="true" page="footer.jsp"></jsp:include>
+	<script src="/LMS/jquery/jquery-3.2.1.min.js"></script>
 <script src="/LMS/bootstrap/js/bootstrap.min.js"></script>
 <script src="/LMS/assets/js/search.js"></script>
 <script>
@@ -176,4 +168,5 @@ function getRadioValue(){
 	 };
 
 </script>
+</body>
 </html>
