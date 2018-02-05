@@ -4,11 +4,13 @@
 <%@page import="cn.niit.lms.domain.User" language="java"%>
 <%@page import="cn.niit.lms.domain.Book" language="java"%>
 <%@page import="cn.niit.lms.domain.Rule" language="java"%>
+<%@page import="cn.niit.lms.service.UserService" language="java"%>
 <% session.removeAttribute("backUrl");
 System.out.println("[search.jsp]: Delete backUrl");
 String logined = "false";
 String remain = "false";//可借标记
 String reserve = "none";
+int totalFine = 0;
 if (session.getAttribute("user") != null) {
     logined = "true";
     if(session.getAttribute("rule") != null){
@@ -21,6 +23,9 @@ if (session.getAttribute("user") != null) {
     }else{
     	System.out.println("未获取到rule！");
     }
+    UserService uservice = new UserService();
+    totalFine = uservice.getFine(((User)session.getAttribute("user")).getUid());
+    System.out.println("[search.jsp]: totalFine: " + totalFine);
     }
 if(session.getAttribute("reserve") != null) {
 	reserve = (String)session.getAttribute("reserve");
@@ -157,7 +162,14 @@ function getRadioValue(){
 			}else{
 				var remain = '<%=remain%>';
 				if(remain=='true'){
-					window.location.href=getPath()+"/Reserve?ISBN="+val;
+		               var total_fine = '<%=totalFine%>';
+		                if(total_fine=='0'){
+		                    window.location.href=getPath()+"/Reserve?ISBN="+val;
+		                }
+		                else{
+		                    //此用户有罚金未缴纳
+		                    alert("Your account has fine: "+total_fine+". Please return fine first, then you can borrow books.");
+		                }
 				}
 				else{
 					//可借书不足

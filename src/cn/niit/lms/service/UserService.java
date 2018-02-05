@@ -54,4 +54,11 @@ public class UserService {
 		return bsdao.reserveBook(UID, rule, ISBN);
 	}
 
+	public int getFine(int UID){
+		int fine = 0;
+		fine = udao.getFine(UID);
+		System.out.println("[user service]: UID: "+UID+" Fine: "+fine);
+		return fine;
+	}
+	
 }

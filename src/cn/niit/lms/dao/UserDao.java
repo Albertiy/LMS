@@ -16,4 +16,6 @@ public interface UserDao {
 	User findUserByPhone(String phone);
 	//获取对应的Rule设定
 	Rule getRule(String role);
+	//获取用户的罚金总额
+	int getFine(int UID);
 }

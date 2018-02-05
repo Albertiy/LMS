@@ -227,4 +227,30 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
+	@Override
+	public int getFine(int UID) {
+		int fine = 0;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		Connection conn=null;
+		conn = JDBCUtils.getConnection();
+		String sql = "select sum(fine) as 'total_fine' from lmsdb.borrowed_books where UID = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, UID);
+			rs = pstmt.executeQuery();// 这个返回�?
+			if (rs.next()) {
+				fine=rs.getInt("total_fine");
+				return fine;
+			} else {
+				return 0;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			JDBCUtils.close(conn, pstmt, rs);
+		}
+		return fine;
+	}
+
 }
