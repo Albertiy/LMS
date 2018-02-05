@@ -43,8 +43,8 @@
                     switch(role){
                     default: role = "Student";userInfo="Users.jsp";break;
                     case "t": role = "Teacher";userInfo="Users.jsp";break;
-                    case "l": role = "Librarian";userInfo="#";break;
-                    case "a": role = "Admin";userInfo="#";break;
+                    case "l": role = "Librarian";userInfo="";break;
+                    case "a": role = "Admin";userInfo="";break;
                     }
                 %>
 				<ul class="nav navbar-nav navbar-right">
