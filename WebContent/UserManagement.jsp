@@ -158,14 +158,7 @@
 		</div>
 	</div>
 </body>
-<footer class="footer" style="filter:Acpha(Opacity=50);opacity:0.5">
-	<div class="container">
-		<p class="text-muted">
-			<u>Library Management System</u> design and build by <strong>BayMax</strong>,
-			<strong>Damon</strong> and <strong>Albert</strong>.
-		</p>
-	</div>
-</footer>
+<jsp:include flush="true" page="footer.jsp"></jsp:include>
 </html>
 <% System.out.println("---UserManagement.jsp 加载完成---"); %>
 <% System.out.println("--------------------------------------"); %>
