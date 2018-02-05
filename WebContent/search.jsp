@@ -115,7 +115,7 @@ if(session.getAttribute("reserve") != null) {
 			</div>
 			<div class="row">
 				<div class="col-md-3 col-xs-3">
-					<a href="javascript:history.go(-1)" class="btn btn-primary btn-lg" role="button">Back</a>
+					<a href="javascript:history.go(-1)" class="btn btn-primary" role="button">Back</a>
 				</div>
 				<div class="col-md-9 col-xs-9" align="right">
 					<a class="btn btn-info" role="button" onclick="getRadioValue()">Reserve</a>
