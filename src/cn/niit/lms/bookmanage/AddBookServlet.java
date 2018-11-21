@@ -1,27 +1,17 @@
 package cn.niit.lms.bookmanage;
 
-import java.io.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import cn.niit.lms.jdbc.JDBCUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.fileupload.*;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.naming.java.javaURLContextFactory;
-
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
-
-import cn.niit.lms.jdbc.*;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 
 /**
  * Servlet implementation class AddBookServlet
